@@ -1,0 +1,585 @@
+[2024-02-07 06:17:10] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 06:20:31] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 06:24:09] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 06:24:46] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 06:25:45] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 06:26:45] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5138073","pickup_longitude":"36.2765279","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.734598235621064","minutes":"32.65","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 06:26:55] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 06:27:19] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5138073","longitude":"36.2765279","category_id":"1","km":"24.734598235621064","minutes":"32.65","user_id":"567","status":"pending","pickup_addr":"Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"107896","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"9:27:33"},"test":"103.125.235.23"} 
+[2024-02-07 06:34:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 06:34:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 06:34:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 06:34:41] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5151444","pickup_longitude":"36.3931354","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"16.03741661416204","minutes":"33.53333333333333","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 06:34:46] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 06:34:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5151444","longitude":"36.3931354","category_id":"1","km":"16.03741661416204","minutes":"33.53333333333333","user_id":"567","status":"pending","pickup_addr":"Damašk, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"72897","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"9:35:6"},"test":"103.125.235.23"} 
+[2024-02-07 06:36:53] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 06:36:53] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 06:50:05] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"946649532","password":"Qwer1234#@!","device_token":"eLrxriWBQpid-ZZzAPAkhA:APA91bEunSRLk_Kz6oF7zJzWrPxC2_VjeAegjsNk2i-2TLGWtvY9YG594TiwdzIjV13iRQHUkxjrnS7SNfEqtNuG7ui9jqblRS8jLosDB0S4g8XYdXz3P0izHTfhnjvMXhifesle0D3H","user_type":"driver"},"test":"91.144.19.154"} 
+[2024-02-07 06:50:31] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"946649532","password":"Qwe123#@!","device_token":"eLrxriWBQpid-ZZzAPAkhA:APA91bEunSRLk_Kz6oF7zJzWrPxC2_VjeAegjsNk2i-2TLGWtvY9YG594TiwdzIjV13iRQHUkxjrnS7SNfEqtNuG7ui9jqblRS8jLosDB0S4g8XYdXz3P0izHTfhnjvMXhifesle0D3H","user_type":"driver"},"test":"91.144.19.154"} 
+[2024-02-07 06:50:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/terms","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 06:52:10] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"956320147","password":"123456Ll@","device_token":"eLrxriWBQpid-ZZzAPAkhA:APA91bEunSRLk_Kz6oF7zJzWrPxC2_VjeAegjsNk2i-2TLGWtvY9YG594TiwdzIjV13iRQHUkxjrnS7SNfEqtNuG7ui9jqblRS8jLosDB0S4g8XYdXz3P0izHTfhnjvMXhifesle0D3H","user_type":"driver"},"test":"91.144.19.154"} 
+[2024-02-07 06:52:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 06:52:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:52:17] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5073724","longitude":"36.2767882","device_id":"0","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:52:17] local.ERROR: Trying to get property 'id' of non-object {"userId":242,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object at /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php:885)
+[stacktrace]
+#0 /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php(885): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Api\\UsersApi->get_location()
+#2 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction()
+#3 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#4 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#5 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Route->run()
+#6 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#7 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(63): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest()
+#9 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle()
+#10 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#11 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#12 /home/diamond/public_html/framework/app/Http/Middleware/TestMiddleware.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#13 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\TestMiddleware->handle()
+#14 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}()
+#16 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(34): Illuminate\\Pipeline\\Pipeline->then()
+#18 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle()
+#19 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then()
+#21 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack()
+#22 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute()
+#23 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute()
+#24 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch()
+#25 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#26 /home/diamond/public_html/framework/app/Http/Middleware/ActivityLogMiddleware.php(24): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ActivityLogMiddleware->handle()
+#28 /home/diamond/public_html/framework/app/Http/Middleware/HSTS.php(13): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\HSTS->handle()
+#30 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#32 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#33 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#35 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#36 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#38 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#40 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then()
+#42 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 /home/diamond/public_html/index.php(12): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 {main}
+"} 
+[2024-02-07 06:52:17] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5073724","longitude":"36.2767882","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:52:19] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:52:23] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 06:52:55] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 06:53:24] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5138073","pickup_longitude":"36.2765279","drop_latitude":"33.5080847","drop_longitude":"36.276484","km":"0.6370499489542868","minutes":"7.583333333333333","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 06:53:33] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 06:53:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5138073","longitude":"36.2765279","category_id":"1","km":"0.6370499489542868","minutes":"7.583333333333333","user_id":"567","status":"pending","pickup_addr":"Damascus, Syria","dest_addr":"Space Toon company - Tiger Production, Damascus, Syria","cost":"15000","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.5080847","drop_longitude":"36.276484","order_time":"9:53:54"},"test":"103.125.235.23"} 
+[2024-02-07 06:54:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080163","longitude":"36.2765387","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:54:55] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:55:00] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/accept-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1001","driver_id":"242","device_number":"712"},"test":"91.144.19.154"} 
+[2024-02-07 06:55:04] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 06:55:04] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:55:29] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-notification","METHOD":"POST","REQUEST_BODY":{"driver_id":"242","trip_id":"1001"},"test":"91.144.19.154"} 
+[2024-02-07 06:55:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:55:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-start","METHOD":"POST","REQUEST_BODY":{"trip_id":"1001","start_time":"9:55:52","driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:56:27] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-end","METHOD":"POST","REQUEST_BODY":{"trip_id":"1001","end_time":"9:56:27","km":"0.6370499489542868","driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:56:55] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 06:56:55] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 06:57:05] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/review","METHOD":"POST","REQUEST_BODY":{"trip_id":"1001","user_id":"567","review_text":"fdgr","ratings":"5.0","type":"user"},"test":"103.125.235.23"} 
+[2024-02-07 06:57:06] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 06:57:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080278","longitude":"36.2765311","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:10:21] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 07:10:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 07:11:06] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 07:11:11] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"105380","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"10:11:27"},"test":"103.125.235.23"} 
+[2024-02-07 07:13:14] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:13:15] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:15:35] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 07:16:11] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 07:16:17] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 07:16:20] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"105380","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"10:16:36"},"test":"103.125.235.23"} 
+[2024-02-07 07:21:51] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080195","longitude":"36.2765439","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:21:53] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:22:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:22:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:23:02] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 07:23:26] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 07:23:31] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 07:23:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"10:23:52"},"test":"103.125.235.23"} 
+[2024-02-07 07:25:41] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:25:41] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:27:08] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:27:26] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 07:27:48] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 07:27:53] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 07:27:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"10:28:12"},"test":"103.125.235.23"} 
+[2024-02-07 07:40:53] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:40:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:40:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:41:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:41:35] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:41:59] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5083095","longitude":"36.2764724","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:43:09] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 07:43:33] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 07:43:41] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 07:43:46] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"105380","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"10:44:2"},"test":"103.125.235.23"} 
+[2024-02-07 07:43:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080197","longitude":"36.2765428","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:43:58] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:44:02] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/accept-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1006","driver_id":"242","device_number":"712"},"test":"91.144.19.154"} 
+[2024-02-07 07:44:05] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 07:44:05] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:44:15] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-notification","METHOD":"POST","REQUEST_BODY":{"driver_id":"242","trip_id":"1006"},"test":"91.144.19.154"} 
+[2024-02-07 07:44:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:44:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-start","METHOD":"POST","REQUEST_BODY":{"trip_id":"1006","start_time":"10:44:22","driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:44:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-end","METHOD":"POST","REQUEST_BODY":{"trip_id":"1006","end_time":"10:44:37","km":"24.45154551358318","driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:44:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 07:44:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:44:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.508143","longitude":"36.2764899","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:44:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:45:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 07:45:25] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 07:45:31] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 07:45:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"105380","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"10:45:52"},"test":"103.125.235.23"} 
+[2024-02-07 07:45:42] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5081448","longitude":"36.2764919","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:45:44] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:45:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/cancle-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1007"},"test":"103.125.235.23"} 
+[2024-02-07 07:45:51] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:45:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/accept-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1007","driver_id":"242","device_number":"712"},"test":"91.144.19.154"} 
+[2024-02-07 07:46:05] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5081452","longitude":"36.2764919","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:46:07] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 07:46:08] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 07:48:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination-delayed","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567","date":"2024-02-07","time":"10:54 AM"},"test":"103.125.235.23"} 
+[2024-02-07 07:49:01] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 07:49:06] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now-delayed","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"105380","type_id":"13","request_type":"delayed","date":"2024-02-07","time":"10:54 AM","option_id":["AC"],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999"},"test":"103.125.235.23"} 
+[2024-02-07 07:49:06] local.ERROR: Trying to get property 'device_token' of non-object {"userId":567,"exception":"[object] (ErrorException(code: 0): Trying to get property 'device_token' of non-object at /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php:1341)
+[stacktrace]
+#0 /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php(1341): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Api\\UsersApi->book_now_delayed()
+#2 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction()
+#3 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#4 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#5 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Route->run()
+#6 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#7 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(63): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest()
+#9 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle()
+#10 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#11 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#12 /home/diamond/public_html/framework/app/Http/Middleware/TestMiddleware.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#13 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\TestMiddleware->handle()
+#14 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}()
+#16 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(34): Illuminate\\Pipeline\\Pipeline->then()
+#18 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle()
+#19 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then()
+#21 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack()
+#22 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute()
+#23 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute()
+#24 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch()
+#25 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#26 /home/diamond/public_html/framework/app/Http/Middleware/ActivityLogMiddleware.php(24): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ActivityLogMiddleware->handle()
+#28 /home/diamond/public_html/framework/app/Http/Middleware/HSTS.php(13): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\HSTS->handle()
+#30 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#32 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#33 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#35 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#36 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#38 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#40 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then()
+#42 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 /home/diamond/public_html/index.php(12): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 {main}
+"} 
+[2024-02-07 07:58:33] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now-delayed","METHOD":"POST","REQUEST_BODY":{"query":"query IntrospectionQuery {
+      __schema {
+        
+        queryType { name }
+        mutationType { name }
+        subscriptionType { name }
+        types {
+          ...FullType
+        }
+        directives {
+          name
+          description
+          
+          locations
+          args {
+            ...InputValue
+          }
+        }
+      }
+    }
+
+    fragment FullType on __Type {
+      kind
+      name
+      description
+      
+      fields(includeDeprecated: true) {
+        name
+        description
+        args {
+          ...InputValue
+        }
+        type {
+          ...TypeRef
+        }
+        isDeprecated
+        deprecationReason
+      }
+      inputFields {
+        ...InputValue
+      }
+      interfaces {
+        ...TypeRef
+      }
+      enumValues(includeDeprecated: true) {
+        name
+        description
+        isDeprecated
+        deprecationReason
+      }
+      possibleTypes {
+        ...TypeRef
+      }
+    }
+
+    fragment InputValue on __InputValue {
+      name
+      description
+      type { ...TypeRef }
+      defaultValue
+      
+      
+    }
+
+    fragment TypeRef on __Type {
+      kind
+      name
+      ofType {
+        kind
+        name
+        ofType {
+          kind
+          name
+          ofType {
+            kind
+            name
+            ofType {
+              kind
+              name
+              ofType {
+                kind
+                name
+                ofType {
+                  kind
+                  name
+                  ofType {
+                    kind
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }"},"test":"103.125.235.23"} 
+[2024-02-07 07:58:35] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/login","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:59:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 07:59:45] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 08:01:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination-delayed","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567","date":"2024-02-07","time":"11:07 AM"},"test":"103.125.235.23"} 
+[2024-02-07 08:01:09] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 08:01:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now-delayed","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"delayed","date":"2024-02-07","time":"11:07 AM","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999"},"test":"103.125.235.23"} 
+[2024-02-07 08:01:14] local.ERROR: Trying to get property 'device_token' of non-object {"userId":567,"exception":"[object] (ErrorException(code: 0): Trying to get property 'device_token' of non-object at /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php:1341)
+[stacktrace]
+#0 /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php(1341): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Api\\UsersApi->book_now_delayed()
+#2 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction()
+#3 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#4 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#5 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Route->run()
+#6 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#7 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(63): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest()
+#9 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle()
+#10 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#11 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#12 /home/diamond/public_html/framework/app/Http/Middleware/TestMiddleware.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#13 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\TestMiddleware->handle()
+#14 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}()
+#16 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(34): Illuminate\\Pipeline\\Pipeline->then()
+#18 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle()
+#19 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then()
+#21 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack()
+#22 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute()
+#23 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute()
+#24 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch()
+#25 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#26 /home/diamond/public_html/framework/app/Http/Middleware/ActivityLogMiddleware.php(24): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ActivityLogMiddleware->handle()
+#28 /home/diamond/public_html/framework/app/Http/Middleware/HSTS.php(13): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\HSTS->handle()
+#30 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#32 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#33 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#35 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#36 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#38 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#40 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then()
+#42 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 /home/diamond/public_html/index.php(12): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 {main}
+"} 
+[2024-02-07 08:05:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now-delayed","METHOD":"POST","REQUEST_BODY":{"latitude":33.5080847,"longitude":36.276484,"category_id":1,"km":24.45154551358318,"minutes":29.6,"user_id":567,"status":"pending","pickup_addr":"Space Toon company - Tiger Production Damascus, Syria","dest_addr":"Damascus International Airport (DAM) Damascus Airport Motorway Syria","cost":100380,"type_id":13,"request_type":"delayed","date":"2024-02-07","time":"11:07 AM","option_id":[],"drop_latitude":33.4112976,"drop_longitude":36.51283119999999},"test":"103.125.235.23"} 
+[2024-02-07 08:05:04] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/login","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 08:07:23] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now-delayed","METHOD":"POST","REQUEST_BODY":{"latitude":33.5080847,"longitude":36.276484,"category_id":1,"km":24.45154551358318,"minutes":29.6,"user_id":567,"status":"pending","pickup_addr":"Space Toon company - Tiger Production Damascus, Syria","dest_addr":"Damascus International Airport (DAM) Damascus Airport Motorway Syria","cost":100380,"type_id":13,"request_type":"delayed","date":"2024-02-07","time":"11:07 AM","option_id":[],"drop_latitude":33.4112976,"drop_longitude":36.51283119999999},"test":"103.125.235.23"} 
+[2024-02-07 08:07:25] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/login","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 08:08:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 08:11:06] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 08:37:48] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:42:00] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:42:01] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080669","longitude":"36.2764732","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:42:09] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 08:42:45] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 08:42:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 08:43:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"105380","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"11:43:19"},"test":"103.125.235.23"} 
+[2024-02-07 08:44:10] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080669","longitude":"36.2764793","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:44:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:44:26] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/accept-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1010","driver_id":"242","device_number":"712"},"test":"91.144.19.154"} 
+[2024-02-07 08:44:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 08:44:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:44:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-notification","METHOD":"POST","REQUEST_BODY":{"driver_id":"242","trip_id":"1010"},"test":"91.144.19.154"} 
+[2024-02-07 08:44:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:44:41] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-start","METHOD":"POST","REQUEST_BODY":{"trip_id":"1010","start_time":"11:44:42","driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:46:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-end","METHOD":"POST","REQUEST_BODY":{"trip_id":"1010","end_time":"11:46:31","km":"24.45154551358318","driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:48:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 08:48:28] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now-delayed","METHOD":"POST","REQUEST_BODY":{"latitude":33.5080847,"longitude":36.276484,"category_id":1,"km":24.45154551358318,"minutes":29.6,"user_id":567,"status":"pending","pickup_addr":"Space Toon company - Tiger Production Damascus, Syria","dest_addr":"Damascus International Airport (DAM) Damascus Airport Motorway Syria","cost":100380,"type_id":13,"request_type":"delayed","date":"2024-02-07","time":"11:07 AM","option_id":[],"drop_latitude":33.4112976,"drop_longitude":36.51283119999999},"test":"103.125.235.23"} 
+[2024-02-07 08:48:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/login","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 08:49:15] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 08:50:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.5140181","drop_longitude":"36.2849521","km":"1.0266546808864507","minutes":"9.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 08:50:19] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 08:50:26] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"1.0266546808864507","minutes":"9.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Dama Rose Hotel, Shoukry Al-Qouwatly, Damascus, Syria","cost":"15000","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.5140181","drop_longitude":"36.2849521","order_time":"11:50:42"},"test":"103.125.235.23"} 
+[2024-02-07 08:51:28] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/cancle-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1011"},"test":"103.125.235.23"} 
+[2024-02-07 08:51:29] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 08:51:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 08:52:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.51579659999999","pickup_longitude":"36.2968682","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"23.185254567256585","minutes":"30.15","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 08:52:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 08:54:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:54:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 08:54:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.508047","longitude":"36.2764977","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:55:14] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.51579659999999","longitude":"36.2968682","category_id":"1","km":"23.185254567256585","minutes":"30.15","user_id":"567","status":"pending","pickup_addr":"Space Net, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"96223","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"11:55:28"},"test":"103.125.235.23"} 
+[2024-02-07 08:55:58] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080842","longitude":"36.2764994","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:56:00] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:57:00] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/accept-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1012","driver_id":"242","device_number":"712"},"test":"91.144.19.154"} 
+[2024-02-07 08:57:04] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 08:57:04] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:58:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-notification","METHOD":"POST","REQUEST_BODY":{"driver_id":"242","trip_id":"1012"},"test":"91.144.19.154"} 
+[2024-02-07 08:58:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:58:39] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-start","METHOD":"POST","REQUEST_BODY":{"trip_id":"1012","start_time":"11:58:39","driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:58:51] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-end","METHOD":"POST","REQUEST_BODY":{"trip_id":"1012","end_time":"11:58:52","km":"23.185254567256585","driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:58:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 08:58:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:58:57] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080677","longitude":"36.2764806","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 08:59:00] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 09:34:35] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 09:35:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 09:35:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 09:35:58] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 09:36:10] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"12:36:25"},"test":"103.125.235.23"} 
+[2024-02-07 09:38:29] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 09:38:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 09:39:06] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 09:39:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 09:39:23] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"12:39:39"},"test":"103.125.235.23"} 
+[2024-02-07 09:41:23] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"103.125.235.23"} 
+[2024-02-07 09:42:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"103.125.235.23"} 
+[2024-02-07 09:43:08] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966","drop_latitude":"0.0","drop_longitude":"0.0","km":"12743.519060625842","minutes":null,"user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 09:43:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"103.125.235.23"} 
+[2024-02-07 09:43:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"103.125.235.23"} 
+[2024-02-07 09:44:05] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"12:44:21"},"test":"103.125.235.23"} 
+[2024-02-07 10:09:01] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-07 10:09:08] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"143.244.44.173"} 
+[2024-02-07 10:22:23] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"143.244.44.173"} 
+[2024-02-07 10:22:35] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"143.244.44.173"} 
+[2024-02-07 10:22:39] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"13:22:55"},"test":"143.244.44.173"} 
+[2024-02-07 10:24:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-07 10:24:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-07 10:24:53] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"143.244.44.173"} 
+[2024-02-07 10:25:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"143.244.44.173"} 
+[2024-02-07 10:25:25] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"143.244.44.173"} 
+[2024-02-07 10:25:29] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"13:25:45"},"test":"143.244.44.173"} 
+[2024-02-07 10:27:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/cancle-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1017"},"test":"143.244.44.173"} 
+[2024-02-07 10:27:17] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-07 10:27:26] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"143.244.44.173"} 
+[2024-02-07 10:27:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"143.244.44.173"} 
+[2024-02-07 10:27:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"143.244.44.173"} 
+[2024-02-07 10:27:57] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"13:28:13"},"test":"143.244.44.173"} 
+[2024-02-07 10:28:28] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080669","longitude":"36.2764794","device_id":"712","user_id":"242"},"test":"178.162.211.180"} 
+[2024-02-07 10:28:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"178.162.211.180"} 
+[2024-02-07 10:28:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/accept-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1018","driver_id":"242","device_number":"712"},"test":"178.162.211.180"} 
+[2024-02-07 10:28:39] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"178.162.211.180"} 
+[2024-02-07 10:28:39] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"178.162.211.180"} 
+[2024-02-07 10:30:59] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/cancle-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1018"},"test":"143.244.44.173"} 
+[2024-02-07 10:31:10] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-notification","METHOD":"POST","REQUEST_BODY":{"driver_id":"242","trip_id":"1018"},"test":"178.162.211.180"} 
+[2024-02-07 10:31:11] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"178.162.211.180"} 
+[2024-02-07 10:31:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-start","METHOD":"POST","REQUEST_BODY":{"trip_id":"1018","start_time":"13:31:12","driver_id":"242"},"test":"178.162.211.180"} 
+[2024-02-07 10:31:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-start","METHOD":"POST","REQUEST_BODY":{"trip_id":"1018","start_time":"13:31:16","driver_id":"242"},"test":"178.162.211.180"} 
+[2024-02-07 10:31:19] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-end","METHOD":"POST","REQUEST_BODY":{"trip_id":"1018","end_time":"13:31:19","km":"24.45154551358318","driver_id":"242"},"test":"178.162.211.180"} 
+[2024-02-07 10:31:21] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-07 10:31:25] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"178.162.211.180"} 
+[2024-02-07 10:31:26] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"178.162.211.180"} 
+[2024-02-07 10:31:33] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080667","longitude":"36.2764784","device_id":"712","user_id":"242"},"test":"178.162.211.180"} 
+[2024-02-07 10:31:45] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"143.244.44.173"} 
+[2024-02-07 10:32:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"143.244.44.173"} 
+[2024-02-07 11:22:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/terms","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:22:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"946649532","password":"foot2003#@!","device_token":"d0COx7W0Qjy7GFNcWeYqSZ:APA91bHzO4pEKiNIsQaMbFa-rj4xYVCha6DWtIvDkUzLW2MCZOUu79yVpqYH5pBlk3-QhkwMqb6CrKZ2ZVYIhiqjzcOoD6a5fKC_rRa1xxHpf-YUj8wmGZwDD3mUoGov3BIhG_mBI1Ak","user_type":"user"},"test":"169.150.196.148"} 
+[2024-02-07 11:22:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"946649532","password":"Foot2003#@!","device_token":"d0COx7W0Qjy7GFNcWeYqSZ:APA91bHzO4pEKiNIsQaMbFa-rj4xYVCha6DWtIvDkUzLW2MCZOUu79yVpqYH5pBlk3-QhkwMqb6CrKZ2ZVYIhiqjzcOoD6a5fKC_rRa1xxHpf-YUj8wmGZwDD3mUoGov3BIhG_mBI1Ak","user_type":"user"},"test":"169.150.196.148"} 
+[2024-02-07 11:22:35] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:23:06] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 11:23:32] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 11:23:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 11:23:39] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"14:23:56"},"test":"169.150.196.148"} 
+[2024-02-07 11:25:04] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/cancle-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1019"},"test":"169.150.196.148"} 
+[2024-02-07 11:25:04] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:25:11] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 11:25:25] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 11:25:28] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 11:25:31] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"14:25:48"},"test":"169.150.196.148"} 
+[2024-02-07 11:26:45] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/cancle-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1020"},"test":"169.150.196.148"} 
+[2024-02-07 11:26:47] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:26:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 11:27:09] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 11:27:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 11:27:18] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"14:27:35"},"test":"169.150.196.148"} 
+[2024-02-07 11:28:01] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/cancle-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1021"},"test":"169.150.196.148"} 
+[2024-02-07 11:28:01] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:28:09] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 11:28:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 11:28:26] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 11:28:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"14:28:46"},"test":"169.150.196.148"} 
+[2024-02-07 11:30:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:30:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:32:42] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 11:33:04] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 11:33:08] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 11:33:10] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"14:33:27"},"test":"169.150.196.148"} 
+[2024-02-07 11:34:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:35:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:35:14] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:36:05] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:41:09] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 11:41:42] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 11:41:47] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 11:41:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"14:42:13"},"test":"169.150.196.148"} 
+[2024-02-07 11:42:19] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 11:42:19] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:42:20] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079284","longitude":"36.2765156","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:42:20] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079284","longitude":"36.2765156","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:42:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 11:42:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:42:40] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080259","longitude":"36.2765654","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:42:40] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080259","longitude":"36.2765654","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:42:42] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:42:46] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/accept-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1024","driver_id":"242","device_number":"712"},"test":"91.144.19.154"} 
+[2024-02-07 11:42:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 11:42:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:43:00] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-notification","METHOD":"POST","REQUEST_BODY":{"driver_id":"242","trip_id":"1024"},"test":"91.144.19.154"} 
+[2024-02-07 11:43:01] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:43:06] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-start","METHOD":"POST","REQUEST_BODY":{"trip_id":"1024","start_time":"14:43:6","driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:43:25] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-end","METHOD":"POST","REQUEST_BODY":{"trip_id":"1024","end_time":"14:43:25","km":"24.45154551358318","driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:43:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 11:43:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:43:39] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.508123","longitude":"36.2764703","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:44:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:52:23] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 11:52:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 11:52:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 11:52:53] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"14:53:9"},"test":"169.150.196.148"} 
+[2024-02-07 11:53:10] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.508019","longitude":"36.2765465","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:53:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:53:19] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:54:11] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/cancle-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1025"},"test":"169.150.196.148"} 
+[2024-02-07 11:54:11] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:54:45] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:54:47] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:54:51] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:55:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:55:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 11:55:20] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.508019","longitude":"36.2765465","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:55:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 11:55:47] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 11:55:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"14:56:7"},"test":"169.150.196.148"} 
+[2024-02-07 11:57:26] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079319","longitude":"36.2766771","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:57:28] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:57:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:57:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 11:58:10] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 11:58:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 11:58:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 11:58:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"14:59:9"},"test":"169.150.196.148"} 
+[2024-02-07 11:59:21] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.508108","longitude":"36.2764872","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:59:24] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 11:59:27] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:00:55] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 12:00:55] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 12:01:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 12:01:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 12:01:28] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 12:01:32] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"15:1:49"},"test":"169.150.196.148"} 
+[2024-02-07 12:01:46] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:01:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/create-orderid","METHOD":"POST","REQUEST_BODY":{"driver_id":"242","amount":"100"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:07] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/check-status","METHOD":"POST","REQUEST_BODY":{"order_id":"128"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:07] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/delete_order","METHOD":"POST","REQUEST_BODY":{"order_id":"128"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:07] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-07 12:02:08] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:09] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:11] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/get_profile","METHOD":"POST","REQUEST_BODY":{"user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:14] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079223","longitude":"36.2765122","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:35] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079269","longitude":"36.2765155","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5074985","longitude":"36.2769544","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5074985","longitude":"36.2769544","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:02:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:03:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 12:03:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 12:06:46] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5072257","longitude":"36.2769437","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 12:15:05] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 12:15:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"169.150.196.148"} 
+[2024-02-07 12:15:25] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"169.150.196.148"} 
+[2024-02-07 12:15:27] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"15:15:44"},"test":"169.150.196.148"} 
+[2024-02-07 12:17:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 12:17:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"169.150.196.148"} 
+[2024-02-07 13:50:26] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"169.150.196.148"} 
+[2024-02-07 13:55:14] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 13:55:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 13:55:18] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079197","longitude":"36.2765227","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 13:55:21] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 13:55:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 13:55:28] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/siginout","METHOD":"POST","REQUEST_BODY":{"user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-07 13:55:32] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/terms","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 

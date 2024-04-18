@@ -1,0 +1,415 @@
+[2024-02-08 06:13:24] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 06:17:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"37.19.205.147"} 
+[2024-02-08 06:18:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"37.19.205.147"} 
+[2024-02-08 06:18:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"37.19.205.147"} 
+[2024-02-08 06:27:45] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"37.19.205.147"} 
+[2024-02-08 06:30:27] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"956320147","password":"123456Ll@","device_token":"eLrxriWBQpid-ZZzAPAkhA:APA91bEunSRLk_Kz6oF7zJzWrPxC2_VjeAegjsNk2i-2TLGWtvY9YG594TiwdzIjV13iRQHUkxjrnS7SNfEqtNuG7ui9jqblRS8jLosDB0S4g8XYdXz3P0izHTfhnjvMXhifesle0D3H","user_type":"driver"},"test":"91.144.19.154"} 
+[2024-02-08 06:30:29] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 06:30:29] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 06:30:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5081277","longitude":"36.2764739","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 06:30:39] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"37.19.205.147"} 
+[2024-02-08 06:33:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"37.19.205.147"} 
+[2024-02-08 06:34:19] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966","drop_latitude":"35.0113982","drop_longitude":"37.0561339","km":"11624.699292185765","minutes":null,"user_id":"567"},"test":"37.19.205.147"} 
+[2024-02-08 06:43:15] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"37.19.205.147"} 
+[2024-02-08 06:43:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"37.19.205.147"} 
+[2024-02-08 06:43:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"37.19.205.147"} 
+[2024-02-08 06:52:15] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"105380","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"9:52:30"},"test":"37.19.205.147"} 
+[2024-02-08 06:54:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 06:54:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 06:55:09] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"37.19.205.147"} 
+[2024-02-08 06:55:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"0.0","drop_longitude":"0.0","km":"5317.012298240601","minutes":null,"user_id":"567"},"test":"37.19.205.147"} 
+[2024-02-08 06:55:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"37.19.205.147"} 
+[2024-02-08 06:55:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"18609543","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"9:55:53"},"test":"37.19.205.147"} 
+[2024-02-08 06:56:27] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 06:56:44] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/create-orderid","METHOD":"POST","REQUEST_BODY":{"driver_id":"242","amount":"2000"},"test":"91.144.19.154"} 
+[2024-02-08 06:57:17] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/check-status","METHOD":"POST","REQUEST_BODY":{"order_id":"129"},"test":"91.144.19.154"} 
+[2024-02-08 06:57:18] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/delete_order","METHOD":"POST","REQUEST_BODY":{"order_id":"129"},"test":"91.144.19.154"} 
+[2024-02-08 06:57:18] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 06:57:18] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 06:57:19] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080063","longitude":"36.2764633","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 06:57:19] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 06:57:41] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 06:57:41] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 06:57:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/get_profile","METHOD":"POST","REQUEST_BODY":{"user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 06:59:21] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 06:59:32] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 06:59:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.50793","longitude":"36.2765136","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 06:59:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:00:00] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"37.19.205.147"} 
+[2024-02-08 07:00:08] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.50793","longitude":"36.2765136","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:00:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"567"},"test":"37.19.205.147"} 
+[2024-02-08 07:00:29] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"37.19.205.147"} 
+[2024-02-08 07:00:33] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"105380","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"10:0:50"},"test":"37.19.205.147"} 
+[2024-02-08 07:05:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 07:05:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 07:06:28] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"37.19.205.147"} 
+[2024-02-08 07:07:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.5140181","drop_longitude":"36.2849521","km":"1.0266546808864507","minutes":"9.6","user_id":"567"},"test":"37.19.205.147"} 
+[2024-02-08 07:07:07] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"37.19.205.147"} 
+[2024-02-08 07:07:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"1.0266546808864507","minutes":"9.6","user_id":"567","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Dama Rose Hotel, Shoukry Al-Qouwatly, Damascus, Syria","cost":"15000","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.5140181","drop_longitude":"36.2849521","order_time":"10:7:29"},"test":"37.19.205.147"} 
+[2024-02-08 07:07:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:07:33] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:11:42] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:11:42] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 07:11:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:11:44] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079305","longitude":"36.2765142","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:11:46] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:11:46] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079305","longitude":"36.2765142","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:11:57] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:11:59] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:12:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079194","longitude":"36.2765155","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:12:17] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:12:51] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 07:12:51] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:12:53] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:12:53] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079926","longitude":"36.2764585","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:15:07] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/emergency","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 07:15:37] local.INFO: Request: {"URI":"http://diamond-line.com.sy/api/charge-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242","method":"transfer","new_amount":"300000","transfare_image":{"Illuminate\\Http\\UploadedFile":"/home/diamond/tmp/phpoBgtwd"}},"test":"91.144.19.154"} 
+[2024-02-08 07:15:41] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:15:42] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:15:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080259","longitude":"36.2765662","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:15:48] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 07:15:48] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:15:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080027","longitude":"36.2764982","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:17:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:17:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:17:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080196","longitude":"36.2765509","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:17:57] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 07:17:57] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:18:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:18:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079952","longitude":"36.2764674","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:20:01] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:20:01] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 07:20:02] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080261","longitude":"36.2765449","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:20:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:20:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 07:20:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:20:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:20:51] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:20:51] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080261","longitude":"36.2765449","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:20:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:24:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/get_profile","METHOD":"POST","REQUEST_BODY":{"user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:25:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 07:25:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:25:44] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080061","longitude":"36.2764661","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:25:44] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:26:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:26:15] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079212","longitude":"36.2765203","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:26:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:26:27] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/siginout","METHOD":"POST","REQUEST_BODY":{"user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 07:26:46] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/terms","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 07:41:32] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"987456321","password":"Eesa098#@!","device_token":"eLrxriWBQpid-ZZzAPAkhA:APA91bEunSRLk_Kz6oF7zJzWrPxC2_VjeAegjsNk2i-2TLGWtvY9YG594TiwdzIjV13iRQHUkxjrnS7SNfEqtNuG7ui9jqblRS8jLosDB0S4g8XYdXz3P0izHTfhnjvMXhifesle0D3H","user_type":"driver"},"test":"91.144.19.154"} 
+[2024-02-08 07:41:32] local.ERROR: Trying to get property 'is_active' of non-object {"exception":"[object] (ErrorException(code: 0): Trying to get property 'is_active' of non-object at /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php:278)
+[stacktrace]
+#0 /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php(278): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Api\\UsersApi->user_login()
+#2 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction()
+#3 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#4 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#5 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Route->run()
+#6 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#7 /home/diamond/public_html/framework/app/Http/Middleware/TestMiddleware.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\TestMiddleware->handle()
+#9 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#10 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}()
+#11 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#12 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(34): Illuminate\\Pipeline\\Pipeline->then()
+#13 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle()
+#14 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then()
+#16 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack()
+#17 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute()
+#18 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute()
+#19 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch()
+#20 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#21 /home/diamond/public_html/framework/app/Http/Middleware/ActivityLogMiddleware.php(24): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ActivityLogMiddleware->handle()
+#23 /home/diamond/public_html/framework/app/Http/Middleware/HSTS.php(13): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\HSTS->handle()
+#25 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#27 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#28 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#30 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#31 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#33 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#35 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then()
+#37 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#38 /home/diamond/public_html/index.php(12): Illuminate\\Foundation\\Http\\Kernel->handle()
+#39 {main}
+"} 
+[2024-02-08 07:42:47] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"987456321","password":"123456Ll@","device_token":"eLrxriWBQpid-ZZzAPAkhA:APA91bEunSRLk_Kz6oF7zJzWrPxC2_VjeAegjsNk2i-2TLGWtvY9YG594TiwdzIjV13iRQHUkxjrnS7SNfEqtNuG7ui9jqblRS8jLosDB0S4g8XYdXz3P0izHTfhnjvMXhifesle0D3H","user_type":"driver"},"test":"91.144.19.154"} 
+[2024-02-08 07:42:47] local.ERROR: Trying to get property 'is_active' of non-object {"exception":"[object] (ErrorException(code: 0): Trying to get property 'is_active' of non-object at /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php:278)
+[stacktrace]
+#0 /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php(278): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Api\\UsersApi->user_login()
+#2 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction()
+#3 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#4 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#5 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Route->run()
+#6 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#7 /home/diamond/public_html/framework/app/Http/Middleware/TestMiddleware.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\TestMiddleware->handle()
+#9 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#10 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}()
+#11 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#12 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(34): Illuminate\\Pipeline\\Pipeline->then()
+#13 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle()
+#14 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then()
+#16 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack()
+#17 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute()
+#18 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute()
+#19 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch()
+#20 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#21 /home/diamond/public_html/framework/app/Http/Middleware/ActivityLogMiddleware.php(24): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ActivityLogMiddleware->handle()
+#23 /home/diamond/public_html/framework/app/Http/Middleware/HSTS.php(13): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\HSTS->handle()
+#25 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#27 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#28 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#30 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#31 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#33 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#35 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then()
+#37 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#38 /home/diamond/public_html/index.php(12): Illuminate\\Foundation\\Http\\Kernel->handle()
+#39 {main}
+"} 
+[2024-02-08 07:44:40] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 07:44:40] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 07:44:42] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/accepted-trip","METHOD":"POST","REQUEST_BODY":{"user_id":"567"},"test":"37.19.205.147"} 
+[2024-02-08 07:45:21] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"987456321","password":"123456Ll@","device_token":"eLrxriWBQpid-ZZzAPAkhA:APA91bEunSRLk_Kz6oF7zJzWrPxC2_VjeAegjsNk2i-2TLGWtvY9YG594TiwdzIjV13iRQHUkxjrnS7SNfEqtNuG7ui9jqblRS8jLosDB0S4g8XYdXz3P0izHTfhnjvMXhifesle0D3H","user_type":"driver"},"test":"91.144.19.154"} 
+[2024-02-08 07:45:21] local.ERROR: Trying to get property 'is_active' of non-object {"exception":"[object] (ErrorException(code: 0): Trying to get property 'is_active' of non-object at /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php:278)
+[stacktrace]
+#0 /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php(278): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Api\\UsersApi->user_login()
+#2 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction()
+#3 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#4 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#5 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Route->run()
+#6 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#7 /home/diamond/public_html/framework/app/Http/Middleware/TestMiddleware.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\TestMiddleware->handle()
+#9 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#10 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}()
+#11 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#12 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(34): Illuminate\\Pipeline\\Pipeline->then()
+#13 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle()
+#14 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then()
+#16 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack()
+#17 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute()
+#18 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute()
+#19 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch()
+#20 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#21 /home/diamond/public_html/framework/app/Http/Middleware/ActivityLogMiddleware.php(24): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ActivityLogMiddleware->handle()
+#23 /home/diamond/public_html/framework/app/Http/Middleware/HSTS.php(13): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\HSTS->handle()
+#25 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#27 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#28 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#30 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#31 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#33 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#35 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then()
+#37 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#38 /home/diamond/public_html/index.php(12): Illuminate\\Foundation\\Http\\Kernel->handle()
+#39 {main}
+"} 
+[2024-02-08 07:46:11] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/siginout","METHOD":"POST","REQUEST_BODY":{"user_id":"567"},"test":"37.19.205.147"} 
+[2024-02-08 07:46:53] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"956320147","password":"123456Ll@","device_token":"d0COx7W0Qjy7GFNcWeYqSZ:APA91bHzO4pEKiNIsQaMbFa-rj4xYVCha6DWtIvDkUzLW2MCZOUu79yVpqYH5pBlk3-QhkwMqb6CrKZ2ZVYIhiqjzcOoD6a5fKC_rRa1xxHpf-YUj8wmGZwDD3mUoGov3BIhG_mBI1Ak","user_type":"driver"},"test":"37.19.205.147"} 
+[2024-02-08 07:47:18] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 07:47:20] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:47:27] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"37.9485917","longitude":"-121.6966","device_id":"0","user_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:47:28] local.ERROR: Trying to get property 'id' of non-object {"userId":242,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object at /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php:885)
+[stacktrace]
+#0 /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php(885): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Api\\UsersApi->get_location()
+#2 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction()
+#3 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#4 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#5 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Route->run()
+#6 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#7 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(63): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest()
+#9 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle()
+#10 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#11 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#12 /home/diamond/public_html/framework/app/Http/Middleware/TestMiddleware.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#13 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\TestMiddleware->handle()
+#14 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}()
+#16 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(34): Illuminate\\Pipeline\\Pipeline->then()
+#18 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle()
+#19 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then()
+#21 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack()
+#22 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute()
+#23 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute()
+#24 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch()
+#25 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#26 /home/diamond/public_html/framework/app/Http/Middleware/ActivityLogMiddleware.php(24): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ActivityLogMiddleware->handle()
+#28 /home/diamond/public_html/framework/app/Http/Middleware/HSTS.php(13): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\HSTS->handle()
+#30 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#32 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#33 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#35 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#36 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#38 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#40 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then()
+#42 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 /home/diamond/public_html/index.php(12): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 {main}
+"} 
+[2024-02-08 07:48:08] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:48:12] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/get_profile","METHOD":"POST","REQUEST_BODY":{"user_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:50:17] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"37.19.205.147"} 
+[2024-02-08 07:50:18] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:50:26] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"37.9485917","longitude":"-121.6966","device_id":"712","user_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:53:31] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:54:20] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:54:24] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:54:27] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"37.9485917","longitude":"-121.6966","device_id":"712","user_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:55:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:55:35] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:55:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"37.9485917","longitude":"-121.6966","device_id":"712","user_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:59:24] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:59:27] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 07:59:30] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"37.9485917","longitude":"-121.6966","device_id":"712","user_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 08:01:59] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 08:02:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 08:02:06] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"37.9485917","longitude":"-121.6966","device_id":"712","user_id":"242"},"test":"37.19.205.147"} 
+[2024-02-08 08:10:37] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:10:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:10:41] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/get_profile","METHOD":"POST","REQUEST_BODY":{"user_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:10:43] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"37.9485917","longitude":"-121.6966","device_id":"712","user_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:10:54] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:10:58] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:11:00] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"37.9485917","longitude":"-121.6966","device_id":"712","user_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:12:25] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:12:41] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:14:10] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:14:20] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:14:21] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"37.9485917","longitude":"-121.6966","device_id":"712","user_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:15:29] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:16:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-08 08:16:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:22:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-08 08:22:03] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:22:07] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-wallet","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:22:09] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"37.9485917","longitude":"-121.6966","device_id":"712","user_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 08:22:11] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/siginout","METHOD":"POST","REQUEST_BODY":{"user_id":"242"},"test":"143.244.44.173"} 
+[2024-02-08 12:33:07] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/login","METHOD":"GET","REQUEST_BODY":[],"test":"193.32.249.174"} 
+[2024-02-08 12:33:21] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/login","METHOD":"POST","REQUEST_BODY":{"_token":"R0GIU08xzLF6q4SVsdX0e1uVJFKHNcro4j6ttPxo","email":"master@admin.com","password":"1234567890"},"test":"193.32.249.174"} 
+[2024-02-08 12:33:21] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/users","METHOD":"GET","REQUEST_BODY":[],"test":"193.32.249.174"} 
+[2024-02-08 12:33:25] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/users-fetch","METHOD":"POST","REQUEST_BODY":{"draw":"1","columns":[{"data":"check","name":"check","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}},{"data":"DT_RowIndex","name":"DT_RowIndex","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}},{"data":"profile_image","name":"profile_image","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}},{"data":"created_at","name":"created","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}},{"data":"first_name","name":"first_name","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"last_name","name":"last_name","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"email","name":"email","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"user_type","name":"user_type","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"action","name":"action","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}}],"order":[{"column":"1","dir":"desc"}],"start":"0","length":"10","search":{"value":null,"regex":"false"}},"test":"193.32.249.174"} 
+[2024-02-08 12:33:47] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/customers","METHOD":"GET","REQUEST_BODY":[],"test":"193.32.249.174"} 
+[2024-02-08 12:33:49] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/customers-fetch","METHOD":"POST","REQUEST_BODY":{"draw":"1","columns":[{"data":"check","name":"check","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}},{"data":"DT_RowIndex","name":"DT_RowIndex","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}},{"data":"created_at","name":"created_at","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"first_name","name":"first_name","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"last_name","name":"last_name","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"email","name":"email","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"phone","name":"phone","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"is_active","name":"is_active","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"in_service","name":"in_service","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"action","name":"action","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}}],"order":[{"column":"1","dir":"desc"}],"start":"0","length":"10","search":{"value":null,"regex":"false"}},"test":"193.32.249.174"} 
+[2024-02-08 12:33:55] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/drivers","METHOD":"GET","REQUEST_BODY":[],"test":"193.32.249.174"} 
+[2024-02-08 12:33:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/drivers-fetch","METHOD":"POST","REQUEST_BODY":{"draw":"1","columns":[{"data":"check","name":"check","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}},{"data":"DT_RowIndex","name":"DT_RowIndex","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}},{"data":"created_at","name":"created_at","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}},{"data":"profile_image","name":"profile_image","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}},{"data":"fullname","name":"fullname","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"email","name":"email","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"is_active","name":"is_active","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"in_service","name":"in_service","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"phone","name":"phone","searchable":"true","orderable":"true","search":{"value":null,"regex":"false"}},{"data":"action","name":"action","searchable":"false","orderable":"false","search":{"value":null,"regex":"false"}}],"order":[{"column":"1","dir":"desc"}],"start":"0","length":"10","search":{"value":null,"regex":"false"}},"test":"193.32.249.174"} 
+[2024-02-08 12:34:07] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/wallet","METHOD":"GET","REQUEST_BODY":[],"test":"193.32.249.174"} 
+[2024-02-08 12:34:13] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/wallet/edit/3","METHOD":"GET","REQUEST_BODY":[],"test":"193.32.249.174"} 
+[2024-02-08 12:34:15] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/wallet/update/3","METHOD":"POST","REQUEST_BODY":{"_token":"W0svXRlXfCr4fXxJIQVK6Ys6rx5jYIzvxGiifVyd","id":"3","new_amount":"300000"},"test":"193.32.249.174"} 
+[2024-02-08 12:34:17] local.INFO: Request: {"URI":"https://diamond-line.com.sy/admin/wallet","METHOD":"GET","REQUEST_BODY":[],"test":"193.32.249.174"} 
+[2024-02-08 12:42:16] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-08 12:44:50] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-08 12:46:00] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"956320147","password":"123456Ll@","device_token":"dkqopO8yToa3_uqKsnkG2o:APA91bGvgqPrEYzQEr5juRWClqTAOKw8DUQMvqxys6NdGwPc336W0IA4iOE6O0sIsU0HJ7EEyEQTs7gR93JsuIZ6xXxbNQZBOnMzO41WNQn4BSHa5pKQu0hbm9sY96uhV6CM-jQn8w9C","user_type":"driver"},"test":"91.144.19.154"} 
+[2024-02-08 12:47:27] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-login","METHOD":"POST","REQUEST_BODY":{"phone":"956320147","password":"123456Ll@","device_token":"dkqopO8yToa3_uqKsnkG2o:APA91bGvgqPrEYzQEr5juRWClqTAOKw8DUQMvqxys6NdGwPc336W0IA4iOE6O0sIsU0HJ7EEyEQTs7gR93JsuIZ6xXxbNQZBOnMzO41WNQn4BSHa5pKQu0hbm9sY96uhV6CM-jQn8w9C","user_type":"driver"},"test":"91.144.19.154"} 
+[2024-02-08 12:47:48] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 12:47:48] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 12:50:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 12:50:34] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-status","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 12:50:46] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"143.244.44.173"} 
+[2024-02-08 12:50:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080658","longitude":"36.2771936","device_id":"0","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 12:50:52] local.ERROR: Trying to get property 'id' of non-object {"userId":242,"exception":"[object] (ErrorException(code: 0): Trying to get property 'id' of non-object at /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php:885)
+[stacktrace]
+#0 /home/diamond/public_html/framework/app/Http/Controllers/Api/UsersApi.php(885): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\\Http\\Controllers\\Api\\UsersApi->get_location()
+#2 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(45): Illuminate\\Routing\\Controller->callAction()
+#3 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#4 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#5 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Route->run()
+#6 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#7 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#8 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php(63): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest()
+#9 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle()
+#10 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(44): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#11 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#12 /home/diamond/public_html/framework/app/Http/Middleware/TestMiddleware.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#13 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\TestMiddleware->handle()
+#14 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(33): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->Laravel\\Sanctum\\Http\\Middleware\\{closure}()
+#16 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /home/diamond/public_html/framework/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php(34): Illuminate\\Pipeline\\Pipeline->then()
+#18 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful->handle()
+#19 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then()
+#21 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack()
+#22 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute()
+#23 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute()
+#24 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch()
+#25 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#26 /home/diamond/public_html/framework/app/Http/Middleware/ActivityLogMiddleware.php(24): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\ActivityLogMiddleware->handle()
+#28 /home/diamond/public_html/framework/app/Http/Middleware/HSTS.php(13): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): App\\Http\\Middleware\\HSTS->handle()
+#30 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#32 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#33 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#35 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#36 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#38 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#40 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then()
+#42 /home/diamond/public_html/framework/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 /home/diamond/public_html/index.php(12): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 {main}
+"} 
+[2024-02-08 12:50:57] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5081243","longitude":"36.2770206","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 12:50:59] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 12:51:14] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","km":"24.45154551358318","minutes":"29.6","user_id":"360"},"test":"143.244.44.173"} 
+[2024-02-08 12:51:20] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"143.244.44.173"} 
+[2024-02-08 12:51:22] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"24.45154551358318","minutes":"29.6","user_id":"360","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Damascus International Airport (DAM), Damascus Airport Motorway, Syria","cost":"100380","type_id":"13","request_type":"moment","option_id":[],"drop_latitude":"33.4112976","drop_longitude":"36.51283119999999","order_time":"15:51:40"},"test":"143.244.44.173"} 
+[2024-02-08 12:51:36] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 12:53:28] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-08 12:53:28] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"143.244.44.173"} 
+[2024-02-08 12:53:45] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"37.9485917","pickup_longitude":"-121.6966"},"test":"143.244.44.173"} 
+[2024-02-08 12:54:01] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/source-destination","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5080847","pickup_longitude":"36.276484","drop_latitude":"33.5140181","drop_longitude":"36.2849521","km":"1.0266546808864507","minutes":"9.6","user_id":"360"},"test":"143.244.44.173"} 
+[2024-02-08 12:54:04] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/type-option","METHOD":"POST","REQUEST_BODY":{"id":"13"},"test":"143.244.44.173"} 
+[2024-02-08 12:54:08] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/book-now","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5080847","longitude":"36.276484","category_id":"1","km":"1.0266546808864507","minutes":"9.6","user_id":"360","status":"pending","pickup_addr":"Space Toon company - Tiger Production, Damascus, Syria","dest_addr":"Dama Rose Hotel, Shoukry Al-Qouwatly, Damascus, Syria","cost":"15000","type_id":"13","request_type":"moment","option_id":["AC"],"drop_latitude":"33.5140181","drop_longitude":"36.2849521","order_time":"15:54:25"},"test":"143.244.44.173"} 
+[2024-02-08 12:54:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/location","METHOD":"POST","REQUEST_BODY":{"latitude":"33.5079986","longitude":"36.2764611","device_id":"712","user_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 12:54:40] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 12:54:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/accept-trip","METHOD":"POST","REQUEST_BODY":{"trip_id":"1035","driver_id":"242","device_number":"712"},"test":"91.144.19.154"} 
+[2024-02-08 12:54:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/started-inside-trips","METHOD":"GET","REQUEST_BODY":[],"test":"91.144.19.154"} 
+[2024-02-08 12:54:56] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 12:59:45] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/driver-notification","METHOD":"POST","REQUEST_BODY":{"driver_id":"242","trip_id":"1035"},"test":"91.144.19.154"} 
+[2024-02-08 12:59:51] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/outcity_trip","METHOD":"POST","REQUEST_BODY":{"driver_id":"242"},"test":"91.144.19.154"} 
+[2024-02-08 13:37:52] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/trip-start","METHOD":"POST","REQUEST_BODY":{"trip_id":"1035","start_time":"16:37:52","driver_id":"242"},"test":"91.144.19.154"} 
