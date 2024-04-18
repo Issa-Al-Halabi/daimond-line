@@ -1,8 +1,8 @@
-@extends('layouts.app')
-@php($date_format_setting = Hyvikk::get('date_format') ? Hyvikk::get('date_format') : 'd-m-Y')
-@php($currency = Hyvikk::get('currency'))
-@section('extra_css')
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datepicker.min.css') }}">
+
+<?php ($date_format_setting = Hyvikk::get('date_format') ? Hyvikk::get('date_format') : 'd-m-Y'); ?>
+<?php ($currency = Hyvikk::get('currency')); ?>
+<?php $__env->startSection('extra_css'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap-datepicker.min.css')); ?>">
     <style type="text/css">
         .checkbox,
         #chk_all {
@@ -10,32 +10,34 @@
             height: 20px;
         }
     </style>
-@endsection
-@section('breadcrumb')
-    <!--<li class="breadcrumb-item active">@lang('fleet.expense')</li>-->
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('breadcrumb'); ?>
+    <!--<li class="breadcrumb-item active"><?php echo app('translator')->get('fleet.expense'); ?></li>-->
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col-md-12">
             <div class="box box-info">
             	    <!-------------------------------------->
                <div class="card card-success">
                 <div class="card-header">
-                    <h3 class="card-title">@lang('fleet.admin_fare'):
+                    <h3 class="card-title"><?php echo app('translator')->get('fleet.admin_fare'); ?>:
                     </h3>
                 </div>
           
                <div class="card-body">
 
-					{!! Form::open(['url' => 'admin/admin-fare/create', 'class' => 'form-horizontal']) !!}
+					<?php echo Form::open(['url' => 'admin/admin-fare/create', 'class' => 'form-horizontal']); ?>
+
 					<div class="box-body">
 						<div class="form-group">
 						    
 							<label for="input_service_fee" class="col-sm-3 control-label">Minimum Wallet</label>
 							<div class="col-md-7 col-sm-offset-1">
 								<div class="input-group">
-									{!! Form::text('minimum_wallet',$val[$walletEnums::getId($walletEnums::minimum_wallet) -1]->value, ['class' => 'form-control', 'id' => 'input_service_fee', 'placeholder' => 'Minimum Wallet']) !!}
-									<span class="text-danger">{{ $errors->first('minimum_wallet') }}</span>
+									<?php echo Form::text('minimum_wallet',$val[$walletEnums::getId($walletEnums::minimum_wallet) -1]->value, ['class' => 'form-control', 'id' => 'input_service_fee', 'placeholder' => 'Minimum Wallet']); ?>
+
+									<span class="text-danger"><?php echo e($errors->first('minimum_wallet')); ?></span>
 								</div>
 							</div>
 						</div>
@@ -45,9 +47,10 @@
 							</label>
 							<div class="col-md-7 col-sm-offset-1">
 								<div class="input-group">
-									{!! Form::text('external_fare',$val[$walletEnums::getId($walletEnums::external_fare) -1]->value, ['class' => 'form-control', 'id' => 'input_driver_peak_fare', 'placeholder' => 'Admin Peak Fare']) !!}
+									<?php echo Form::text('external_fare',$val[$walletEnums::getId($walletEnums::external_fare) -1]->value, ['class' => 'form-control', 'id' => 'input_driver_peak_fare', 'placeholder' => 'Admin Peak Fare']); ?>
+
 									<div class="input-group-addon" >%</div>
-									<span class="text-danger">{{ $errors->first('external_fare') }}</span>
+									<span class="text-danger"><?php echo e($errors->first('external_fare')); ?></span>
 								</div>
 							</div>
 						</div>
@@ -57,9 +60,10 @@
 							</label>
 							<div class="col-md-7 col-sm-offset-1">
 								<div class="input-group">
-									{!! Form::text('internal_fare',$val[$walletEnums::getId($walletEnums::internal_fare) -1]->value, ['class' => 'form-control', 'id' => 'input_driver_peak_fare', 'placeholder' => 'Admin Peak Fare']) !!}
+									<?php echo Form::text('internal_fare',$val[$walletEnums::getId($walletEnums::internal_fare) -1]->value, ['class' => 'form-control', 'id' => 'input_driver_peak_fare', 'placeholder' => 'Admin Peak Fare']); ?>
+
 									<div class="input-group-addon" >%</div>
-									<span class="text-danger">{{ $errors->first('internal_fare') }}</span>
+									<span class="text-danger"><?php echo e($errors->first('internal_fare')); ?></span>
 								</div>
 							</div>
 						</div>
@@ -69,9 +73,10 @@
 							</label>
 							<div class="col-md-7 col-sm-offset-1">
 								<div class="input-group">
-									{!! Form::text('admin_fare',$val[$walletEnums::getId($walletEnums::admin_fare) -1]->value, ['class' => 'form-control', 'id' => 'input_driver_peak_fare', 'placeholder' => 'Admin Peak Fare']) !!}
+									<?php echo Form::text('admin_fare',$val[$walletEnums::getId($walletEnums::admin_fare) -1]->value, ['class' => 'form-control', 'id' => 'input_driver_peak_fare', 'placeholder' => 'Admin Peak Fare']); ?>
+
 									<div class="input-group-addon" >%</div>
-									<span class="text-danger">{{ $errors->first('admin_fare') }}</span>
+									<span class="text-danger"><?php echo e($errors->first('admin_fare')); ?></span>
 								</div>
 							</div>
 						</div>
@@ -81,8 +86,9 @@
 							</label>
 							<div class="col-md-7 col-sm-offset-1">
 								<div class="input-group">
-									{!! Form::text('admin_wallet',$val[$walletEnums::getId($walletEnums::admin_wallet) -1]->value, ['class' => 'form-control', 'id' => 'input_driver_service_fee', 'placeholder' => 'Admin Wallet']) !!}
-									<span class="text-danger">{{ $errors->first('admin_wallet') }}</span>
+									<?php echo Form::text('admin_wallet',$val[$walletEnums::getId($walletEnums::admin_wallet) -1]->value, ['class' => 'form-control', 'id' => 'input_driver_service_fee', 'placeholder' => 'Admin Wallet']); ?>
+
+									<span class="text-danger"><?php echo e($errors->first('admin_wallet')); ?></span>
 								</div>
 							</div>
 						</div>
@@ -90,7 +96,8 @@
 						<button type="submit" class="btn btn-success" name="submit" value="submit">Submit</button>
 						<button type="reset" class="btn btn-default" name="cancel">Cancel</button>
 					</div>
-					{!! Form::close() !!}
+					<?php echo Form::close(); ?>
+
 				</div>
 
                     </div>
@@ -108,20 +115,17 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">@lang('fleet.delete')</h4>
+                    <h4 class="modal-title"><?php echo app('translator')->get('fleet.delete'); ?></h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                {{-- <div class="modal-body">
-                    {!! Form::open(['url' => 'admin/delete-expense', 'method' => 'POST', 'id' => 'form_delete']) !!}
-                    <div id="bulk_hidden"></div>
-                    <p>@lang('fleet.confirm_bulk_delete')</p>
-                </div> --}}
+                
                 <div class="modal-footer">
                     <button id="bulk_action" class="btn btn-danger" type="submit"
-                        data-submit="">@lang('fleet.delete')</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">@lang('fleet.close')</button>
+                        data-submit=""><?php echo app('translator')->get('fleet.delete'); ?></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo app('translator')->get('fleet.close'); ?></button>
                 </div>
-                {!! Form::close() !!}
+                <?php echo Form::close(); ?>
+
             </div>
         </div>
     </div>
@@ -134,15 +138,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">@lang('fleet.delete')</h4>
+                    <h4 class="modal-title"><?php echo app('translator')->get('fleet.delete'); ?></h4>
                 </div>
                 <div class="modal-body">
-                    <p>@lang('fleet.confirm_delete')</p>
+                    <p><?php echo app('translator')->get('fleet.confirm_delete'); ?></p>
                 </div>
                 <div class="modal-footer">
                     <button id="del_btn" class="btn btn-danger" type="button"
-                        data-submit="">@lang('fleet.delete')</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">@lang('fleet.close')</button>
+                        data-submit=""><?php echo app('translator')->get('fleet.delete'); ?></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo app('translator')->get('fleet.close'); ?></button>
                 </div>
             </div>
         </div>
@@ -153,7 +157,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">@lang('fleet.vehicle')</h4>
+                    <h4 class="modal-title"><?php echo app('translator')->get('fleet.vehicle'); ?></h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -161,32 +165,32 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">
-                        @lang('fleet.close')
+                        <?php echo app('translator')->get('fleet.close'); ?>
                     </button>
                 </div>
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('script')
-    <script src="{{ asset('assets/js/moment.js') }}"></script>
+<?php $__env->startSection('script'); ?>
+    <script src="<?php echo e(asset('assets/js/moment.js')); ?>"></script>
     <!-- bootstrap datepicker -->
-    <script src="{{ asset('assets/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="<?php echo e(asset('assets/js/bootstrap-datepicker.min.js')); ?>"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             // $('#vehicle_id').select2({
-            //     placeholder: "@lang('fleet.selectVehicle')"
+            //     placeholder: "<?php echo app('translator')->get('fleet.selectVehicle'); ?>"
             // });
             $('#vendor_id').select2({
-                placeholder: "@lang('fleet.select_vendor')"
+                placeholder: "<?php echo app('translator')->get('fleet.select_vendor'); ?>"
             });
             $('#driver_id').select2({
-                placeholder: "@lang('fleet.Selectdriver')"
+                placeholder: "<?php echo app('translator')->get('fleet.Selectdriver'); ?>"
             });
             $('#expense_type').select2({
-                placeholder: "@lang('fleet.expenseType')"
+                placeholder: "<?php echo app('translator')->get('fleet.expenseType'); ?>"
             });
 
             $('#date').datepicker({
@@ -219,7 +223,7 @@
                 var hvk = confirm("Are you sure?");
                 if (hvk == true) {
                     var id = $(this).data("id");
-                    var action = "{{ url('admin/expense') }}" + "/" + id;
+                    var action = "<?php echo e(url('admin/expense')); ?>" + "/" + id;
                     $.ajax({
                         type: "POST",
                         url: action,
@@ -229,7 +233,7 @@
                             $("#expenses").html(data);
                             new PNotify({
                                 title: 'Deleted!',
-                                text: '@lang('fleet.deleted')',
+                                text: '<?php echo app('translator')->get('fleet.deleted'); ?>',
                                 type: 'wanring'
                             })
                         },
@@ -249,7 +253,7 @@
                 $('#bulk_delete').prop('type', 'button');
                 new PNotify({
                     title: 'Failed!',
-                    text: "@lang('fleet.delete_error')",
+                    text: "<?php echo app('translator')->get('fleet.delete_error'); ?>",
                     type: 'error'
                 });
                 $('#bulk_delete').attr('disabled', true);
@@ -279,7 +283,7 @@
         $(document).on('click', '.openBtn', function() {
             // alert($(this).data("id"));
             var id = $(this).attr("data-id");
-            $('#myModal2 .modal-body').load('{{ url('admin/faretour_edit') }}/' + id, function(result) {
+            $('#myModal2 .modal-body').load('<?php echo e(url('admin/faretour_edit')); ?>/' + id, function(result) {
                 $('#myModal2').modal({
                     show: true
                 });
@@ -305,4 +309,6 @@
             }
         }
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\EM_Projects\xampp\htdocs\Laravel\diamond_backend\resources\views/wallet/admin-fare-create.blade.php ENDPATH**/ ?>

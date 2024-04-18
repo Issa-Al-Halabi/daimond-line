@@ -486,31 +486,31 @@ class UsersApi extends Controller
 
         $user_type = User::where('id', $request->user_id)->select('user_type')->first();
         if (strtoupper($user_type->user_type) == strtoupper('user')) {
-            $vehicles = DB::table('vehicles')->select('vehicles.*', 'vehicle_types.vehicletype', 'fare_settings.base_km', 'fare_settings.base_time')
-                ->where('vehicles.category_id', $request->category_id)->where('vehicles.subcategory_id', $request->subcategory_id)
+                
+            $vehicles =  VehicleModel::select('vehicles.*', 'vehicle_types.vehicletype', 'fare_settings.base_km', 'fare_settings.base_time')
+                ->where('vehicles.category_id', $request->category_id)
+                ->whereIn('vehicles.subcategory_id', ["0",$request->subcategory_id])
                 ->where('in_service', '=', '1')
                 ->join('vehicle_types', 'vehicle_types.id', '=', 'vehicles.type_id')
                 ->join('fare_settings', 'fare_settings.type_id', 'vehicle_types.id')
                 ->where('fare_settings.category_id', 'outside damascus')
                 ->where(DB::raw('lower(user_type)'), 'like', '%' . strtolower('user') . '%')
                 ->where('vehicles.seats', '>=', $request->seats)->where('vehicles.bags', '>=', $request->bags)->where('isenable', '=', '1')
-                ->where('vehicles.deleted_at', '=', null)
-                ->get()
-                ->toarray();
-        } elseif (strtoupper($user_type->user_type) == strtoupper('organizations')) {
+                ->get();
+
+            } elseif (strtoupper($user_type->user_type) == strtoupper('organizations')) {
 
 
             $vehicles = DB::table('vehicles')->select('vehicles.*', 'vehicle_types.vehicletype', 'fare_settings.base_km', 'fare_settings.base_time')
-                ->where('vehicles.category_id', $request->category_id)->where('vehicles.subcategory_id', $request->subcategory_id)
+                ->where('vehicles.category_id', $request->category_id)
+                ->whereIn('vehicles.subcategory_id', ["0",$request->subcategory_id])
                 ->where('in_service', '=', '1')
                 ->join('vehicle_types', 'vehicle_types.id', '=', 'vehicles.type_id')
                 ->join('fare_settings', 'fare_settings.type_id', 'vehicle_types.id')
                 ->where('fare_settings.category_id', 'outside damascus')
                 ->where(DB::raw('lower(user_type)'), 'like', '%' . strtolower('organizations') . '%')
                 ->where('vehicles.seats', '>=', $request->seats)->where('vehicles.bags', '>=', $request->bags)->where('isenable', '=', '1')
-                ->where('vehicles.deleted_at', '=', null)
-                ->get()
-                ->toarray();
+                ->get();
         }
 
         foreach ($vehicles as $v) {

@@ -20,11 +20,13 @@ class FrontEndRequest extends FormRequest
 
     public function authorize()
     {
-        if (Auth::user()->user_type == "S" || Auth::user()->user_type == "O") {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
+
+        // if (Auth::user()->user_type == "S" || Auth::user()->user_type == "O") {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
     }
 
     public function rules()

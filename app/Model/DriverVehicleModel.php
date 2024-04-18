@@ -24,7 +24,7 @@ class DriverVehicleModel extends Pivot
     public $timestamps = true;
     public function vehicle()
     {
-        return $this->hasOne("App\Model\VehicleModel", "id", "vehicle_id")->withTrashed();
+        return $this->hasOne("App\Model\VehicleModel", "id", "vehicle_id");
     }
 
     public function assigned_driver()

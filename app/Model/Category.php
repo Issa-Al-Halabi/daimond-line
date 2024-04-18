@@ -16,7 +16,7 @@ class Category extends Model
 
     public function vehicles()
     {
-        return $this->hasMany("App\Model\VehicleModel", "category_id", "id")->withTrashed();
+        return $this->hasMany("App\Model\VehicleModel", "category_id", "id");
     }
     public function subcategory()
     {

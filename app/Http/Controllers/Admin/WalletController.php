@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\WalletEnums;
 use App\Http\Controllers\Controller;
 
 use App\Model\VehicleTypeModel;
@@ -28,23 +29,32 @@ class WalletController extends Controller
   
      public function store_admin_fare(Request $request)
     {
+        // "minimum_wallet": "7500",
+        // "external_fare": "15",
+        // "internal_fare": "10",
+        // "admin_wallet": "38439881",
+
         if($request->isMethod("GET")) {
             $val = Value::get();
-            return view('wallet.admin-fare-create',compact('val'));
+            $walletEnums = WalletEnums::class;
+            return view('wallet.admin-fare-create',compact('val','walletEnums'));
         }
         if($request->submit) {
+
             $rules = array(
-                'admin_wallet'   => 'required',
-                'external_fare'  => 'required',
-                'internal_fare'  => 'required',
-                'minimum_wallet' => 'required',
+                WalletEnums::getName(WalletEnums::admin_wallet)   => 'required',
+                WalletEnums::getName(WalletEnums::external_fare)  => 'required|numeric|min:0|max:100',
+                WalletEnums::getName(WalletEnums::internal_fare)  => 'required|numeric|min:0|max:100',
+                WalletEnums::getName(WalletEnums::minimum_wallet) => 'required',
+                WalletEnums::getName(WalletEnums::admin_fare) => 'required|numeric|min:0|max:100',
             );
 
             $attributes = array(
-                'admin_wallet'   => 'admin wallet',
-                'external_fare'  => 'external fare',
-                'internal_fare'  => 'internal fare',
-                'minimum_wallet' => 'minimum wallet',
+                WalletEnums::getName(WalletEnums::admin_wallet) => WalletEnums::admin_wallet ,
+                WalletEnums::getName(WalletEnums::external_fare) => WalletEnums::external_fare ,
+                WalletEnums::getName(WalletEnums::internal_fare) => WalletEnums::internal_fare ,
+                WalletEnums::getName(WalletEnums::minimum_wallet) => WalletEnums::minimum_wallet ,
+                WalletEnums::getName(WalletEnums::admin_fare) => WalletEnums::admin_fare ,
             );
 
             $validator = Validator::make($request->all(), $rules, [], $attributes);
@@ -52,10 +62,11 @@ class WalletController extends Controller
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
             }
-            Value::where(['name' => 'admin_wallet'])->update(['value' => $request->admin_wallet]); 
-            Value::where(['name' => 'external_fare'])->update(['value' => $request->external_fare]); 
-            Value::where(['name' => 'internal_fare'])->update(['value' => $request->internal_fare]);
-            Value::where(['name' => 'minimum_wallet'])->update(['value' => $request->minimum_wallet]);
+            Value::where(['name' => WalletEnums::getName(WalletEnums::admin_wallet)])->update(['value' => $request->admin_wallet]); 
+            Value::where(['name' => WalletEnums::getName(WalletEnums::external_fare) ])->update(['value' => $request->external_fare]); 
+            Value::where(['name' => WalletEnums::getName(WalletEnums::internal_fare) ])->update(['value' => $request->internal_fare]);
+            Value::where(['name' => WalletEnums::getName(WalletEnums::minimum_wallet) ])->update(['value' => $request->minimum_wallet]);
+            Value::where(['name' => WalletEnums::getName(WalletEnums::admin_fare) ])->update(['value' => $request->admin_fare]);
 
         }
         return redirect('admin/admin-fare/create');

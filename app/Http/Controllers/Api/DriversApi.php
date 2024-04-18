@@ -691,7 +691,6 @@ When the driver starts a trip, the trip status changes
     }
     public function trip_ended(Request $request)
     {
-      
        $validation = Validator::make($request->all(), [
             'trip_id'=>'required',
             'end_time'=>'required',
@@ -701,7 +700,7 @@ When the driver starts a trip, the trip status changes
       
         //  Calculation of new minutes
 
-     $trip_started=Bookings::with(['driver','vehicle'])->where('id',$request->trip_id)->first();
+     $trip_started = Bookings::with(['driver','vehicle'])->where('id',$request->trip_id)->first();
   
     [$hours, $minutes] =explode(':', $trip_started->start_time);
     [$hours1, $minutes1] =explode(':', $request->end_time);
@@ -727,6 +726,10 @@ When the driver starts a trip, the trip status changes
        //admin fare of the external driver
        $external=Value::where('name','external_fare')->first();
 
+        // to add admin_fare percentage
+        $admin_fare_value = Value::where('name','admin_fare')->first();
+        $admin_fare_value = isset($admin_fare_value)? $admin_fare_value->value:0;
+
       //inside city trip
       if($trip_started->request_type=="moment"|| $trip_started->request_type=="delayed"){
           
@@ -737,7 +740,7 @@ When the driver starts a trip, the trip status changes
             $fare = DB::table('fare_settings')->where('type_id',  $trip_started->type_id)->where('category_id', 'inside city')
                 ->where(DB::raw('lower(user_type)'), 'like', '%' . strtolower('user') . '%')
                 ->first();
-           
+                
            // limit_distance at which the fare is fixed
            if($request->km <= $fare->limit_distance){
               
@@ -750,7 +753,9 @@ When the driver starts a trip, the trip status changes
                $cost = (  $request->km * $fare->base_km) + ( $total_minutes* $fare->base_time);
              
            }
-            
+           
+           $cost = $cost + ($cost * $admin_fare_value)/100;
+
              $trip_started->cost=intval($cost);
              $trip_started->km=$request->km;
              $trip_started->status="ended";
@@ -769,7 +774,8 @@ When the driver starts a trip, the trip status changes
              $internal_fare=Value::where('name','internal_fare')->first();
           
             //admin fare
-             $admin_fare=($cost * $internal_fare->value) / 100;
+             $admin_fare=($cost * $internal_fare->value) / 100 ;
+
            
             //new admin wallet
              $new_admin_wallet= $admin_wallet->value + $admin_fare;
@@ -811,11 +817,12 @@ When the driver starts a trip, the trip status changes
            elseif($driver_type->user_type=="external_driver")
             {
               //admin fare of the external driver
-             $external_fare=Value::where('name','external_fare')->first();
+             $external_fare = Value::where('name','external_fare')->first();
+
              
               //admin fare
-             $admin_fare=($cost * $external_fare->value) / 100;
-           
+             $admin_fare=($cost * $external_fare->value) / 100 ;
+
             //new admin wallet
              $new_admin_wallet= $admin_wallet->value + $admin_fare;
              
@@ -858,7 +865,7 @@ When the driver starts a trip, the trip status changes
               $fare = DB::table('fare_settings')->where('type_id',  $trip_started->type_id)->where('category_id', 'inside city')
                 ->where(DB::raw('lower(user_type)'), 'like', '%' . strtolower('Organizations') . '%')
                 ->first();
-                
+
              if($request->km <= $fare->limit_distance){
               
               $cost=$fare->cost;
@@ -884,9 +891,9 @@ When the driver starts a trip, the trip status changes
            {
            
              $internal_fare=Value::where('name','internal_fare')->first();
-          
-            //admin fare
-             $admin_fare=($cost * $internal_fare->value) / 100;
+             
+              //admin fare
+              $admin_fare=($cost * $internal_fare->value) / 100 ;
            
             //new admin wallet
              $new_admin_wallet= $admin_wallet->value + $admin_fare;
@@ -926,7 +933,7 @@ When the driver starts a trip, the trip status changes
              $external_fare=Value::where('name','external_fare')->first();
              
               //admin fare
-             $admin_fare=($cost * $external_fare->value) / 100;
+              $admin_fare=($cost * $external_fare->value) / 100 ;
            
             //new admin wallet
              $new_admin_wallet= $admin_wallet->value + $admin_fare;
@@ -995,9 +1002,10 @@ When the driver starts a trip, the trip status changes
            {
            
              $internal_fare=Value::where('name','internal_fare')->first();
-          
-            //admin fare
-             $admin_fare=($cost * $internal_fare->value) / 100;
+
+              //admin fare
+              $admin_fare=($cost * $internal_fare->value) / 100;             
+             
            
             //new admin wallet
              $new_admin_wallet= $admin_wallet->value + $admin_fare;
@@ -1035,8 +1043,9 @@ When the driver starts a trip, the trip status changes
             {
              
              $external_fare=Value::where('name','external_fare')->first();
+
              //admin fare
-             $admin_fare=($cost * $external_fare->value) / 100;
+             $admin_fare=($cost * $external_fare->value) / 100;             
            
             //new admin wallet
              $new_admin_wallet= $admin_wallet->value + $admin_fare;
@@ -1108,8 +1117,9 @@ When the driver starts a trip, the trip status changes
            
              $internal_fare=Value::where('name','internal_fare')->first();
           
-            //admin fare
-             $admin_fare=($cost * $internal_fare->value) / 100;
+             //admin fare
+             $admin_fare=($cost * $internal_fare->value) / 100 ;             
+           
            
             //new admin wallet
              $new_admin_wallet= $admin_wallet->value + $admin_fare;
@@ -1147,8 +1157,10 @@ When the driver starts a trip, the trip status changes
             {
              
              $external_fare=Value::where('name','external_fare')->first();
-              //admin fare
-             $admin_fare=($cost * $external_fare->value) / 100;
+
+             //admin fare
+             $admin_fare=($cost * $external_fare->value) / 100;             
+           
            
             //new admin wallet
              $new_admin_wallet= $admin_wallet->value + $admin_fare;
@@ -1189,15 +1201,13 @@ When the driver starts a trip, the trip status changes
       }
     if($driver_type->user_type=="driver")
     {
-   
-      
-      $admin_fare=$trip_started->cost * $internal->value/100;
+     //admin fare
+     $admin_fare=($trip_started->cost * $internal->value) / 100;
     }
       elseif($driver_type->user_type=="external_driver")
     {
-   
-        
-      $admin_fare=$trip_started->cost * $external->value/100;
+        //admin fare
+        $admin_fare=($trip_started->cost * $external->value) / 100;
     }
          
         if ($trip_started) {

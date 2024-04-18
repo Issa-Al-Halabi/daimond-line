@@ -24,11 +24,13 @@ class NotesRequest extends FormRequest
      */
     public function authorize()
     {
-        if (Auth::user()->user_type != "C") {
-            return true;
-        } else {
-            abort(404);
-        }
+        return true;
+
+        // if (Auth::user()->user_type != "C") {
+        //     return true;
+        // } else {
+        //     abort(404);
+        // }
     }
 
     /**

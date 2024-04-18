@@ -31,6 +31,6 @@ class IncomeModel extends Model
 
     public function vehicle()
     {
-        return $this->hasOne("App\Model\VehicleModel", "id", "vehicle_id")->withTrashed();
+        return $this->hasOne("App\Model\VehicleModel", "id", "vehicle_id");
     }
 }

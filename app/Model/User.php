@@ -55,7 +55,7 @@ class User extends Authenticatable
 
     public function vehicle_detail()
     {
-        return $this->hasMany('App\Model\VehicleModel', 'user_id', 'id')->withTrashed();
+        return $this->hasMany('App\Model\VehicleModel', 'user_id', 'id');
     }
 
     public function driver_vehicle()

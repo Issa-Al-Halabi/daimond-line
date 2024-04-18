@@ -21,8 +21,8 @@ use Kodeine\Metable\Metable;
 class VehicleModel extends Model
 {
     use Metable;
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
+    // use SoftDeletes;
+    // protected $dates = ['deleted_at'];
     protected $table = "vehicles";
    //protected $metaTable = 'vehicles_meta'; //optional.
     protected $fillable = ['model_id', 'make_id', 'color_id', 'device_number', 'category_id', 'class_id', 'subcategory_id', 'color', 'type', 'year', 'engine_type', 'horse_power', 'car_number', 'car_model', 'vin', 'license_plate', 'mileage', 'int_mileage', 'in_service', 'user_id', 'insurance_number', 'documents', 'vehicle_image', 'exp_date', 'reg_exp_date', 'lic_exp_date', 'group_id', 'type_id', 'seats', 'bags'];

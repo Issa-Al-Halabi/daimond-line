@@ -24,6 +24,6 @@ class VehicleGroupModel extends Model
 
     public function group()
     {
-        return $this->hasMany("App\Model\VehicleModel", "group_id", "id")->withTrashed();
+        return $this->hasMany("App\Model\VehicleModel", "group_id", "id");
     }
 }

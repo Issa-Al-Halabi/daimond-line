@@ -25,7 +25,7 @@ class FuelModel extends Model
     public function vehicle_data()
     {
 
-        return $this->belongsTo("App\Model\VehicleModel", "vehicle_id", "id")->withTrashed();
+        return $this->belongsTo("App\Model\VehicleModel", "vehicle_id", "id");
     }
 
 }

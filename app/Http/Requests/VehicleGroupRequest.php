@@ -25,12 +25,14 @@ class VehicleGroupRequest extends FormRequest
      */
     public function authorize()
     {
+        return true;
+
         // return (Auth::user()->user_type == "S");
-        if (Auth::user()->user_type == "S" || Auth::user()->user_type == "O") {
-            return true;
-        } else {
-            abort(404);
-        }
+        // if (Auth::user()->user_type == "S" || Auth::user()->user_type == "O") {
+        //     return true;
+        // } else {
+        //     abort(404);
+        // }
 
     }
 

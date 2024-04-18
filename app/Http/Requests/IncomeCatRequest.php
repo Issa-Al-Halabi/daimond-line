@@ -19,11 +19,13 @@ class IncomeCatRequest extends FormRequest
 {
     public function authorize()
     {
-        if (Auth::user()->user_type == "S" || Auth::user()->user_type == "O") {
-            return true;
-        } else {
-            abort(404);
-        }
+        return true;
+
+        // if (Auth::user()->user_type == "S" || Auth::user()->user_type == "O") {
+        //     return true;
+        // } else {
+        //     abort(404);
+        // }
     }
     public function rules()
     {

@@ -30,6 +30,6 @@ class ServiceReminderModel extends Model
 
     public function vehicle()
     {
-        return $this->belongsTo("App\Model\VehicleModel", "vehicle_id", "id")->withTrashed();
+        return $this->belongsTo("App\Model\VehicleModel", "vehicle_id", "id");
     }
 }

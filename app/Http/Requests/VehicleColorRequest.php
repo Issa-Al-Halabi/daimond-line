@@ -14,11 +14,13 @@ class VehicleColorRequest extends FormRequest
      */
     public function authorize()
     {
-        if (Auth::user()->user_type == "S" || Auth::user()->user_type == "O" || Auth::user()->user_type == "V") {
-            return true;
-        } else {
-            abort(404);
-        }
+        return true;
+
+        // if (Auth::user()->user_type == "S" || Auth::user()->user_type == "O" || Auth::user()->user_type == "V") {
+        //     return true;
+        // } else {
+        //     abort(404);
+        // }
     }
 
     /**

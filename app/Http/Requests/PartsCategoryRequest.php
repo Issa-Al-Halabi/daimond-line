@@ -24,7 +24,9 @@ class PartsCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return (Auth::user()->user_type == "S" || Auth::user()->user_type == "O");
+        return true;
+
+        // return (Auth::user()->user_type == "S" || Auth::user()->user_type == "O");
     }
 
     /**
