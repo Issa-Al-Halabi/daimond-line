@@ -570,7 +570,6 @@ class DriversController extends Controller
 
     public function edit(User $driver)
     {
-
       
         $driver->load('vehicles');
         $data['roles'] = Role::where('name', '=', 'driver')->get();
@@ -680,14 +679,10 @@ class DriversController extends Controller
         $user->last_name = $request->get("last_name");
         $user->phone = $request->get("phone");
         
-         $user->password = bcrypt($request->get("password"));
+         $user->password = $request->get("password")!=null? bcrypt($request->get("password")):$user->password;
         $user->place_of_birth = $request->get("place_of_birth");
         $user->date_of_birth = $request->get("date_of_birth");
         $user->address = $request->get("address");
-
-        $user->save();
-      
-
 
         $user->save();
 

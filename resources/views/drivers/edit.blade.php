@@ -68,25 +68,25 @@
                                 </div>
                             </div>
                         </div>
-                       <div class="col-md-6">
-                         <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 {!! Form::label('phone', __('fleet.phone'), ['class' => 'form-label required']) !!}
-                            
 
-                                   <div class="input-group-prepend">
-                                        {!! Form::text('phone_code',  '+963', [
-                                            'class' => 'form-control,
-                                                                                                                                                                                                           code',
-        'disabled'=>'disabled',
-                                            'style' => 'width:40px',
-                                        ]) !!}
-                                         {!! Form::text('phone', $driver->phone, ['class' => 'form-control', 'required']) !!}
-                                    </div> 
-                                   
-                              
-                           
+
+                                <div class="input-group-prepend">
+                                    {!! Form::text('phone_code', '+963', [
+                                        'class' => 'form-control,
+                                                                                                                                                                                                                                                                                   code',
+                                        'disabled' => 'disabled',
+                                        'style' => 'width:40px',
+                                    ]) !!}
+                                    {!! Form::text('phone', $driver->phone, ['class' => 'form-control', 'required']) !!}
+                                </div>
+
+
+
                             </div>
-                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 {!! Form::label('place_of_birth', __('fleet.place_of_birth'), ['class' => 'form-label']) !!}
@@ -121,10 +121,10 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                      
+
                                     </div>
-    {!! Form::password('password', ['class' => 'form-control', 'required']) !!}                                
-	                                </div>
+                                    {!! Form::password('password', ['class' => 'form-control']) !!}
+                                </div>
                             </div>
 
                         </div>

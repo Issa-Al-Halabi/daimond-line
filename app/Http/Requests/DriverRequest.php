@@ -36,19 +36,19 @@ class DriverRequest extends FormRequest
     public function rules()
     {
         if ($this->request->has("edit")) {
-            return [
 
+            return [
                
                
                  'phone' => [
         Rule::unique('users')->where(function ($query) {
             $query->whereNull('deleted_at');
-        }),
+        })->ignore($this->request->get("id")),
      
         'numeric',
     ],
-                'email' => 'required|email|unique:users,email,' . \Request::get("id"),
-                 'password'=>'min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+                'email' => 'required|email|unique:users,email,' . $this->request->get("id"),
+                 'password'=>'nullable|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
                 
                
                 'driver_image' => 'nullable|mimes:jpg,png,jpeg',
@@ -66,7 +66,7 @@ class DriverRequest extends FormRequest
      
         'numeric',
     ],
-                'email' => 'email|unique:users,email,' . \Request::get("id"),
+                'email' => 'email|unique:users,email,' . $this->request->get("id"),
                  'password'=>'min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
                
             ];

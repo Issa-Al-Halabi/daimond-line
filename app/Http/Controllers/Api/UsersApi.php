@@ -260,8 +260,6 @@ class UsersApi extends Controller
 
     public function user_login(Request $request)
     {
-
-
         $validated = $request->validate([
             'phone' => 'required',
             'password' => 'required',
