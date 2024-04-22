@@ -450,7 +450,6 @@ class SettingsController extends Controller
     public function fare_create()
     {
 
-
         $data['vehicle_types'] = VehicleTypeModel::get();
 
 
@@ -459,7 +458,6 @@ class SettingsController extends Controller
 
     public function fare_store(Request $request)
     {
-    
          if ($request->category_id == 1){
            $validation = Validator::make($request->all(), [
 
@@ -522,7 +520,16 @@ class SettingsController extends Controller
        }
 
        else{
-          Session::flash('success', 'التسعيرات موجودة من قبل');
+        Session::flash('success', 'التسعيرات موجودة من قبل');
+
+        if($category=='inside city'){
+            return redirect('admin/fare1')->withErrors(["exists"=>"التسعيرات موجودة من قبل"]);
+         }
+ 
+       elseif($category=='outside damascus'){
+            return redirect('admin/fare')->withErrors(["exists"=>"التسعيرات موجودة من قبل"]);
+        }
+
         return redirect('admin/fare');
        }
        

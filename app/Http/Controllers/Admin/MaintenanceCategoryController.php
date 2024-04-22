@@ -18,12 +18,17 @@ class MaintenanceCategoryController extends Controller
   }
     public function store(Request $request)
     {
+        if(isset($request->type)){
 
+            MaintenanceCategory::create([
+                "type" => $request->get("type")
+            ]);
 
-        MaintenanceCategory::create([
-            "type" => $request->get("type")
-        ]);
-        return redirect()->route("maintcategory.index");
+            return redirect()->route("maintcategory.index");
+
+        }else{
+            return redirect()->back()->withErrors(["empty"=>"الرجاء ادخال قيمة"]);
+        }
     }
     public function edit($id)
     {

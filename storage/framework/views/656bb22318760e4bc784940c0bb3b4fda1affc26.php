@@ -16,15 +16,14 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card card-success">
-                <div class="card-header" style="color:#fbfbfb;">
+                <div class="card-header">
                     <div class="row">
                         <div class="col-md-4">
-                            <h3 class="card-title"> <?php echo app('translator')->get('fleet.fare_manage_outside'); ?> : <strong><span id="total_today"> <a
+                            <h3 class="card-title"> <?php echo app('translator')->get('fleet.fare_manage_inside'); ?> : <strong><span id="total_today"> <a
                                             href="<?php echo e(route('farecreate')); ?>" class="btn btn-success"
                                             title="<?php echo app('translator')->get('fleet.addDriver'); ?>"> <i class="fa fa-plus"></i> </a></span> </strong>
                             </h3>
                         </div>
-
                     </div>
                 </div>
 
@@ -44,11 +43,14 @@
                                 <th>
                                     <input type="checkbox" id="chk_all">
                                 </th>
+
                                 <th><?php echo app('translator')->get('fleet.id'); ?></th>
                                 <th><?php echo app('translator')->get('fleet.type'); ?></th>
                                 <th><?php echo app('translator')->get('fleet.user_type'); ?></th>
-                                <th><?php echo app('translator')->get('fleet.base_km'); ?></th>
+                                <th><?php echo app('translator')->get('fleet.price_per_km'); ?></th>
                                 <th><?php echo app('translator')->get('fleet.price_per_minute'); ?></th>
+                                <th><?php echo app('translator')->get('fleet.limit_distance'); ?></th>
+                                <th><?php echo app('translator')->get('fleet.cost'); ?></th>
 
                                 <th><?php echo app('translator')->get('fleet.action'); ?></th>
                             </tr>
@@ -56,38 +58,48 @@
 
                         <tbody>
                             <?php
-                            
                             $x = 1;
                             ?>
-
-
                             <?php $__currentLoopData = $settings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
+
                                     <td>
                                         <input type="checkbox" name="ids[]" value="<?php echo e($row->id); ?>" class="checkbox"
                                             id="chk<?php echo e($row->id); ?>" onclick='checkcheckbox();'>
                                     </td>
                                     <td><?php echo e($x++); ?></td>
+
                                     <td><?php echo e($row->vehicletype); ?></td>
                                     <td><?php echo e($row->user_type); ?></td>
                                     <td><?php echo e($row->base_km); ?> Sy</td>
                                     <td><?php echo e($row->base_time); ?> Sy</td>
+                                    <?php if(isset($row->limit_distance)): ?>
+                                        <td><?php echo e($row->limit_distance); ?> km</td>
+                                    <?php else: ?>
+                                        <td>---</td>
+                                    <?php endif; ?>
 
+                                    <?php if(isset($row->cost)): ?>
+                                        <td><?php echo e($row->cost); ?> Sy</td>
+                                    <?php else: ?>
+                                        <td>---</td>
+                                    <?php endif; ?>
                                     <td>
 
                                         <div class="btn-group" style="background:#075296;">
-                                            <button type="button" class="btn  dropdown-toggle" style="color:white;"
+                                            <button type="button" style="color:white;" class="btn  dropdown-toggle"
                                                 data-toggle="dropdown">
                                                 <span class="fa fa-gear"></span>
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
                                             <div class="dropdown-menu custom" role="menu">
-                                                <a class="dropdown-item" href="<?php echo e(url('admin/getfare/' . $row->id)); ?>">
+
+                                                <a class="dropdown-item" href="<?php echo e(url('admin/getfare1/' . $row->id)); ?>">
                                                     <span aria-hidden="true" class="fa fa-edit"
-                                                        style="color: #075296;"></span> <?php echo app('translator')->get('fleet.edit'); ?></a>
+                                                        style="color: #075296"></span> <?php echo app('translator')->get('fleet.edit'); ?></a>
 
                                                 <?php echo Form::open([
-                                                    'url' => 'admin/delete-fare/' . $row->id,
+                                                    'url' => 'admin/delete-fare1/' . $row->id,
                                                     'method' => 'DELETE',
                                                     'class' => 'form-horizontal del_form',
                                                     'id' => 'form_' . $row->id,
@@ -101,9 +113,14 @@
                                                             style="color: #dd4b39"></span> <?php echo app('translator')->get('fleet.delete'); ?></a>
                                                 <?php endif; ?>
                                             </div>
+                                            <?php echo Form::open([
+                                                'url' => 'admin/maintenance/' . $row->id,
+                                                'method' => 'DELETE',
+                                                'class' => 'form-horizontal del_form',
+                                                'id' => 'form_' . $row->id,
+                                            ]); ?>
 
-                                            <?php echo Form::close(); ?>
-
+                                            <?php echo Form::hidden('id', $row->id); ?>
 
                                             <?php echo Form::close(); ?>
 
@@ -115,17 +132,20 @@
                         <tfoot>
                             <tr>
                                 <th>
-                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('Transactions delete')): ?>
-                                        <button class="btn btn-danger" id="bulk_delete" data-toggle="modal"
-                                            data-target="#bulkModal" disabled title="<?php echo app('translator')->get('fleet.delete'); ?>"><i
-                                                class="fa fa-trash"></i></button>
-                                    <?php endif; ?>
+
+                                    <button class="btn btn-danger" id="bulk_delete" data-toggle="modal"
+                                        data-target="#bulkModal" disabled title="<?php echo app('translator')->get('fleet.delete'); ?>"><i
+                                            class="fa fa-trash"></i></button>
+
                                 </th>
+
                                 <th><?php echo app('translator')->get('fleet.id'); ?></th>
                                 <th><?php echo app('translator')->get('fleet.type'); ?></th>
                                 <th><?php echo app('translator')->get('fleet.user_type'); ?></th>
-                                <th><?php echo app('translator')->get('fleet.price_per_km'); ?></th>
+                                <th><?php echo app('translator')->get('fleet.base_km'); ?></th>
                                 <th><?php echo app('translator')->get('fleet.price_per_minute'); ?></th>
+                                <th><?php echo app('translator')->get('fleet.limit_distance'); ?></th>
+                                <th><?php echo app('translator')->get('fleet.cost'); ?></th>
 
                                 <th><?php echo app('translator')->get('fleet.action'); ?></th>
 
@@ -148,7 +168,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <?php echo Form::open(['url' => 'admin/fare_bulkdelete', 'method' => 'POST', 'id' => 'form_delete']); ?>
+                    <?php echo Form::open(['url' => 'admin/fare_bulkdelete1', 'method' => 'POST', 'id' => 'form_delete']); ?>
 
                     <div id="bulk_hidden"></div>
                     <p><?php echo app('translator')->get('fleet.confirm_bulk_delete'); ?></p>
@@ -163,9 +183,6 @@
             </div>
         </div>
     </div>
-
-
-
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -351,4 +368,4 @@
     </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\EM_Projects\xampp\htdocs\Laravel\diamond_backend\resources\views/utilities/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\EM_Projects\xampp\htdocs\Laravel\diamond_backend\resources\views/utilities/index1.blade.php ENDPATH**/ ?>

@@ -9,8 +9,8 @@
 
     <style type="text/css">
         /* .select2-selection:not(.select2-selection--multiple) {
-                                                        height: 38px !important;
-                                                    } */
+                                                            height: 38px !important;
+                                                        } */
 
         .img {
             border-radius: 60px;
@@ -55,27 +55,27 @@
                                 {!! Form::text('last_name', $data['last_name'], ['class' => 'form-control']) !!}
                             </div>
                         </div>
-                        
-                       
 
-<div class="col-md-6">
-                        <div class="form-group">
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 {!! Form::label('phone', __('fleet.phone'), ['class' => 'form-label required']) !!}
-                            
 
-                                   <div class="input-group-prepend">
-                                        {!! Form::text('phone_code',  '+963', [
-                                            'class' => 'form-control,
-                                                                                                                                                                                                           code',
-        'disabled'=>'disabled',
-                                            'style' => 'width:40px',
-                                        ]) !!}
-                                         {!! Form::text('phone', $data['phone'], ['class' => 'form-control', 'required']) !!}
-                                    </div> 
-                                   
-                              
+
+                                <div class="input-group-prepend">
+                                    {!! Form::text('phone_code', '+963', [
+                                        'class' => 'form-control,
+                                                                                                                                                                                                                                               code',
+                                        'disabled' => 'disabled',
+                                        'style' => 'width:40px',
+                                    ]) !!}
+                                    {!! Form::text('phone', $data['phone'], ['class' => 'form-control', 'required']) !!}
+                                </div>
+
+
                             </div>
-                            </div>
+                        </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
@@ -95,8 +95,13 @@
                                     <div class="input-group-prepend">
                                         {{-- <span class="input-group-text"><i class="fa fa-envelope"></i></span> --}}
                                     </div>
-                                  {!! Form::password('password', ['class' => 'form-control', 'required', 'pattern' => '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', 'title' => 'Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one digit.']) !!}
-                                    
+                                    {!! Form::password('password', [
+                                        'class' => 'form-control',
+                                        'pattern' => '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}',
+                                        'title' =>
+                                            'Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one digit.',
+                                    ]) !!}
+
                                 </div>
                             </div>
                         </div>

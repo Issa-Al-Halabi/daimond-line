@@ -254,7 +254,8 @@ class BookingsController extends Controller
                 ->join('users', 'users.id', 'bookings.user_id')
                 ->join('vehicle_types', 'bookings.type_id', 'vehicle_types.id')
              
-                ->with(['customer', 'vehicle.maker', 'vehicle.vehiclemodel', 'metas']);
+                // ->with(['customer', 'vehicle.maker', 'vehicle.vehiclemodel', 'metas']);
+                ->with(['customer', 'vehicle.maker', 'vehicle.vehiclemodel']);
 
             return DataTables::eloquent($bookings)
                 ->addIndexColumn()

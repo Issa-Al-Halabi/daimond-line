@@ -231,7 +231,7 @@ class CustomersController extends Controller
        
         $user->address = $request->get("address");
         $user->phone = $request->get("phone");
-         $user->password = bcrypt($request->get("password"));
+        $user->password = $request->get("password")!=null ? bcrypt($request->get("password")):$user->password;
         $user->gender = $request->get('gender');
         $user->save();
         $role = Role::find($request->id);

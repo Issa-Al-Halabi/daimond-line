@@ -105,7 +105,7 @@
                                 {!! Form::label('mother_name', __('fleet.mother_name'), ['class' => 'form-label']) !!}
                                 {!! Form::text('mother_name', $user->mother_name, ['class' => 'form-control']) !!}
                             </div>
-                          
+
 
                             <div class="form-group">
                                 {!! Form::label('email', __('fleet.email'), ['class' => 'form-label']) !!}
@@ -122,26 +122,26 @@
                             <!--</div>-->
                             <div class="form-group">
                                 {!! Form::label('phone', __('fleet.phone'), ['class' => 'form-label required']) !!}
-                            
 
-                                   <div class="input-group-prepend">
-                                        {!! Form::text('phone_code',  '+963', [
-                                            'class' => 'form-control,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          code',
-        'disabled'=>'disabled',
-                                            'style' => 'width:40px',
-                                        ]) !!}
-                                         {!! Form::text('phone', $user->phone, ['class' => 'form-control']) !!}
-                                    </div> 
-                                   
-                              
+
+                                <div class="input-group-prepend">
+                                    {!! Form::text('phone_code', '+963', [
+                                        'class' => 'form-control,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              code',
+                                        'disabled' => 'disabled',
+                                        'style' => 'width:40px',
+                                    ]) !!}
+                                    {!! Form::text('phone', $user->phone, ['class' => 'form-control']) !!}
+                                </div>
+
+
                             </div>
 
 
 
                             <div class="form-group">
                                 {!! Form::label('role_id', __('fleet.role'), ['class' => 'form-label']) !!}
-                                <select id="role_id" name="role_id" class="form-control" >
+                                <select id="role_id" name="role_id" class="form-control">
                                     <option value="">@lang('fleet.role')</option>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->name }}"
@@ -186,11 +186,11 @@
                             <div class="form-group">
                                 {!! Form::label('password', __('fleet.password'), ['class' => 'form-label']) !!}
                                 <div class="input-group mb-3">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                  </div>
-                                  {!! Form::password('password', ['class' => 'form-control', 'required', 'id' => 'password']) !!}
-                                  <div class="invalid-feedback" id="password-feedback"></div>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                    </div>
+                                    {!! Form::password('password', ['class' => 'form-control', 'id' => 'password']) !!}
+                                    <div class="invalid-feedback" id="password-feedback"></div>
                                 </div>
                             </div>
 
@@ -199,7 +199,7 @@
                                 {!! Form::text('place_of_birth', $user->place_of_birth, ['class' => 'form-control']) !!}
                             </div>
 
-                          
+
 
                             <div class="form-group">
                                 {!! Form::label('date_of_birth', __('fleet.date_of_birth'), ['class' => 'form-label']) !!}
@@ -308,42 +308,43 @@
 
 
 
-{{-- check the password validate --}}
-<script>
-    var passwordInput = document.getElementById('password');
-    var passwordFeedback = document.getElementById('password-feedback');
-  
-    passwordInput.addEventListener('input', function(event) {
-      var password = passwordInput.value;
-      var passwordStrength = getPasswordStrength(password);
-  
-      if (passwordStrength < 4) {
-        passwordInput.classList.add('is-invalid');
-        passwordFeedback.textContent = 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.';
-      } else {
-        passwordInput.classList.remove('is-invalid');
-        passwordFeedback.textContent = '';
-      }
-    });
-  
-    function getPasswordStrength(password) {
-      var strength = 0;
-      var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  
-      if (password.match(regex)) {
-        strength += 1;
-      }
-      if (password.length >= 8) {
-        strength += 1;
-      }
-      if (password.length >= 12) {
-        strength += 1;
-      }
-      if (password.match(/[~`!#$%^&*()-_=+[\]{}\\|;:'",.<>/?]+/)) {
-        strength += 1;
-      }
-  
-      return strength;
-    }
-  </script>
+    {{-- check the password validate --}}
+    <script>
+        var passwordInput = document.getElementById('password');
+        var passwordFeedback = document.getElementById('password-feedback');
+
+        passwordInput.addEventListener('input', function(event) {
+            var password = passwordInput.value;
+            var passwordStrength = getPasswordStrength(password);
+
+            if (passwordStrength < 4) {
+                passwordInput.classList.add('is-invalid');
+                passwordFeedback.textContent =
+                    'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.';
+            } else {
+                passwordInput.classList.remove('is-invalid');
+                passwordFeedback.textContent = '';
+            }
+        });
+
+        function getPasswordStrength(password) {
+            var strength = 0;
+            var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (password.match(regex)) {
+                strength += 1;
+            }
+            if (password.length >= 8) {
+                strength += 1;
+            }
+            if (password.length >= 12) {
+                strength += 1;
+            }
+            if (password.match(/[~`!#$%^&*()-_=+[\]{}\\|;:'",.<>/?]+/)) {
+                strength += 1;
+            }
+
+            return strength;
+        }
+    </script>
 @endsection

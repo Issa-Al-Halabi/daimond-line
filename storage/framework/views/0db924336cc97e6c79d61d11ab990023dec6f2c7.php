@@ -9,8 +9,8 @@
 
     <style type="text/css">
         /* .select2-selection:not(.select2-selection--multiple) {
-                                                        height: 38px !important;
-                                                    } */
+                                                            height: 38px !important;
+                                                        } */
 
         .img {
             border-radius: 60px;
@@ -61,30 +61,30 @@
 
                             </div>
                         </div>
-                        
-                       
 
-<div class="col-md-6">
-                        <div class="form-group">
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <?php echo Form::label('phone', __('fleet.phone'), ['class' => 'form-label required']); ?>
 
-                            
 
-                                   <div class="input-group-prepend">
-                                        <?php echo Form::text('phone_code',  '+963', [
-                                            'class' => 'form-control,
-                                                                                                                                                                                                           code',
-        'disabled'=>'disabled',
-                                            'style' => 'width:40px',
-                                        ]); ?>
 
-                                         <?php echo Form::text('phone', $data['phone'], ['class' => 'form-control', 'required']); ?>
+                                <div class="input-group-prepend">
+                                    <?php echo Form::text('phone_code', '+963', [
+                                        'class' => 'form-control,
+                                                                                                                                                                                                                                               code',
+                                        'disabled' => 'disabled',
+                                        'style' => 'width:40px',
+                                    ]); ?>
 
-                                    </div> 
-                                   
-                              
+                                    <?php echo Form::text('phone', $data['phone'], ['class' => 'form-control', 'required']); ?>
+
+                                </div>
+
+
                             </div>
-                            </div>
+                        </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
@@ -107,9 +107,14 @@
                                     <div class="input-group-prepend">
                                         
                                     </div>
-                                  <?php echo Form::password('password', ['class' => 'form-control', 'required', 'pattern' => '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', 'title' => 'Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one digit.']); ?>
+                                    <?php echo Form::password('password', [
+                                        'class' => 'form-control',
+                                        'pattern' => '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}',
+                                        'title' =>
+                                            'Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one digit.',
+                                    ]); ?>
 
-                                    
+
                                 </div>
                             </div>
                         </div>

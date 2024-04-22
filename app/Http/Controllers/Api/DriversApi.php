@@ -366,7 +366,7 @@ class DriversApi extends Controller
       
     }
   /**
-  Show the nearby internal and external trips to the driver
+  Show the nearby internal and external     s to the driver
   in case he did not receive other requests.
   **/
     public function driver_trip(Request $request)
@@ -706,12 +706,16 @@ When the driver starts a trip, the trip status changes
     [$hours1, $minutes1] =explode(':', $request->end_time);
      $start=(int) $hours * 60 + (int) $minutes;
      $end=(int) $hours1 * 60 + (int) $minutes1;
-      
-     $total_minutes=$end-$start;
-    
+
+     $total_minutes = $end - $start;
+
+     if($total_minutes < 0){
+        $start = $start - 1440;
+        $total_minutes = $end - $start;
+       }
+
         //  Calculation of new cost  Because the cost varies according to the user type
         $user_type=DB::table('users')->where('id',$trip_started->user_id)->select('user_type')->first();
-      
         $driver_type=DB::table('users')->where('id',$trip_started->driver_id)->select('user_type','device_token')->first();
 
         $driver_wallet=WalletModel::where('driver_id',$trip_started->driver_id)->first();
@@ -732,26 +736,24 @@ When the driver starts a trip, the trip status changes
 
       //inside city trip
       if($trip_started->request_type=="moment"|| $trip_started->request_type=="delayed"){
-          
-          
-         if (strtoupper($user_type->user_type) == strtoupper('user')) {
+          if (strtoupper($user_type->user_type) == strtoupper('user')) {
              
            //return price of km and min for user  inside city.
             $fare = DB::table('fare_settings')->where('type_id',  $trip_started->type_id)->where('category_id', 'inside city')
                 ->where(DB::raw('lower(user_type)'), 'like', '%' . strtolower('user') . '%')
                 ->first();
-                
            // limit_distance at which the fare is fixed
            if($request->km <= $fare->limit_distance){
               
-              $cost=$fare->cost;
+              $cost = $fare->cost;
               
             }
            //After this limit distance the cost is calculated in this way
            else
            {
-               $cost = (  $request->km * $fare->base_km) + ( $total_minutes* $fare->base_time);
-             
+
+            $cost = (  $request->km * $fare->base_km) + ( $total_minutes* $fare->base_time);
+
            }
            
            $cost = $cost + ($cost * $admin_fare_value)/100;

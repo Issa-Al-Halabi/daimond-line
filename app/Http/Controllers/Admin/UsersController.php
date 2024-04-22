@@ -153,7 +153,7 @@ class UsersController extends Controller
         $user->phone = $request->get("phone");
        
         $user->address = $request->get("address");
-         $user->password = bcrypt($request->get("password"));
+        $user->password = $request->get("password")!=null ? bcrypt($request->get("password")):$user->password;
         $user->user_type = $role->name;
         $user->api_token = str_random(60);
         $user->save();

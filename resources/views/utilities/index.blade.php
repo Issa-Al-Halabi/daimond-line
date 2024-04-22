@@ -29,6 +29,15 @@
                 </div>
 
                 <div class="card-body table-responsive" id="expenses">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <table class="table" id="data_table">
                         <thead class="thead-inverse">
                             <tr>
@@ -46,19 +55,19 @@
                         </thead>
 
                         <tbody>
-                          <?php
-
-                          $x=1;
-                        ?>
+                            <?php
                             
+                            $x = 1;
+                            ?>
+
 
                             @foreach ($settings as $row)
-                             <tr>
+                                <tr>
                                     <td>
                                         <input type="checkbox" name="ids[]" value="{{ $row->id }}" class="checkbox"
                                             id="chk{{ $row->id }}" onclick='checkcheckbox();'>
                                     </td>
-                                    <td>{{ $x++}}</td>
+                                    <td>{{ $x++ }}</td>
                                     <td>{{ $row->vehicletype }}</td>
                                     <td>{{ $row->user_type }}</td>
                                     <td>{{ $row->base_km }} Sy</td>

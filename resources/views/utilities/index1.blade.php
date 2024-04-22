@@ -28,6 +28,15 @@
                 </div>
 
                 <div class="card-body table-responsive" id="expenses">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <table class="table" id="data_table">
                         <thead class="thead-inverse">
                             <tr>
@@ -48,34 +57,33 @@
                         </thead>
 
                         <tbody>
-<?php
-                          $x=1;
-                        ?>
+                            <?php
+                            $x = 1;
+                            ?>
                             @foreach ($settings as $row)
-                           
                                 <tr>
-                                  
+
                                     <td>
                                         <input type="checkbox" name="ids[]" value="{{ $row->id }}" class="checkbox"
                                             id="chk{{ $row->id }}" onclick='checkcheckbox();'>
                                     </td>
-                                    <td>{{ $x++}}</td>
+                                    <td>{{ $x++ }}</td>
 
                                     <td>{{ $row->vehicletype }}</td>
                                     <td>{{ $row->user_type }}</td>
                                     <td>{{ $row->base_km }} Sy</td>
                                     <td>{{ $row->base_time }} Sy</td>
-                                  @if(isset( $row->limit_distance))
-                                    <td>{{ $row->limit_distance }} km</td>
-                                  @else
-                                  <td>---</td>
-                                  @endif
-                                  
-                                     @if(isset( $row->cost))
-                                    <td>{{ $row->cost }} Sy</td>
-                                  @else
-                                   <td>---</td>
-                                  @endif
+                                    @if (isset($row->limit_distance))
+                                        <td>{{ $row->limit_distance }} km</td>
+                                    @else
+                                        <td>---</td>
+                                    @endif
+
+                                    @if (isset($row->cost))
+                                        <td>{{ $row->cost }} Sy</td>
+                                    @else
+                                        <td>---</td>
+                                    @endif
                                     <td>
 
                                         <div class="btn-group" style="background:#075296;">
@@ -120,10 +128,10 @@
                             <tr>
                                 <th>
 
-                                        <button class="btn btn-danger" id="bulk_delete" data-toggle="modal"
-                                            data-target="#bulkModal" disabled title="@lang('fleet.delete')"><i
-                                                class="fa fa-trash"></i></button>
-                               
+                                    <button class="btn btn-danger" id="bulk_delete" data-toggle="modal"
+                                        data-target="#bulkModal" disabled title="@lang('fleet.delete')"><i
+                                            class="fa fa-trash"></i></button>
+
                                 </th>
 
                                 <th>@lang('fleet.id')</th>
@@ -131,7 +139,7 @@
                                 <th>@lang('fleet.user_type')</th>
                                 <th>@lang('fleet.base_km')</th>
                                 <th>@lang('fleet.price_per_minute')</th>
-                               <th>@lang('fleet.limit_distance')</th>
+                                <th>@lang('fleet.limit_distance')</th>
                                 <th>@lang('fleet.cost')</th>
 
                                 <th>@lang('fleet.action')</th>

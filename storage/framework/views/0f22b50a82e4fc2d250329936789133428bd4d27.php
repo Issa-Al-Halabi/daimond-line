@@ -1,8 +1,8 @@
-@extends('layouts.app')
-@php($date_format_setting = Hyvikk::get('date_format') ? Hyvikk::get('date_format') : 'd-m-Y')
-@php($currency = Hyvikk::get('currency'))
-@section('extra_css')
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datepicker.min.css') }}">
+
+<?php ($date_format_setting = Hyvikk::get('date_format') ? Hyvikk::get('date_format') : 'd-m-Y'); ?>
+<?php ($currency = Hyvikk::get('currency')); ?>
+<?php $__env->startSection('extra_css'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap-datepicker.min.css')); ?>">
     <style type="text/css">
         .checkbox,
         #chk_all {
@@ -10,68 +10,61 @@
             height: 20px;
         }
     </style>
-@endsection
-@section('breadcrumb')
-    <li class="breadcrumb-item active">@lang('fleet.expense')</li>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('breadcrumb'); ?>
+    <li class="breadcrumb-item active"><?php echo app('translator')->get('fleet.expense'); ?></li>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col-md-12">
             <div class="card card-success">
                 <div class="card-header">
-                    <h3 class="card-title">@lang('fleet.addRecord')
+                    <h3 class="card-title"><?php echo app('translator')->get('fleet.addRecord'); ?>
                     </h3>
                 </div>
 
                 <div class="card-body">
                     <div class="row">
-                        @if (count($errors) > 0)
+                        <?php if(count($errors) > 0): ?>
                             <div class="alert alert-danger">
                                 <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
+                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li><?php echo e($error); ?></li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                             </div>
-                        @endif
-                        {!! Form::open([
+                        <?php endif; ?>
+                        <?php echo Form::open([
                             'route' => ['maintenance.update', $maint->id],
                         
                             'method' => 'PATCH',
                             'class' => 'form-inline',
                             'id' => 'exp_form',
-                        ]) !!}
-                        {!! Form::hidden('id', $maint->id) !!}
+                        ]); ?>
 
-                        {{-- <div class="col-md-4 col-sm-6">
-                            <select id="vehicle_id" name="vehicle_id" class="form-control vehicles" style="width: 100%"
-                                required>
-                                <option value="">@lang('fleet.selectVehicle')</option>
-                                @foreach ($vehicles as $vehicle)
-                                    <option value="{{ $vehicle->id }}" @if ($maint->vehicle_id == $vehicle->id) selected @endif>
-                                        {{ $vehicle->maker->make }}-{{ $vehicle->vehiclemodel->model }}-{{ $vehicle->license_plate }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div> --}}
+                        <?php echo Form::hidden('id', $maint->id); ?>
+
+
+                        
 
                         <div class="col-md-4 ">
                             <select id="vechicle_id" name="vehicle_id" class="form-control vehicles" style="width: 100%"
                                 required>
-                                <option value="">@lang('fleet.selectVehicle')</option>
-                                @foreach ($vehicles as $vehicle)
-                                    <option value="{{ $vehicle->id }}" @if ($maint->vehicle_id == $vehicle->id) selected @endif>
-                                        {{ $vehicle->types->vehicletype }}:{{ $vehicle->car_model }}
+                                <option value=""><?php echo app('translator')->get('fleet.selectVehicle'); ?></option>
+                                <?php $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($vehicle->id); ?>" <?php if($maint->vehicle_id == $vehicle->id): ?> selected <?php endif; ?>>
+                                        <?php echo e($vehicle->types->vehicletype); ?>:<?php echo e($vehicle->car_model); ?>
+
                                     </option>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
 
                         <div class="col-md-5" style="margin-top: 5px;">
                             <select id="type_id" name="type_id[]" class="form-control vehicles" style="width: 100%"
                                 multiple="true" required>
-                                <option value="">@lang('fleet.select_type')</option>
-                                @foreach ($types as $type)
+                                <option value=""><?php echo app('translator')->get('fleet.select_type'); ?></option>
+                                <?php $__currentLoopData = $types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php
                                     
                                     $x = explode(',', $maint->type_id);
@@ -79,10 +72,11 @@
                                     $selected = in_array($type->id, $x) ? 'selected' : '';
                                     
                                     ?>
-                                    <option value="{{ $type->id }}"{{ $selected }}>
-                                        {{ $type->type }}
+                                    <option value="<?php echo e($type->id); ?>"<?php echo e($selected); ?>>
+                                        <?php echo e($type->type); ?>
+
                                     </option>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
 
@@ -92,14 +86,15 @@
                             <div class="input-group date">
                                 <div class="input-group-prepend"><span class="input-group-text"><i
                                             class="fa fa-calendar"></i></span></div>
-                                {!! Form::text('date', $maint->date, ['class' => 'form-control', 'required']) !!}
+                                <?php echo Form::text('date', $maint->date, ['class' => 'form-control', 'required']); ?>
+
                             </div>
                         </div>
                         <div class="col-md-2"style="margin-top: 5px;">
                             <div class="input-group ">
                                 <label class="switch">
                                     <input type="checkbox" class="input-group-prepend" name="status" value="1"
-                                        @if ($maint->status == '1') Checked @endif>
+                                        <?php if($maint->status == '1'): ?> Checked <?php endif; ?>>
                                     <span class="slider round"></span>
                                 </label>
                             </div>
@@ -108,27 +103,15 @@
 
 
                         <div class="col-md-4" style="margin-top: 10px;">
-                            @can('Transactions add')
-                                <button type="submit" class="btn btn-success">@lang('fleet.update')</button>
-                            @endcan
+                            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('Transactions add')): ?>
+                                <button type="submit" class="btn btn-success"><?php echo app('translator')->get('fleet.update'); ?></button>
+                            <?php endif; ?>
                         </div>
 
-                        {{-- <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    {!! Form::label('status', __('fleet.service'), ['class' => 'col-xs-5 control-label']) !!}
-                                </div>
-                                <div class="col-ms-6" style="margin-left: -140px">
-                                    <label class="switch">
-                                        <input type="checkbox" name="status" value="1"
-                                            @if ($maint->status == '1') checked @endif>
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div> --}}
+                        
 
-                        {!! Form::close() !!}
+                        <?php echo Form::close(); ?>
+
 
                     </div>
                 </div>
@@ -139,20 +122,22 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">@lang('fleet.delete')</h4>
+                            <h4 class="modal-title"><?php echo app('translator')->get('fleet.delete'); ?></h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                            {!! Form::open(['url' => 'admin/delete-expense', 'method' => 'POST', 'id' => 'form_delete']) !!}
+                            <?php echo Form::open(['url' => 'admin/delete-expense', 'method' => 'POST', 'id' => 'form_delete']); ?>
+
                             <div id="bulk_hidden"></div>
-                            <p>@lang('fleet.confirm_bulk_delete')</p>
+                            <p><?php echo app('translator')->get('fleet.confirm_bulk_delete'); ?></p>
                         </div>
                         <div class="modal-footer">
                             <button id="bulk_action" class="btn btn-danger" type="submit"
-                                data-submit="">@lang('fleet.delete')</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">@lang('fleet.close')</button>
+                                data-submit=""><?php echo app('translator')->get('fleet.delete'); ?></button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo app('translator')->get('fleet.close'); ?></button>
                         </div>
-                        {!! Form::close() !!}
+                        <?php echo Form::close(); ?>
+
                     </div>
                 </div>
             </div>
@@ -165,40 +150,40 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">@lang('fleet.delete')</h4>
+                            <h4 class="modal-title"><?php echo app('translator')->get('fleet.delete'); ?></h4>
                         </div>
                         <div class="modal-body">
-                            <p>@lang('fleet.confirm_delete')</p>
+                            <p><?php echo app('translator')->get('fleet.confirm_delete'); ?></p>
                         </div>
                         <div class="modal-footer">
                             <button id="del_btn" class="btn btn-danger" type="button"
-                                data-submit="">@lang('fleet.delete')</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">@lang('fleet.close')</button>
+                                data-submit=""><?php echo app('translator')->get('fleet.delete'); ?></button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo app('translator')->get('fleet.close'); ?></button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Modal -->
-        @endsection
+        <?php $__env->stopSection(); ?>
 
 
-        @section('script')
-            <script src="{{ asset('assets/js/moment.js') }}"></script>
+        <?php $__env->startSection('script'); ?>
+            <script src="<?php echo e(asset('assets/js/moment.js')); ?>"></script>
             <!-- bootstrap datepicker -->
-            <script src="{{ asset('assets/js/bootstrap-datepicker.min.js') }}"></script>
+            <script src="<?php echo e(asset('assets/js/bootstrap-datepicker.min.js')); ?>"></script>
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#vehicle_id').select2({
-                        placeholder: "@lang('fleet.selectVehicle')"
+                        placeholder: "<?php echo app('translator')->get('fleet.selectVehicle'); ?>"
                     });
                     $('#vendor_id').select2({
-                        placeholder: "@lang('fleet.select_vendor')"
+                        placeholder: "<?php echo app('translator')->get('fleet.select_vendor'); ?>"
                     });
                     $('#expense_type').select2({
-                        placeholder: "@lang('fleet.expenseType')"
+                        placeholder: "<?php echo app('translator')->get('fleet.expenseType'); ?>"
                     });
                     $('#type_id').select2({
-                        placeholder: "@lang('fleet.select_type')"
+                        placeholder: "<?php echo app('translator')->get('fleet.select_type'); ?>"
                     });
 
                     $('#date').datepicker({
@@ -231,7 +216,7 @@
                         var hvk = confirm("Are you sure?");
                         if (hvk == true) {
                             var id = $(this).data("id");
-                            var action = "{{ url('admin/expense') }}" + "/" + id;
+                            var action = "<?php echo e(url('admin/expense')); ?>" + "/" + id;
                             $.ajax({
                                 type: "POST",
                                 url: action,
@@ -241,7 +226,7 @@
                                     $("#expenses").html(data);
                                     new PNotify({
                                         title: 'Deleted!',
-                                        text: '@lang('fleet.deleted')',
+                                        text: '<?php echo app('translator')->get('fleet.deleted'); ?>',
                                         type: 'wanring'
                                     })
                                 },
@@ -261,7 +246,7 @@
                         $('#bulk_delete').prop('type', 'button');
                         new PNotify({
                             title: 'Failed!',
-                            text: "@lang('fleet.delete_error')",
+                            text: "<?php echo app('translator')->get('fleet.delete_error'); ?>",
                             type: 'error'
                         });
                         $('#bulk_delete').attr('disabled', true);
@@ -309,4 +294,6 @@
                     }
                 }
             </script>
-        @endsection
+        <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\EM_Projects\xampp\htdocs\Laravel\diamond_backend\resources\views/maintenance/edit.blade.php ENDPATH**/ ?>

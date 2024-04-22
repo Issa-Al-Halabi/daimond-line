@@ -602,7 +602,6 @@ class DriversController extends Controller
 
     public function update(DriverRequest $request)
     {
-        
         $id = $request->get('id');
         $user = User::find($id);
         if ($user->vehicle_id != $request->vehicle_id) {

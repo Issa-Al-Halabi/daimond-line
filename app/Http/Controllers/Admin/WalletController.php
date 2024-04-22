@@ -188,7 +188,6 @@ class WalletController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $validation = Validator::make($request->all(), [
 
             'new_amount' => 'required',
@@ -198,6 +197,7 @@ class WalletController extends Controller
          $minimum_wallet=Value::where('name','minimum_wallet')->first();
       
         $wallet = WalletModel::find($id);
+        // return $wallet;
         $wallet->amount = $request->get('new_amount')+ $wallet->amount;
         $wallet->save();
       

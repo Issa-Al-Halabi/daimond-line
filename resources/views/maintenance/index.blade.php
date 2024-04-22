@@ -76,7 +76,7 @@
                             </select>
                         </div>
 
-                      
+
 
                         <div class="col-md-4"style="margin-top: 5px;">
                             <div class="input-group date">
@@ -198,11 +198,7 @@
                         </thead>
                         <?php
                         // use App\Model\Expense;
-                        $data1['expenses'] = DB::table('maintenances')
-                            ->select('vehicles.car_model', 'maintenances.*')
-                            ->join('vehicles', 'vehicles.id', 'maintenances.vehicle_id')
-                            ->join('maint_categories', 'maint_categories.id', 'maintenances.type_id')
-                            ->get();
+                        $data1['expenses'] = DB::table('maintenances')->select('vehicles.car_model', 'maintenances.*')->join('vehicles', 'vehicles.id', 'maintenances.vehicle_id')->join('maint_categories', 'maint_categories.id', 'maintenances.type_id')->get();
                         $i = 1;
                         
                         ?>
@@ -212,9 +208,7 @@
                                     <?php
                                     
                                     $v = explode(',', $ex->type_id);
-                                    $exp = App\Model\MaintenanceCategory::select('type')
-                                        ->wherein('id', $v)
-                                        ->get();
+                                    $exp = App\Model\MaintenanceCategory::select('type')->wherein('id', $v)->get();
                                     // $expenese = App\Model\ExpCats::select('cost')
                                     //     ->wherein('id', $v)
                                     //     ->sum('cost');

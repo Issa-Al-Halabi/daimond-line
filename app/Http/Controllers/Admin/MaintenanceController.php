@@ -18,13 +18,13 @@ class MaintenanceController extends Controller
      */
     public function index()
     {
-        $data['vehicles'] = VehicleModel::where('in_service', '=', '1')->where('class_id', 'internal_vehicle')->get();
+        // $data['vehicles'] = VehicleModel::where('in_service', '=', '1')->where('class_id', 'internal_vehicle')->get();
+        $data['vehicles'] = VehicleModel::where('in_service', '=', '1')->get();
 
         $data['types'] = MaintenanceCategory::all();
 
 
         $data['maintenance'] = DB::table('maintenances')->get();
-
 
 
         return view('maintenance.index', $data);
@@ -48,7 +48,6 @@ class MaintenanceController extends Controller
      */
     public function store(Request $request)
     {
-
 
 
         if ($request->status == 'on') {

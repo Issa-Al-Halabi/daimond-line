@@ -1,8 +1,8 @@
-@extends('layouts.app')
-@php($date_format_setting = Hyvikk::get('date_format') ? Hyvikk::get('date_format') : 'd-m-Y')
-@php($currency = Hyvikk::get('currency'))
-@section('extra_css')
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datepicker.min.css') }}">
+
+<?php ($date_format_setting = Hyvikk::get('date_format') ? Hyvikk::get('date_format') : 'd-m-Y'); ?>
+<?php ($currency = Hyvikk::get('currency')); ?>
+<?php $__env->startSection('extra_css'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap-datepicker.min.css')); ?>">
     <style type="text/css">
         .checkbox,
         #chk_all {
@@ -10,61 +10,55 @@
             height: 20px;
         }
     </style>
-@endsection
-@section('breadcrumb')
-    <li class="breadcrumb-item active">@lang('fleet.expense')</li>
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('breadcrumb'); ?>
+    <li class="breadcrumb-item active"><?php echo app('translator')->get('fleet.expense'); ?></li>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col-md-12">
             <div class="card card-success">
                 <div class="card-header">
-                    <h3 class="card-title">@lang('fleet.add_main'):
+                    <h3 class="card-title"><?php echo app('translator')->get('fleet.add_main'); ?>:
                     </h3>
                 </div>
 
                 <div class="card-body">
                     <div class="row">
-                        @if (count($errors) > 0)
+                        <?php if(count($errors) > 0): ?>
                             <div class="alert alert-danger">
                                 <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
+                                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li><?php echo e($error); ?></li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                             </div>
-                        @endif
-                        {!! Form::open([
+                        <?php endif; ?>
+                        <?php echo Form::open([
                             'route' => 'maintcategory.store',
                             'method' => 'post',
                             'class' => 'form-inline',
                             'id' => 'exp_form',
-                        ]) !!}
+                        ]); ?>
+
 
                         <div class="col-md" style="margin-top: 10px;">
 
                             <div class="input-group">
                                 <input name="type" type="text" id="name" class="form-control"
-                                    placeholder=" @lang('fleet.maint_type')" style="width: 250px">
+                                    placeholder=" <?php echo app('translator')->get('fleet.maint_type'); ?>" style="width: 250px">
                             </div>
 
                         </div>
                         <div class="col-md-1" style="margin-top: 10px;">
-                            @can('Transactions add')
-                                <button type="submit" class="btn btn-success">@lang('fleet.add')</button>
-                            @endcan
+                            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('Transactions add')): ?>
+                                <button type="submit" class="btn btn-success"><?php echo app('translator')->get('fleet.add'); ?></button>
+                            <?php endif; ?>
                         </div>
-                        {{-- <div class="col-md-3" style="margin-top: 10px;">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                </div>
-                                <input name="date" type="text" id="date" value="{{ date('Y-m-d') }}"
-                                    class="form-control">
-                            </div>
-                        </div> --}}
+                        
 
-                        {!! Form::close() !!}
+                        <?php echo Form::close(); ?>
+
                     </div>
                 </div>
 
@@ -77,7 +71,7 @@
                 <div class="card-header" style="color:#fbfbfb;">
                     <div class="row">
                         <div class="col-md-4">
-                            <h3 class="card-title"> @lang('fleet.managemainttype') : <strong><span id="total_today"> </strong>
+                            <h3 class="card-title"> <?php echo app('translator')->get('fleet.managemainttype'); ?> : <strong><span id="total_today"> </strong>
                             </h3>
                         </div>
 
@@ -89,17 +83,17 @@
                         <thead class="thead-inverse">
                             <tr>
                                 <th>
-                                    {{-- @if ($today->count() > 0) --}}
+                                    
                                     <input type="checkbox" id="chk_all">
-                                    {{-- @endif --}}
+                                    
                                 </th>
                                 <th>#</th>
 
-                                <th>@lang('fleet.maint_type')</th>
+                                <th><?php echo app('translator')->get('fleet.maint_type'); ?></th>
 
 
 
-                                <th>@lang('fleet.delete')</th>
+                                <th><?php echo app('translator')->get('fleet.delete'); ?></th>
                             </tr>
                         </thead>
 
@@ -107,33 +101,20 @@
                             <?php
                             $a = 1;
                             ?>
-                            @foreach ($maint as $row)
+                            <?php $__currentLoopData = $maint; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td>
-                                        <input type="checkbox" name="ids[]" value="{{ $row->id }}" class="checkbox"
-                                            id="chk{{ $row->id }}" onclick='checkcheckbox();'>
+                                        <input type="checkbox" name="ids[]" value="<?php echo e($row->id); ?>" class="checkbox"
+                                            id="chk<?php echo e($row->id); ?>" onclick='checkcheckbox();'>
                                     </td>
 
-                                    <td>{{ $a++ }}</td>
+                                    <td><?php echo e($a++); ?></td>
 
-                                    <td>{{ $row->type }}</td>
+                                    <td><?php echo e($row->type); ?></td>
 
 
                                     <td>
-                                        {{-- {!! Form::open([
-                                                'url' => 'admin/expense/' . $ex->id,
-                                                'method' => 'DELETE',
-                                                'class' => 'form-horizontal del_form',
-                                                'id' => 'form_' . $ex->id,
-                                            ]) !!}
-                                            {!! Form::hidden('id', $ex->id) !!}
-                                            @can('Transactions delete')
-                                                <button type="button" class="btn btn-danger delete" id="btn_delete"
-                                                    data-id="{{ $ex->id }}" title="@lang('fleet.delete')">
-                                                    <span class="fa fa-times" aria-hidden="true"></span>
-                                                </button>
-                                            @endcan
-                                            {!! Form::close() !!} --}}
+                                        
                                         <div class="btn-group" style="background:#075296;">
                                             <button type="button" class="btn  dropdown-toggle" style="color:#fbfbfb;"
                                                 data-toggle="dropdown">
@@ -141,55 +122,47 @@
                                                 <span class="sr-only">Toggle Dropdown</span>
                                             </button>
                                             <div class="dropdown-menu custom" role="menu">
-                                                {{-- <a class="dropdown-item"
-                                                    href="{{ url('admin/maintcategory/' . $row->id . '/edit') }}"> <span
-                                                        aria-hidden="true" class="fa fa-edit"
-                                                        style="color: #075296;"></span> @lang('fleet.edit')</a> --}}
-                                                {!! Form::hidden('id', $row->id) !!}
-                                                <a class="dropdown-item" data-id="{{ $row->id }}" data-toggle="modal"
+                                                
+                                                <?php echo Form::hidden('id', $row->id); ?>
+
+                                                <a class="dropdown-item" data-id="<?php echo e($row->id); ?>" data-toggle="modal"
                                                     data-target="#myModal"><span aria-hidden="true" class="fa fa-trash"
                                                         style="color: #dd4b39"></span>
-                                                    @lang('fleet.delete')</a>
-                                                {{-- <a class="dropdown-item openBtn" data-id="{{ $row->id }}"
-                                                data-toggle="modal" data-target="#myModal2" id="openBtn">
-                                                <span class="fa fa-eye" aria-hidden="true"
-                                                    style="color: #398439"></span> @lang('fleet.view_vehicle')
-                                                    </a> --}}
+                                                    <?php echo app('translator')->get('fleet.delete'); ?></a>
+                                                
                                             </div>
-                                            {!! Form::open([
+                                            <?php echo Form::open([
                                                 'url' => 'admin/maintcategory/' . $row->id,
                                                 'method' => 'DELETE',
                                                 'class' => 'form-horizontal del_form',
                                                 'id' => 'form_' . $row->id,
-                                            ]) !!}
-                                            {!! Form::hidden('id', $row->id) !!}
-                                            {{-- @can('Transactions delete')
-                                                    <button type="button" class="btn btn-danger delete" id="btn_delete"
-                                                        data-id="{{ $row->id }}" title="@lang('fleet.delete')">
-                                                        <span class="fa fa-times" aria-hidden="true"></span>
-                                                    </button>
-                                                @endcan --}}
-                                            {!! Form::close() !!}
+                                            ]); ?>
+
+                                            <?php echo Form::hidden('id', $row->id); ?>
+
+                                            
+                                            <?php echo Form::close(); ?>
+
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>
-                                    {{-- @if ($today->count() > 0) --}}
-                                    @can('Transactions delete')
+                                    
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('Transactions delete')): ?>
                                         <button class="btn btn-danger" id="bulk_delete" data-toggle="modal"
-                                            data-target="#bulkModal" disabled title="@lang('fleet.delete')"><i
+                                            data-target="#bulkModal" disabled title="<?php echo app('translator')->get('fleet.delete'); ?>"><i
                                                 class="fa fa-trash"></i></button>
-                                    @endcan
-                                    {{-- @endif --}}
+                                    <?php endif; ?>
+                                    
                                 </th>
                                 <th>#</th>
-                                <th>@lang('fleet.maint_type')</th>
+                                <th><?php echo app('translator')->get('fleet.maint_type'); ?></th>
 
-                                <th>@lang('fleet.delete')</th>
+                                <th><?php echo app('translator')->get('fleet.delete'); ?></th>
                             </tr>
                         </tfoot>
                     </table>
@@ -204,20 +177,22 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">@lang('fleet.delete')</h4>
+                    <h4 class="modal-title"><?php echo app('translator')->get('fleet.delete'); ?></h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['url' => 'admin/maitecate_delete', 'method' => 'POST', 'id' => 'form_delete']) !!}
+                    <?php echo Form::open(['url' => 'admin/maitecate_delete', 'method' => 'POST', 'id' => 'form_delete']); ?>
+
                     <div id="bulk_hidden"></div>
-                    <p>@lang('fleet.confirm_bulk_delete')</p>
+                    <p><?php echo app('translator')->get('fleet.confirm_bulk_delete'); ?></p>
                 </div>
                 <div class="modal-footer">
                     <button id="bulk_action" class="btn btn-danger" type="submit"
-                        data-submit="">@lang('fleet.delete')</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">@lang('fleet.close')</button>
+                        data-submit=""><?php echo app('translator')->get('fleet.delete'); ?></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo app('translator')->get('fleet.close'); ?></button>
                 </div>
-                {!! Form::close() !!}
+                <?php echo Form::close(); ?>
+
             </div>
         </div>
     </div>
@@ -230,40 +205,40 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">@lang('fleet.delete')</h4>
+                    <h4 class="modal-title"><?php echo app('translator')->get('fleet.delete'); ?></h4>
                 </div>
                 <div class="modal-body">
-                    <p>@lang('fleet.confirm_delete')</p>
+                    <p><?php echo app('translator')->get('fleet.confirm_delete'); ?></p>
                 </div>
                 <div class="modal-footer">
                     <button id="del_btn" class="btn btn-danger" type="button"
-                        data-submit="">@lang('fleet.delete')</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">@lang('fleet.close')</button>
+                        data-submit=""><?php echo app('translator')->get('fleet.delete'); ?></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo app('translator')->get('fleet.close'); ?></button>
                 </div>
             </div>
         </div>
     </div>
     <!-- Modal -->
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('script')
-    <script src="{{ asset('assets/js/moment.js') }}"></script>
+<?php $__env->startSection('script'); ?>
+    <script src="<?php echo e(asset('assets/js/moment.js')); ?>"></script>
     <!-- bootstrap datepicker -->
-    <script src="{{ asset('assets/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="<?php echo e(asset('assets/js/bootstrap-datepicker.min.js')); ?>"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             // $('#vehicle_id').select2({
-            //     placeholder: "@lang('fleet.selectVehicle')"
+            //     placeholder: "<?php echo app('translator')->get('fleet.selectVehicle'); ?>"
             // });
             $('#vendor_id').select2({
-                placeholder: "@lang('fleet.select_vendor')"
+                placeholder: "<?php echo app('translator')->get('fleet.select_vendor'); ?>"
             });
             $('#driver_id').select2({
-                placeholder: "@lang('fleet.Selectdriver')"
+                placeholder: "<?php echo app('translator')->get('fleet.Selectdriver'); ?>"
             });
             $('#expense_type').select2({
-                placeholder: "@lang('fleet.expenseType')"
+                placeholder: "<?php echo app('translator')->get('fleet.expenseType'); ?>"
             });
 
             $('#date').datepicker({
@@ -296,7 +271,7 @@
                 var hvk = confirm("Are you sure?");
                 if (hvk == true) {
                     var id = $(this).data("id");
-                    var action = "{{ url('admin/expense') }}" + "/" + id;
+                    var action = "<?php echo e(url('admin/expense')); ?>" + "/" + id;
                     $.ajax({
                         type: "POST",
                         url: action,
@@ -306,7 +281,7 @@
                             $("#expenses").html(data);
                             new PNotify({
                                 title: 'Deleted!',
-                                text: '@lang('fleet.deleted')',
+                                text: '<?php echo app('translator')->get('fleet.deleted'); ?>',
                                 type: 'wanring'
                             })
                         },
@@ -326,7 +301,7 @@
                 $('#bulk_delete').prop('type', 'button');
                 new PNotify({
                     title: 'Failed!',
-                    text: "@lang('fleet.delete_error')",
+                    text: "<?php echo app('translator')->get('fleet.delete_error'); ?>",
                     type: 'error'
                 });
                 $('#bulk_delete').attr('disabled', true);
@@ -374,4 +349,6 @@
             }
         }
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\EM_Projects\xampp\htdocs\Laravel\diamond_backend\resources\views/maint_categories/index.blade.php ENDPATH**/ ?>
