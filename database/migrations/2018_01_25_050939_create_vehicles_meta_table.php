@@ -14,7 +14,7 @@ class CreateVehiclesMetaTable extends Migration {
 		Schema::create('vehicles_meta', function (Blueprint $table) {
 			$table->increments('id');
 
-			$table->integer('vehicle_id')->unsigned()->index();
+			$table->integer('vehicle_model_id')->unsigned()->index();
 			$table->string('type')->default('null');
 			$table->string('key')->index();
 			$table->longtext('value')->nullable();

@@ -148,6 +148,13 @@ Route::namespace('Api')->middleware(['throttle', 'auth:api'])->group(function ()
 	Route::post('/confirm-payment', 'DriversApi@confirm_payment');
 	Route::post('/active-drivers', 'DriversApi@active_drivers');
 	Route::post('update-fcm-token', 'UsersApi@update_fcm');
+
+
+    //For E-Payments
+	Route::get('/get-payment-status/{paymentId}', 'FatoraPaymentController@getPaymentStatus');
+	Route::post('/create-payment', 'FatoraPaymentController@createPayment');
+	Route::post('/cancel-payment', 'FatoraPaymentController@cancelPayment');
+	
 });
 
 Route::middleware('auth:api')->post('/user', function (Request $request) {
