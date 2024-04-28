@@ -16,6 +16,10 @@ class CreateFatoraPaymentsTable extends Migration
         Schema::create('fatora_payments', function (Blueprint $table) {
             $table->id();
 
+            $table->unsignedInteger('bookings_id');
+            $table->foreign('bookings_id')->references('id')->on('bookings')->onDelete('cascade');
+
+            $table->string("merchant")->unique();
             $table->string("payment_id")->unique();
             $table->string("transaction_number")->nullable();
             $table->string("amount");

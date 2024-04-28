@@ -10,7 +10,10 @@ Copyright (C) 2017-2022 Hyvikk Solutions <https://hyvikk.com/> All rights reserv
 Design and developed by Hyvikk Solutions <https://hyvikk.com/>
 
 */
+
 namespace App\Http\Controllers\Api;
+
+use App\Enums\BookingStatus;
 use App\Http\Traits\SendNotification;
 use App\Events\TripStatusChangedEvent;
 use App\Http\Controllers\Controller;
@@ -38,1242 +41,854 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Validator;
 use Carbon\Carbon;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+
 class DriversApi extends Controller
 {
-  
-  use SendNotification;
-  
-  
+
+    use SendNotification;
+
+
     // join us api for external driver
     public function join_us(Request $request)
     {
-      
-       
-         $validation = Validator::make($request->all(), [
+
+
+        $validation = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
             'email'    => 'nullable|email|unique:users',
-           
+
             //'device_token' => 'required',
-           'phone' => [
-        Rule::unique('users')->where(function ($query) {
-         $query->whereNull('deleted_at');
-       }),
-        
-       'required',
-        'numeric',
-   ],
-            'password'=>'required|min:8',
+            'phone' => [
+                Rule::unique('users')->where(function ($query) {
+                    $query->whereNull('deleted_at');
+                }),
+
+                'required',
+                'numeric',
+            ],
+            'password' => 'required|min:8',
             'car_mechanic' => 'required|mimes:jpeg,png,jpg,gif|max:2000|max_filename_length:50',
             'car_insurance' => 'required|mimes:jpeg,png,jpg,gif||max:2000|max_filename_length:50',
         ]);
         $errors = $validation->errors();
-		 
-       
-     if ($validation->passes()){
-        $user = new User();
-        
-        $user->first_name = $request->get('first_name');
-        $user->last_name = $request->get('last_name');
-       if ($request->hasfile('car_mechanic') == true) {
-            $file = $request->file('car_mechanic');
-            $destinationPath = './uploads';
-            $extension = $request->file('car_mechanic')->getClientOriginalExtension();
-            $fileName1 = Str::uuid() . '.' . $extension;
-            $file->move($destinationPath, $fileName1);
-            $user->car_mechanic = $fileName1;
-        }
-        if ($request->hasfile('car_insurance') == true) {
-            $file = $request->file('car_insurance');
-            $destinationPath = './uploads';
-            $extension = $request->file('car_insurance')->getClientOriginalExtension();
-            $fileName1 = Str::uuid() . '.' . $extension;
-            $file->move($destinationPath, $fileName1);
-            $user->car_insurance = $fileName1;
-        }
-        $user->phone = $request->get('phone');
-        $user->email = $request->get('email');
-        $user->password = bcrypt($request->get('password'));
-        $user->user_type = 'external_driver';
-        $user->is_active = 'pending';
-         $user->in_service = 'off';
-        $user->device_token = $request->get('device_token');
-        $user->api_token = str_random(60);
-        $user->deleted_at = null;
-    //   print('zena-');
-        $user->save();
-        $user->assignRole('driver');
-   //  print('zena-');
-        $driver_location = new DriverLocation();
-        $driver_location->driver_id = $user->id;
-   //    print('zena-');
-        $driver_location->save();
-   //    print('zena-');
-       $driver_wallet = new WalletModel();
-        $driver_wallet->driver_id = $user->id;
-        $driver_wallet->save();
-        
-  // print('zena-');
-       
-     
-        $data['error'] = false;
-        $data['message'] = "You have Registered Successfully!";
-        
-        $data['data'] = ['api_token' => $user->api_token, 'user' => $user];
 
-   return  $data;
-      
-	//return response()->json(['message' => 'Validation passed'], 200); 
-         
-     }
-      else {
-             $data['message'] =  current(current($errors))[0];
-          
-             $data['error'] = true;
-       
-         // return $data;
+
+        if ($validation->passes()) {
+            $user = new User();
+
+            $user->first_name = $request->get('first_name');
+            $user->last_name = $request->get('last_name');
+            if ($request->hasfile('car_mechanic') == true) {
+                $file = $request->file('car_mechanic');
+                $destinationPath = './uploads';
+                $extension = $request->file('car_mechanic')->getClientOriginalExtension();
+                $fileName1 = Str::uuid() . '.' . $extension;
+                $file->move($destinationPath, $fileName1);
+                $user->car_mechanic = $fileName1;
+            }
+            if ($request->hasfile('car_insurance') == true) {
+                $file = $request->file('car_insurance');
+                $destinationPath = './uploads';
+                $extension = $request->file('car_insurance')->getClientOriginalExtension();
+                $fileName1 = Str::uuid() . '.' . $extension;
+                $file->move($destinationPath, $fileName1);
+                $user->car_insurance = $fileName1;
+            }
+            $user->phone = $request->get('phone');
+            $user->email = $request->get('email');
+            $user->password = bcrypt($request->get('password'));
+            $user->user_type = 'external_driver';
+            $user->is_active = 'pending';
+            $user->in_service = 'off';
+            $user->device_token = $request->get('device_token');
+            $user->api_token = str_random(60);
+            $user->deleted_at = null;
+            //   print('zena-');
+            $user->save();
+            $user->assignRole('driver');
+            //  print('zena-');
+            $driver_location = new DriverLocation();
+            $driver_location->driver_id = $user->id;
+            //    print('zena-');
+            $driver_location->save();
+            //    print('zena-');
+            $driver_wallet = new WalletModel();
+            $driver_wallet->driver_id = $user->id;
+            $driver_wallet->save();
+
+            // print('zena-');
+
+
+            $data['error'] = false;
+            $data['message'] = "You have Registered Successfully!";
+
+            $data['data'] = ['api_token' => $user->api_token, 'user' => $user];
+
+            return  $data;
+
+            //return response()->json(['message' => 'Validation passed'], 200); 
+
+        } else {
+            $data['message'] =  current(current($errors))[0];
+
+            $data['error'] = true;
+
+            // return $data;
             return response()->json(['errors' => $validation->errors()], 200);
         }
     }
-  //-------------------------------------------------
-   public function DeleteDriverAccount(Request $request)
+    //-------------------------------------------------
+    public function DeleteDriverAccount(Request $request)
     {
-         $validation = Validator::make($request->all(), [
+        $validation = Validator::make($request->all(), [
             'driver_id' => 'required',
-            'phone'=>'required',
-            'password'=>'required',
-            
+            'phone' => 'required',
+            'password' => 'required',
+
         ]);
-     $driver=User::where('id',$request->driver_id)->select('user_type','phone','password','id')->first();
-     
-     
- 
-     if($driver->phone==$request->phone && Hash::check($request->password,$driver->password))
-        {
-        if($driver->user_type=='external_driver'){
-          
-       foreach($driver->vehicles as $vehicles){
-         
-         $vehicles->delete();
-       }
-         $driver->vehicles()->detach();
-          try
-          {
-         
-          DB::table('driver_location')->where('driver_id',$request->driver_id)->delete();
-          
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
-           try
-          {
-            ReviewModel::where('user_id',$request->driver_id)->delete();
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
+        $driver = User::where('id', $request->driver_id)->select('user_type', 'phone', 'password', 'id')->first();
 
-          try
-          {
-             WalletModel::where('driver_id',$request->driver_id)->delete();
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
-          try
-          {
-             User::where('id',$request->driver_id)->delete();
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
-        try
-          {
-             Bookings::where('driver_id',$request->driver_id)->delete();
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
-          
+
+
+        if ($driver->phone == $request->phone && Hash::check($request->password, $driver->password)) {
+            if ($driver->user_type == 'external_driver') {
+
+                foreach ($driver->vehicles as $vehicles) {
+
+                    $vehicles->delete();
+                }
+                $driver->vehicles()->detach();
+                try {
+
+                    DB::table('driver_location')->where('driver_id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+                try {
+                    ReviewModel::where('user_id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+
+                try {
+                    WalletModel::where('driver_id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+                try {
+                    User::where('id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+                try {
+                    Bookings::where('driver_id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+            } else {
+                try {
+                    ReviewModel::where('user_id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+
+                try {
+
+                    DB::table('expense')->where('driver_id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+                try {
+
+                    DB::table('driver_location')->where('driver_id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+
+                try {
+                    WalletModel::where('driver_id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+                try {
+                    User::where('id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+                try {
+                    Bookings::where('driver_id', $request->driver_id)->delete();
+                } catch (Exception $e) {
+                    return  "Not success";
+                }
+            }
+
+            $data['error'] = false;
+            $data['message'] = "The account has been deleted successfully";
+            return $data;
+        } else {
+            $data['error'] = true;
+            $data['message'] = "The information is not match";
+            return $data;
         }
-       else{
-           try
-          {
-            ReviewModel::where('user_id',$request->driver_id)->delete();
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
-      
-        try
-          {
-         
-          DB::table('expense')->where('driver_id',$request->driver_id)->delete();
-          
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
-          try
-          {
-         
-          DB::table('driver_location')->where('driver_id',$request->driver_id)->delete();
-          
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
-
-          try
-          {
-             WalletModel::where('driver_id',$request->driver_id)->delete();
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
-          try
-          {
-             User::where('id',$request->driver_id)->delete();
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
-        try
-          {
-             Bookings::where('driver_id',$request->driver_id)->delete();
-          }
-          catch(Exception $e)
-          {
-              return  "Not success";
-          }
-      }
-      
-        $data['error'] = false;
-        $data['message'] = "The account has been deleted successfully";
-        return $data;
-        }
-     else{
-        $data['error'] = true;
-        $data['message'] = "The information is not match";
-        return $data;
-       
-     }
-
     }
-  //-------------------------------------------------
+    //-------------------------------------------------
     public function complete_register(Request $request)
     {
         $validation = Validator::make($request->all(), [
-          
+
             'user_id' => 'required',
             'car_image' => 'required|mimes:jpeg,png,jpg,gif||max:2000|max_filename_length:50',
             'personal_identity' => 'required|mimes:jpeg,png,jpg,gif||max:2000|max_filename_length:50',
             'driving_certificate' => 'required|mimes:jpeg,png,jpg,gif||max:2000|max_filename_length:50',
-        
-          
+
+
         ]);
         $errors = $validation->errors();
         if (count($errors) > 0) {
             $data['message'] = current(current($errors))[0];
             $data['error'] = true;
             $data['data'] = $errors;
-           
+
             return $data;
-        }
-        else
-        {
-        $user=User::find($request->user_id);
-       
+        } else {
+            $user = User::find($request->user_id);
+
             if ($request->hasfile('car_image') == true) {
-            $file = $request->file('car_image');
-            $destinationPath = './uploads';
-            $extension = $request->file('car_image')->getClientOriginalExtension();
-            $fileName1 = Str::uuid() . '.' . $extension;
-            $file->move($destinationPath, $fileName1);
-            $user->car_image = $fileName1;
-        }
-        if ($request->hasfile('personal_identity') == true) {
-            $file = $request->file('personal_identity');
-            $destinationPath = './uploads';
-            $extension = $request->file('personal_identity')->getClientOriginalExtension();
-            $fileName1 = Str::uuid() . '.' . $extension;
-            $file->move($destinationPath, $fileName1);
-            $user->personal_identity = $fileName1;
-        }
-        if ($request->hasfile('driving_certificate') == true) {
-            $file = $request->file('driving_certificate');
-            $destinationPath = './uploads';
-            $extension = $request->file('driving_certificate')->getClientOriginalExtension();
-            $fileName1 = Str::uuid() . '.' . $extension;
-            $file->move($destinationPath, $fileName1);
-            $user->driving_certificate = $fileName1;
-        }
-        $user->save();
-        
+                $file = $request->file('car_image');
+                $destinationPath = './uploads';
+                $extension = $request->file('car_image')->getClientOriginalExtension();
+                $fileName1 = Str::uuid() . '.' . $extension;
+                $file->move($destinationPath, $fileName1);
+                $user->car_image = $fileName1;
+            }
+            if ($request->hasfile('personal_identity') == true) {
+                $file = $request->file('personal_identity');
+                $destinationPath = './uploads';
+                $extension = $request->file('personal_identity')->getClientOriginalExtension();
+                $fileName1 = Str::uuid() . '.' . $extension;
+                $file->move($destinationPath, $fileName1);
+                $user->personal_identity = $fileName1;
+            }
+            if ($request->hasfile('driving_certificate') == true) {
+                $file = $request->file('driving_certificate');
+                $destinationPath = './uploads';
+                $extension = $request->file('driving_certificate')->getClientOriginalExtension();
+                $fileName1 = Str::uuid() . '.' . $extension;
+                $file->move($destinationPath, $fileName1);
+                $user->driving_certificate = $fileName1;
+            }
+            $user->save();
+
             $data['message'] = " Completed Register Successfuly";
             $data['error'] = false;
             return $data;
         }
-                
-        
     }
-  //----------------------------------------------------------
-  /**
+    //----------------------------------------------------------
+    /**
   check the driver's status to start receiving requests.
-  **/
+     **/
     public function driver_status(Request $request)
     {
-         $validation = Validator::make($request->all(), [
+        $validation = Validator::make($request->all(), [
             'driver_id' => 'required',
-            
+
         ]);
-        $driver=DB::table('users')->where('id',$request->driver_id)->select('is_active','id','device_token')->first();
-      
-        if ($driver->is_active=='pending' ) {
+        $driver = DB::table('users')->where('id', $request->driver_id)->select('is_active', 'id', 'device_token')->first();
+
+        if ($driver->is_active == 'pending') {
             $data['error'] = true;
             $data['message'] = "Wait for your request to be approved";
             return $data;
+        } elseif ($driver->is_active == 'active') {
+
+            $vechicle = DB::table('driver_vehicle')->where('driver_id', $request->driver_id)->select('vehicle_id')
+                ->join('vehicles', 'vehicles.id', 'driver_vehicle.vehicle_id')->where('in_service', '1')->first();
+
+            $device_number = DB::table('vehicles')->where('id',  $vechicle->vehicle_id)->select('device_number')->first();
+
+
+            $data['error'] = false;
+            $data['message'] = "Listed Successfully";
+            $data['data'] = ["status" => $driver->is_active, "device_number" => $device_number->device_number];
+
+            return $data;
         }
-        elseif($driver->is_active=='active')
-        {
-       
-             $vechicle=DB::table('driver_vehicle')->where('driver_id',$request->driver_id)->select('vehicle_id')
-         ->join('vehicles','vehicles.id','driver_vehicle.vehicle_id')->where('in_service','1')->first();
-      
-        $device_number=DB::table('vehicles')->where('id',  $vechicle->vehicle_id)->select('device_number')->first();
-         
-          
-        $data['error'] = false;
-        $data['message'] = "Listed Successfully";
-        $data['data'] = ["status"=>$driver->is_active,"device_number"=>$device_number->device_number];
-       
-        return $data;
-        }
-      
-      
     }
-  /**
+    /**
   Show the nearby internal and external     s to the driver
   in case he did not receive other requests.
-  **/
+     **/
     public function driver_trip(Request $request)
     {
-       $validation = Validator::make($request->all(), [
+        $validation = Validator::make($request->all(), [
             'driver_id' => 'required',
-            
-        ]); 
-    $driver_status=DB::table('users')->where('id',$request->driver_id)->select('in_service')->first();
-    
-    $driver_location=DB::table('driver_location')->where('driver_id',$request->driver_id)->Select('latitude','longitude','vehicle_id')->first();
-       
-    $driver_vechicle_type=DB::table('vehicles')->where('id', $driver_location->vehicle_id)->select('type_id')->first();
-    
-    $radius = 2;
-      
-    // driver trip with user details
-      if($driver_status->in_service =="off")
-      {
-      
-      
-          $nearest_trip = DB::table('bookings')->select(
-            DB::raw('bookings.*,users.first_name,users.last_name,users.phone,users.profile_image,users.id as user_id ,( 3959 * acos( 
+
+        ]);
+        $driver_status = DB::table('users')->where('id', $request->driver_id)->select('in_service')->first();
+
+        $driver_location = DB::table('driver_location')->where('driver_id', $request->driver_id)->Select('latitude', 'longitude', 'vehicle_id')->first();
+
+        $driver_vechicle_type = DB::table('vehicles')->where('id', $driver_location->vehicle_id)->select('type_id')->first();
+
+        $radius = 2;
+
+        // driver trip with user details
+        if ($driver_status->in_service == "off") {
+
+
+            $nearest_trip = DB::table('bookings')->select(
+                DB::raw('bookings.*,users.first_name,users.last_name,users.phone,users.profile_image,users.id as user_id ,( 3959 * acos( 
              cos( radians(' . $driver_location->latitude . ') ) *
              cos( radians( pickup_latitude) ) *
              cos( radians( pickup_longitude ) - 
              radians(' . $driver_location->longitude . ') ) + 
              sin( radians(' . $driver_location->latitude . ') ) *
              sin( radians( pickup_latitude ) ) ) ) as distance')
-        )->having('distance', '<', $radius)
-        
-        ->join('users','users.id','bookings.user_id')
-        ->where('category_id','1')
-        ->where('status','pending')
-        ->orderBy('id', 'DESC')
-        ->get();
+            )->having('distance', '<', $radius)
 
-        $trip_outcity=DB::table('bookings')->select('bookings.*','users.first_name','users.last_name','users.phone','users.profile_image')->where('driver_id',$request->driver_id)->  where('bookings.category_id','2')->where('status','pending')
-    ->where('driver_id',$request->driver_id)->where('bookings.category_id','2')
-    ->join('subcategories','subcategories.id','bookings.subcategory_id')
-     ->join('users','users.id','bookings.user_id')
-     ->orderBy('id', 'DESC')
-    ->get();
-        
-        
-        foreach($trip_outcity as $trip)
-    {
-        $trip->km=intval($trip->km);
-        $trip->minutes=intval($trip->minutes);
-        $trip->profile_image= asset('uploads/'.$trip->profile_image);
-        $tour=Tour::where('trip_id',$trip->id)->where('status','pending')->get();
-        $expenses=Expense::where('trip_id',$trip->id)->where('expense_type','constant')->get();
-        
-        foreach($expenses as $expense ){
-            $expense->type=json_decode( $expense->type);
-            $expense->price=json_decode( $expense->price);
-            
-        }
-    
-          if(count($tour)=='0'){
-                $trip->is_tour ='No';  
-              }
-              else{
-                  
-               $trip->is_tour ='Yes';  
-               $trip->tour_detail=$tour;  
-                  
-              }
-          if(count($expenses)=='0'){
-                $trip->has_expense ='No';  
-              }
-              else{
-                  
-               $trip->has_expense ='Yes';  
-               $trip->expense_detail=$expenses;  
-                  
-              }
-    }
-          foreach($nearest_trip as $trip )
-        {
-        $trip->km=intval($trip->km);
-        $trip->minutes=intval($trip->minutes);
-        $trip->profile_image= asset('uploads/'.$trip->profile_image);
+                ->join('users', 'users.id', 'bookings.user_id')
+                ->where('category_id', '1')
+                ->where('status', BookingStatus::pending)
+                ->orderBy('id', 'DESC')
+                ->get();
 
-        
-        if($trip->option_id != null)
-       {
-          
-         $trip->options="Yes" ;
-          $trip->option_id=explode(',',$trip->option_id);
-    }
-        else{
-         
-           $trip->options="No" ;
+            $trip_outcity = DB::table('bookings')->select('bookings.*', 'users.first_name', 'users.last_name', 'users.phone', 'users.profile_image')->where('driver_id', $request->driver_id)->where('bookings.category_id', '2')->where('status', BookingStatus::pending)
+                ->where('driver_id', $request->driver_id)->where('bookings.category_id', '2')
+                ->join('subcategories', 'subcategories.id', 'bookings.subcategory_id')
+                ->join('users', 'users.id', 'bookings.user_id')
+                ->orderBy('id', 'DESC')
+                ->get();
+
+
+            foreach ($trip_outcity as $trip) {
+                $trip->km = intval($trip->km);
+                $trip->minutes = intval($trip->minutes);
+                $trip->profile_image = asset('uploads/' . $trip->profile_image);
+                $tour = Tour::where('trip_id', $trip->id)->where('status', BookingStatus::pending)->get();
+                $expenses = Expense::where('trip_id', $trip->id)->where('expense_type', 'constant')->get();
+
+                foreach ($expenses as $expense) {
+                    $expense->type = json_decode($expense->type);
+                    $expense->price = json_decode($expense->price);
+                }
+
+                if (count($tour) == '0') {
+                    $trip->is_tour = 'No';
+                } else {
+
+                    $trip->is_tour = 'Yes';
+                    $trip->tour_detail = $tour;
+                }
+                if (count($expenses) == '0') {
+                    $trip->has_expense = 'No';
+                } else {
+
+                    $trip->has_expense = 'Yes';
+                    $trip->expense_detail = $expenses;
+                }
+            }
+            foreach ($nearest_trip as $trip) {
+                $trip->km = intval($trip->km);
+                $trip->minutes = intval($trip->minutes);
+                $trip->profile_image = asset('uploads/' . $trip->profile_image);
+
+
+                if ($trip->option_id != null) {
+
+                    $trip->options = "Yes";
+                    $trip->option_id = explode(',', $trip->option_id);
+                } else {
+
+                    $trip->options = "No";
+                }
+            }
+        } else {
+            $nearest_trip = [];
+            $trip_outcity = [];
         }
-      
-       
-      
-      }
-    
-  
-     
-    }
-      else{
-        $nearest_trip=[];
-        $trip_outcity=[];
-        
-        
-      }
-      
-      
-      $all_trips=DB::table('bookings')->select('bookings.*')->where('driver_id',$request->driver_id)->where('status','ended')
-    ->orderBy('id', 'DESC')
-    ->get();
-    
-  if (count($nearest_trip)<0 && count($trip_outcity)<0 &&  count($all_trips)<0) {
+
+
+        $all_trips = DB::table('bookings')->select('bookings.*')->where('driver_id', $request->driver_id)->where('status', BookingStatus::ended)
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        if (count($nearest_trip) < 0 && count($trip_outcity) < 0 &&  count($all_trips) < 0) {
             $data['error'] = true;
             $data['message'] = " There is no trips";
             return $data;
-        }
-      else{
+        } else {
             $data['error'] = false;
             $data['message'] = "Listed Successfully";
-            $data['data'] =  ["nearest_trips"=>$nearest_trip,"trips_outcity"=>$trip_outcity,"all_trips"=>$all_trips];
-           
+            $data['data'] =  ["nearest_trips" => $nearest_trip, "trips_outcity" => $trip_outcity, "all_trips" => $all_trips];
+
             return $data;
         }
     }
-  
- public function Trip_OutCity(Request $request){
-   
-   $validation = Validator::make($request->all(), [
+
+    public function Trip_OutCity(Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
             'driver_id' => 'required',
-          
-        ]); 
-        $trip_outcity=DB::table('bookings')->select('bookings.*','users.first_name','users.last_name','users.phone')->where('driver_id',$request->driver_id)->where('bookings.category_id','2')
-          ->where(function($query) {
-          $query->where('status','started')
-            ->orwhere('status','arrived')
-          ->orWhere('status','accepted');
-          })->join('subcategories','subcategories.id','bookings.subcategory_id')
-          ->join('users','users.id','bookings.user_id')
-          ->orderBy('id', 'DESC')
-          ->get();
-  
-   
-   $trip_inside=DB::table('bookings')->select('bookings.*','users.first_name','users.last_name','users.phone')->where('driver_id',$request->driver_id)
-    
-     ->where('bookings.category_id','1')->where(function($query) {
-          $query->where('status','arrived')
-          ->orWhere('status','accepted');
-          })->join('users','users.id','bookings.user_id')
-     ->orderBy('id', 'DESC')
-    ->get();
- 
-   if ($trip_outcity->isEmpty() && $trip_inside->isEmpty()) {
+
+        ]);
+        $trip_outcity = DB::table('bookings')->select('bookings.*', 'users.first_name', 'users.last_name', 'users.phone')->where('driver_id', $request->driver_id)->where('bookings.category_id', '2')
+            ->where(function ($query) {
+                $query->where('status', BookingStatus::started)
+                    ->orwhere('status', BookingStatus::arrived)
+                    ->orWhere('status', BookingStatus::accepted);
+            })->join('subcategories', 'subcategories.id', 'bookings.subcategory_id')
+            ->join('users', 'users.id', 'bookings.user_id')
+            ->orderBy('id', 'DESC')
+            ->get();
+
+
+        $trip_inside = DB::table('bookings')->select('bookings.*', 'users.first_name', 'users.last_name', 'users.phone')->where('driver_id', $request->driver_id)
+
+            ->where('bookings.category_id', '1')->where(function ($query) {
+                $query->where('status', BookingStatus::arrived)
+                    ->orWhere('status', BookingStatus::accepted);
+            })->join('users', 'users.id', 'bookings.user_id')
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        if ($trip_outcity->isEmpty() && $trip_inside->isEmpty()) {
             $data['error'] = true;
             $data['message'] = " There is no started or accepted trips";
             return $data;
-        } else{
+        } else {
             $data['error'] = false;
             $data['message'] = "Listed Successfully";
-            $data['data'] =  ["trips_outcity"=>$trip_outcity,"trip_inside"=>$trip_inside];
-           
+            $data['data'] =  ["trips_outcity" => $trip_outcity, "trip_inside" => $trip_inside];
+
             return $data;
         }
-   
- }
+    }
     public function accept_trip(Request $request)
     {
-       $validation = Validator::make($request->all(), [
+        $validation = Validator::make($request->all(), [
             'driver_id' => 'required',
-            'trip_id'=>'required',
-            'device_number'=>'required',
-            
-        ]); 
-      $vehicel_id=DB::table('vehicles')->where('device_number',$request->device_number)->first();
-      
-      $trip=Bookings::where('id',$request->trip_id)->first();
-    
-      
-      if($trip->status=="canceld"){
-        $data['error'] = true;
-        $data['message'] = "Trip has been Canceld";
-        return $data;
-       
-     }
-      if($trip->status=="accepted"){
-         $data['error'] = true;
-         $data['message'] = "Trip Already Accepted";
-         return $data;
-        
-      }
-      else{
-        
-         $trip->status="accepted";
-        $trip->driver_id=$request->driver_id;
-        $trip->vehicle_id=$vehicel_id->id;
-        $trip->save();
-        
-        $user_trip=DB::table('bookings')->where('id',$request->trip_id)->select('user_id')->first();
-        $user=DB::table('users')->where('id',$user_trip->user_id)->select('device_token')->first();
-        $data['error'] = false;
-        $data['message'] = " The trip has been accepted";
-        $driver = User::where('id',$trip->driver_id)->first();
+            'trip_id' => 'required',
+            'device_number' => 'required',
 
-        $all_data =  [
-          	'id'=>$trip->id,
-            'user_id'=>$trip->user_id,
-            'status'=>$trip->status,
-            'pickup_latitude'=>$trip->pickup_latitude,
-            'pickup_longitude'=>$trip->pickup_longitude,
-            'drop_latitude'=>$trip->drop_latitude,
-            'drop_longitude'=>$trip->drop_longitude,
-            'driver_first_name'=>$driver->first_name,
-            'driver_last_name'=>$driver->last_name,
-            'driver_phone'=>$driver->phone,
-            'driver_profile_image'=>asset('uploads/' . $driver->profile_image),
-            'vehicel_image'=>   asset('uploads/' . $vehicel_id->vehicle_image),
-            'vehicel_device_number'=>$vehicel_id->device_number,
-            'vehicel_car_model'=>$vehicel_id->car_model,
-            'vehicel_color'=>$vehicel_id->color,
-        ];
-        event(new TripStatusChangedEvent($all_data));
-        
-        $this->send_notification($user->device_token,'Welcome To Our Application','تمت الموافقة على طلبك');  
-        return $data;
-        
-      }
-   
+        ]);
+        $vehicel_id = DB::table('vehicles')->where('device_number', $request->device_number)->first();
+
+        $trip = Bookings::where('id', $request->trip_id)->first();
+
+
+        if ($trip->status == BookingStatus::canceld) {
+            $data['error'] = true;
+            $data['message'] = "Trip has been Canceld";
+            return $data;
+        }
+        if ($trip->status == BookingStatus::accepted) {
+            $data['error'] = true;
+            $data['message'] = "Trip Already Accepted";
+            return $data;
+        } else {
+
+            $trip->status = BookingStatus::accepted;
+            $trip->driver_id = $request->driver_id;
+            $trip->vehicle_id = $vehicel_id->id;
+            $trip->save();
+
+            $user_trip = DB::table('bookings')->where('id', $request->trip_id)->select('user_id')->first();
+            $user = DB::table('users')->where('id', $user_trip->user_id)->select('device_token')->first();
+            $data['error'] = false;
+            $data['message'] = " The trip has been accepted";
+            $driver = User::where('id', $trip->driver_id)->first();
+
+            // $all_data =  [
+            //     'id' => $trip->id,
+            //     'user_id' => $trip->user_id,
+            //     'status' => $trip->status,
+            //     'pickup_latitude' => $trip->pickup_latitude,
+            //     'pickup_longitude' => $trip->pickup_longitude,
+            //     'drop_latitude' => $trip->drop_latitude,
+            //     'drop_longitude' => $trip->drop_longitude,
+            //     'driver_first_name' => $driver->first_name,
+            //     'driver_last_name' => $driver->last_name,
+            //     'driver_phone' => $driver->phone,
+            //     'driver_profile_image' => asset('uploads/' . $driver->profile_image),
+            //     'vehicel_image' =>   asset('uploads/' . $vehicel_id->vehicle_image),
+            //     'vehicel_device_number' => $vehicel_id->device_number,
+            //     'vehicel_car_model' => $vehicel_id->car_model,
+            //     'vehicel_color' => $vehicel_id->color,
+            // ];
+            // event(new TripStatusChangedEvent($all_data));
+
+            $this->send_notification(
+                $user->device_token,
+                'Welcome To Our Application',
+                __("booking.trip_accepted"),
+                ["status" => BookingStatus::accepted],
+            );
+            return $data;
+        }
     }
-  /**
+    /**
   The driver sends a notification when he arrive to 
   the user's location.
 
-  **/
+     **/
 
-public function driver_notification(Request $request)
-  {
-  
-    $validation = Validator::make($request->all(), [
+    public function driver_notification(Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
             'driver_id' => 'required',
-              'trip_id' => 'required',
-        ]); 
-  
-  $trip=Bookings::with(['driver','vehicle'])->where('id',$request->trip_id)->first();
-  
-  $user=DB::table('users')->where('id',$trip->user_id)->select('device_token')->first();
-  $trip->update(['status'=>'arrived']);
-  
-   $all_data =  [
-          	'id'=>$trip->id,
-            'user_id'=>$trip->user_id,
-            'status'=>$trip->status,
-            'pickup_latitude'=>$trip->pickup_latitude,
-            'pickup_longitude'=>$trip->pickup_longitude,
-            'drop_latitude'=>$trip->drop_latitude,
-            'drop_longitude'=>$trip->drop_longitude,
-            'driver_first_name'=>$trip->driver->first_name,
-            'driver_last_name'=>$trip->driver->last_name,
-            'driver_phone'=>$trip->driver->phone,
-            'driver_profile_image'=>asset('uploads/' . $trip->driver->profile_image),
-            'vehicel_image'=>   asset('uploads/' . $trip->vehicle->vehicle_image),
-            'vehicel_device_number'=>$trip->vehicle->device_number,
-            'vehicel_car_model'=>$trip->vehicle->car_model,
-            'vehicel_color'=>$trip->vehicle->color,
-        ];
-  event(new TripStatusChangedEvent($all_data));
-  $this->send_notification($user->device_token,'Welcome To Our Application','وصل السائق');  
+            'trip_id' => 'required',
+        ]);
 
-}
-  /**
+        $trip = Bookings::with(['driver', 'vehicle'])->where('id', $request->trip_id)->first();
+
+        $user = DB::table('users')->where('id', $trip->user_id)->select('device_token')->first();
+        $trip->update(['status' => BookingStatus::arrived]);
+
+        // $all_data =  [
+        //     'id' => $trip->id,
+        //     'user_id' => $trip->user_id,
+        //     'status' => $trip->status,
+        //     'pickup_latitude' => $trip->pickup_latitude,
+        //     'pickup_longitude' => $trip->pickup_longitude,
+        //     'drop_latitude' => $trip->drop_latitude,
+        //     'drop_longitude' => $trip->drop_longitude,
+        //     'driver_first_name' => $trip->driver->first_name,
+        //     'driver_last_name' => $trip->driver->last_name,
+        //     'driver_phone' => $trip->driver->phone,
+        //     'driver_profile_image' => asset('uploads/' . $trip->driver->profile_image),
+        //     'vehicel_image' =>   asset('uploads/' . $trip->vehicle->vehicle_image),
+        //     'vehicel_device_number' => $trip->vehicle->device_number,
+        //     'vehicel_car_model' => $trip->vehicle->car_model,
+        //     'vehicel_color' => $trip->vehicle->color,
+        // ];
+        // event(new TripStatusChangedEvent($all_data));
+        $this->send_notification(
+            $user->device_token,
+            'Welcome To Our Application',
+            __("booking.trip_arrived"),
+            ["status" => BookingStatus::arrived],
+        );
+    }
+    /**
   
 When the driver starts a trip, the trip status changes
 .and the driver state becomes on('in service').
-  **/
+     **/
 
     public function trip_started(Request $request)
-    {  
-      
-       $validation = Validator::make($request->all(), [
-            'trip_id'=>'required',
-            'start_time'=>'required',
-            'driver_id'=>'required'
-            
-        ]); 
-        $driver_status=User::where('id',$request->driver_id)->update([
-            "in_service"=>"on"
-            ]);
-      
-       $trip = Bookings::with(['driver','vehicle'])->where('id',$request->trip_id)->first();
-      	if($trip->status == 'started'){
-          return $data = ['error'=>true , 'message'=> " The trip alrady has started"];
+    {
+
+        $validation = Validator::make($request->all(), [
+            'trip_id' => 'required',
+            'start_time' => 'required',
+            'driver_id' => 'required'
+
+        ]);
+        $driver_status = User::where('id', $request->driver_id)->update([
+            "in_service" => "on"
+        ]);
+
+        $trip = Bookings::with(['driver', 'vehicle'])->where('id', $request->trip_id)->first();
+        if ($trip->status == BookingStatus::started) {
+            return $data = ['error' => true, 'message' => " The trip alrady has started"];
         }
-       $trip->start_time = $request->start_time;
-       $trip->status = 'started';
-       $trip->save();
-       $data['error'] = false;
-       $data['message'] = " The trip has been started";
-      
-      
-       $all_data =  [
-          	'id'=>$trip->id,
-            'user_id'=>$trip->user_id,
-            'status'=>$trip->status,
-            'pickup_latitude'=>$trip->pickup_latitude,
-            'pickup_longitude'=>$trip->pickup_longitude,
-            'drop_latitude'=>$trip->drop_latitude,
-            'drop_longitude'=>$trip->drop_longitude,
-            'driver_first_name'=> $trip->driver->first_name,
-            'driver_last_name'=>$trip->driver->last_name,
-            'driver_phone'=>$trip->driver->phone,
-            'driver_profile_image'=>asset('uploads/' . $trip->driver->profile_image),
-            'vehicel_image'=>   asset('uploads/' . $trip->vehicle->vehicle_image),
-            'vehicel_device_number'=>$trip->vehicle->device_number,
-            'vehicel_car_model'=>$trip->vehicle->car_model,
-            'vehicel_color'=>$trip->vehicle->color,
-        ];
-       event(new TripStatusChangedEvent($all_data));
-      
+        $trip->start_time = $request->start_time;
+        $trip->status = BookingStatus::started;
+        $trip->save();
+        $data['error'] = false;
+        $data['message'] = " The trip has been started";
+
+
+        // $all_data =  [
+        //     'id' => $trip->id,
+        //     'user_id' => $trip->user_id,
+        //     'status' => $trip->status,
+        //     'pickup_latitude' => $trip->pickup_latitude,
+        //     'pickup_longitude' => $trip->pickup_longitude,
+        //     'drop_latitude' => $trip->drop_latitude,
+        //     'drop_longitude' => $trip->drop_longitude,
+        //     'driver_first_name' => $trip->driver->first_name,
+        //     'driver_last_name' => $trip->driver->last_name,
+        //     'driver_phone' => $trip->driver->phone,
+        //     'driver_profile_image' => asset('uploads/' . $trip->driver->profile_image),
+        //     'vehicel_image' =>   asset('uploads/' . $trip->vehicle->vehicle_image),
+        //     'vehicel_device_number' => $trip->vehicle->device_number,
+        //     'vehicel_car_model' => $trip->vehicle->car_model,
+        //     'vehicel_color' => $trip->vehicle->color,
+        // ];
+        // event(new TripStatusChangedEvent($all_data));
+        $this->send_notification(
+            $trip->user_id->device_token,
+            'Welcome To Our Application',
+            __("booking.trip_started"),
+            ["status" => BookingStatus::started],
+        );
+
+        return $data;
+    }
+
+    public function trip_ended_waiting_for_payment(Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'trip_id' => 'required',
+            'end_time' => 'required',
+            'km' => 'required',
+        ]);
+
+
+        $trip = Bookings::with(['driver', 'vehicle'])->where('id', $request->trip_id)->first();
+        if ($trip->status == BookingStatus::wait_for_payment) {
+            return $data = ['error' => true, 'message' => "The trip already waiting for payment"];
+        }
+        $trip->end_time = $request->end_time;
+        $trip->status = BookingStatus::wait_for_payment;
+        $trip->km = $request->km;
+        $trip->save();
+        $data['error'] = false;
+        $data['message'] = "The trip is waiting for payment";
+
+
+        // $all_data =  [
+        //     'id' => $trip->id,
+        //     'user_id' => $trip->user_id,
+        //     'status' => $trip->status,
+        //     'pickup_latitude' => $trip->pickup_latitude,
+        //     'pickup_longitude' => $trip->pickup_longitude,
+        //     'drop_latitude' => $trip->drop_latitude,
+        //     'drop_longitude' => $trip->drop_longitude,
+        //     'driver_first_name' => $trip->driver->first_name,
+        //     'driver_last_name' => $trip->driver->last_name,
+        //     'driver_phone' => $trip->driver->phone,
+        //     'driver_profile_image' => asset('uploads/' . $trip->driver->profile_image),
+        //     'vehicel_image' =>   asset('uploads/' . $trip->vehicle->vehicle_image),
+        //     'vehicel_device_number' => $trip->vehicle->device_number,
+        //     'vehicel_car_model' => $trip->vehicle->car_model,
+        //     'vehicel_color' => $trip->vehicle->color,
+        // ];
+        // event(new TripStatusChangedEvent($all_data));
+
+        $this->send_notification(
+            $trip->user_id->device_token,
+            'Welcome To Our Application',
+            __("booking.trip_wait_for_payment"),
+            ["status" => BookingStatus::wait_for_payment],
+        );
+
         return $data;
     }
     public function trip_ended(Request $request)
     {
-       $validation = Validator::make($request->all(), [
-            'trip_id'=>'required',
-            'end_time'=>'required',
-            'km'=>'required',
-            
-        ]); 
-      
+        $validation = Validator::make($request->all(), [
+            'trip_id' => 'required',
+            'end_time' => 'required',
+            'km' => 'required',
+
+        ]);
+
         //  Calculation of new minutes
 
-     $trip_started = Bookings::with(['driver','vehicle'])->where('id',$request->trip_id)->first();
-  
-    [$hours, $minutes] =explode(':', $trip_started->start_time);
-    [$hours1, $minutes1] =explode(':', $request->end_time);
-     $start=(int) $hours * 60 + (int) $minutes;
-     $end=(int) $hours1 * 60 + (int) $minutes1;
+        $trip_started = Bookings::with(['driver', 'vehicle'])->where('id', $request->trip_id)->first();
+        $vehicle_type = DB::table('vehicles')->where('id', $trip_started->vehicle_id)->select('type_id')->first();
 
-     $total_minutes = $end - $start;
+        [$hours, $minutes] = explode(':', $trip_started->start_time);
+        [$hours1, $minutes1] = explode(':', $request->end_time);
+        $start = (int) $hours * 60 + (int) $minutes;
+        $end = (int) $hours1 * 60 + (int) $minutes1;
 
-     if($total_minutes < 0){
-        $start = $start - 1440;
         $total_minutes = $end - $start;
-       }
+
+        if ($total_minutes < 0) {
+            $start = $start - 1440;
+            $total_minutes = $end - $start;
+        }
 
         //  Calculation of new cost  Because the cost varies according to the user type
-        $user_type=DB::table('users')->where('id',$trip_started->user_id)->select('user_type')->first();
-        $driver_type=DB::table('users')->where('id',$trip_started->driver_id)->select('user_type','device_token')->first();
+        $user_type = DB::table('users')->where('id', $trip_started->user_id)->select('user_type')->first();
+        $driver_type = DB::table('users')->where('id', $trip_started->driver_id)->select('user_type', 'device_token')->first();
 
-        $driver_wallet=WalletModel::where('driver_id',$trip_started->driver_id)->first();
-     
-        $admin_wallet=Value::where('name','admin_wallet')->first();
-      
+        $driver_wallet = WalletModel::where('driver_id', $trip_started->driver_id)->first();
+
+        $admin_wallet = Value::where('name', 'admin_wallet')->first();
+
         //Minimum driver wallet
-       $minimum_wallet=Value::where('name','minimum_wallet')->first();
+        $minimum_wallet = Value::where('name', 'minimum_wallet')->first();
         //admin fare of the internal driver
-      
-       $internal=Value::where('name','internal_fare')->first();
-       //admin fare of the external driver
-       $external=Value::where('name','external_fare')->first();
+
+        $internal = Value::where('name', 'internal_fare')->first();
+        //admin fare of the external driver
+        $external = Value::where('name', 'external_fare')->first();
 
         // to add admin_fare percentage
-        $admin_fare_value = Value::where('name','admin_fare')->first();
-        $admin_fare_value = isset($admin_fare_value)? $admin_fare_value->value:0;
+        $admin_fare_value = Value::where('name', 'admin_fare')->first();
+        $admin_fare_value = isset($admin_fare_value) ? $admin_fare_value->value : 0;
 
-      //inside city trip
-      if($trip_started->request_type=="moment"|| $trip_started->request_type=="delayed"){
-          if (strtoupper($user_type->user_type) == strtoupper('user')) {
-             
-           //return price of km and min for user  inside city.
+        //inside city trip
+        if ($trip_started->request_type == "moment" || $trip_started->request_type == "delayed") {
+
+            // inside city
             $fare = DB::table('fare_settings')->where('type_id',  $trip_started->type_id)->where('category_id', 'inside city')
-                ->where(DB::raw('lower(user_type)'), 'like', '%' . strtolower('user') . '%')
+                ->where(DB::raw('lower(user_type)'), 'like', '%' . strtoupper($user_type->user_type) . '%')
                 ->first();
-           // limit_distance at which the fare is fixed
-           if($request->km <= $fare->limit_distance){
-              
-              $cost = $fare->cost;
-              
-            }
-           //After this limit distance the cost is calculated in this way
-           else
-           {
-
-            $cost = (  $request->km * $fare->base_km) + ( $total_minutes* $fare->base_time);
-
-           }
-           
-           $cost = $cost + ($cost * $admin_fare_value)/100;
-
-             $trip_started->cost=intval($cost);
-             $trip_started->km=$request->km;
-             $trip_started->status="ended";
-             $trip_started->end_time=$request->end_time;
-             $trip_started->save();
-             
-            User::where("id",$trip_started->driver_id)->update([
-                 "in_service"=>"off"
-                 ]);
-           
-           //driver type
-            if($driver_type->user_type=="driver")
-            {
-              
-              //admin fare of the internal driver
-             $internal_fare=Value::where('name','internal_fare')->first();
-          
-            //admin fare
-             $admin_fare=($cost * $internal_fare->value) / 100 ;
-
-           
-            //new admin wallet
-             $new_admin_wallet= $admin_wallet->value + $admin_fare;
-             
-             //update admin wallet
-             Value::where('name','admin_wallet')->update(['value'=> $new_admin_wallet]);
-              
-              
-             //driver fare
-             $new_driver_wallet=  $driver_wallet->amount - $cost + $admin_fare ;
-              
-             //update driver wallet
-              
-             WalletModel::where('driver_id',$trip_started->driver_id)->update(['amount'=> $new_driver_wallet]);
-              
-              //send notification if the driver's wallet is equal to the minimum wallet
-
-              if($new_driver_wallet == $minimum_wallet->value)
-              {
-                
-               $body="شارف رصيدك على الانتهاء يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-              
-              }
-              //send notification if the driver's wallet is less than to the minimum wallet
-              //change driver status to out of service.
-              elseif($new_driver_wallet < $minimum_wallet->value)
-              {
-               $body="يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-               User::where('id',$trip_started->driver_id)->update(['in_service'=>'out of service']);
-                
-              }
-              
-           
-           }
-           
-           //external driver
-           elseif($driver_type->user_type=="external_driver")
-            {
-              //admin fare of the external driver
-             $external_fare = Value::where('name','external_fare')->first();
-
-             
-              //admin fare
-             $admin_fare=($cost * $external_fare->value) / 100 ;
-
-            //new admin wallet
-             $new_admin_wallet= $admin_wallet->value + $admin_fare;
-             
-             //update admin wallet
-             Value::where('name','admin_wallet')->update(['value'=> $new_admin_wallet]);
-              
-              
-             //driver fare
-             $new_driver_wallet=  $driver_wallet->amount - $cost + $admin_fare ;
-              
-             //update driver wallet
-              
-             WalletModel::where('driver_id',$trip_started->driver_id)->update(['amount'=> $new_driver_wallet]);
-               //send notification if the driver's wallet is equal to the minimum wallet
-
-              if($new_driver_wallet == $minimum_wallet->value)
-              {
-                
-               $body="شارف رصيدك على الانتهاء يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-              
-              }
-              //send notification if the driver's wallet is less than to the minimum wallet
-              //change driver status to out of service.
-              elseif($new_driver_wallet < $minimum_wallet->value)
-              {
-                $body="يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-               User::where('id',$trip_started->driver_id)->update(['in_service'=>'out of service']);
-                
-              }
-          
-           }
-           
-         }
-         
-         //the same logic if user type is orgnization.
-         
-         elseif(strtoupper($user_type->user_type) == strtoupper('Organizations')){
-              $fare = DB::table('fare_settings')->where('type_id',  $trip_started->type_id)->where('category_id', 'inside city')
-                ->where(DB::raw('lower(user_type)'), 'like', '%' . strtolower('Organizations') . '%')
-                ->first();
-
-             if($request->km <= $fare->limit_distance){
-              
-              $cost=$fare->cost;
-              
-            }
-           else
-           {
-               $cost = (  $request->km * $fare->base_km) + ( $total_minutes* $fare->base_time);
-             
-           }
-        
-             $trip_started->cost=intval($cost);
-             $trip_started->km=$request->km;
-             $trip_started->status="ended";
-             $trip_started->$request->end_time;
-             $trip_started->save();
-             User::where("id",$trip_started->driver_id)->update([
-                 "in_service"=>"off"
-                 ]);
-           
-           //driver
-            if($driver_type->user_type=="driver")
-           {
-           
-             $internal_fare=Value::where('name','internal_fare')->first();
-             
-              //admin fare
-              $admin_fare=($cost * $internal_fare->value) / 100 ;
-           
-            //new admin wallet
-             $new_admin_wallet= $admin_wallet->value + $admin_fare;
-             
-             //update admin wallet
-             Value::where('name','admin_wallet')->update(['value'=> $new_admin_wallet]);
-              
-              
-             //driver fare
-             $new_driver_wallet=  $driver_wallet->amount - $cost + $admin_fare ;
-              
-             //update driver wallet
-              
-             WalletModel::where('driver_id',$trip_started->driver_id)->update(['amount'=> $new_driver_wallet]);
-              
-              if($new_driver_wallet == $minimum_wallet->value)
-              {
-                
-               $body="شارف رصيدك على الانتهاء يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-              
-              }
-              elseif($new_driver_wallet < $minimum_wallet->value)
-              {
-                $body="يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-               User::where('id',$trip_started->driver_id)->update(['in_service'=>'out of service']);
-                
-              }
-               
-           }
-           
-           //external driver
-           elseif($driver_type->user_type=="external_driver")
-            {
-             
-             $external_fare=Value::where('name','external_fare')->first();
-             
-              //admin fare
-              $admin_fare=($cost * $external_fare->value) / 100 ;
-           
-            //new admin wallet
-             $new_admin_wallet= $admin_wallet->value + $admin_fare;
-             
-             //update admin wallet
-             Value::where('name','admin_wallet')->update(['value'=> $new_admin_wallet]);
-              
-              
-             //driver fare
-             $new_driver_wallet=  $driver_wallet->amount - $cost + $admin_fare ;
-              
-             //update driver wallet
-              
-             WalletModel::where('driver_id',$trip_started->driver_id)->update(['amount'=> $new_driver_wallet]);
-              
-              if($new_driver_wallet == $minimum_wallet->value)
-              {
-                
-               $body="شارف رصيدك على الانتهاء يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-              
-              }
-              elseif($new_driver_wallet < $minimum_wallet->value)
-              {
-                $body="يرجى شحن المحفظة";
-                $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-                User::where('id',$trip_started->driver_id)->update(['in_service'=>'out of service']);
-                
-              }
-            
-      
-           }
-           
-      }
-      
-      }
-      
-      
-      
-      
-      
-      
-      //outcity trip
-      elseif($trip_started->request_type==""){
-       
-          $vehicle_type=DB::table('vehicles')->where('id',$trip_started->vehicle_id)->select('type_id')->first();
-        if (strtoupper($user_type->user_type) == strtoupper('user')) {
-
-           
+        } else {
+            // outside damascus
             $fare = DB::table('fare_settings')->where('type_id',  $vehicle_type->type_id)->where('category_id', 'outside damascus')
-                ->where(DB::raw('lower(user_type)'), 'like', '%' . strtolower('user') . '%')
+                ->where(DB::raw('lower(user_type)'), 'like', '%' . strtoupper($user_type->user_type) . '%')
                 ->first();
-               $cost = (  $request->km * $fare->base_km) + ( $total_minutes* $fare->base_time);
-             $trip_started->cost=intval($cost);
-             $trip_started->km=$request->km;
-             $trip_started->status="ended";
-             $trip_started->end_time=$request->end_time;
-             $trip_started->save();
-     
-            User::where("id",$trip_started->driver_id)->update([
-                 "in_service"=>"off"
-                 ]);
-              
-            //driver
-            if($driver_type->user_type=="driver")
-           {
-           
-             $internal_fare=Value::where('name','internal_fare')->first();
+        }
 
-              //admin fare
-              $admin_fare=($cost * $internal_fare->value) / 100;             
-             
-           
-            //new admin wallet
-             $new_admin_wallet= $admin_wallet->value + $admin_fare;
-             
-             //update admin wallet
-             Value::where('name','admin_wallet')->update(['value'=> $new_admin_wallet]);
-              
-              
-             //driver fare
-             $new_driver_wallet=  $driver_wallet->amount - $cost + $admin_fare ;
-              
-             //update driver wallet
-              
-             WalletModel::where('driver_id',$trip_started->driver_id)->update(['amount'=> $new_driver_wallet]);
-              
-              if($new_driver_wallet == $minimum_wallet->value)
-              {
-                
-               $body="شارف رصيدك على الانتهاء يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-              
-              }
-              elseif($new_driver_wallet < $minimum_wallet->value)
-              {
-                $body="يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-               User::where('id',$trip_started->driver_id)->update(['in_service'=>'out of service']);
-                
-              }
-               
-           }
-                
-             //external driver
-             elseif($driver_type->user_type=="external_driver")
-            {
-             
-             $external_fare=Value::where('name','external_fare')->first();
+        if ($trip_started->request_type == "") {
+            $cost = ($request->km * $fare->base_km) + ($total_minutes * $fare->base_time);
+        }
+        // limit_distance at which the fare is fixed
+        else if ($request->km <= $fare->limit_distance) {
 
-             //admin fare
-             $admin_fare=($cost * $external_fare->value) / 100;             
-           
-            //new admin wallet
-             $new_admin_wallet= $admin_wallet->value + $admin_fare;
-             
-             //update admin wallet
-             Value::where('name','admin_wallet')->update(['value'=> $new_admin_wallet]);
-              
-              
-             //driver fare
-             $new_driver_wallet=  $driver_wallet->amount - $cost + $admin_fare ;
-              
-             //update driver wallet
-              
-             WalletModel::where('driver_id',$trip_started->driver_id)->update(['amount'=> $new_driver_wallet]);
-              
-              if($new_driver_wallet == $minimum_wallet->value)
-              {
-                
-               $body="شارف رصيدك على الانتهاء يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-              
-              }
-              elseif($new_driver_wallet < $minimum_wallet->value)
-              {
-                $body="يرجى شحن المحفظة";
-                $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-                User::where('id',$trip_started->driver_id)->update(['in_service'=>'out of service']);
-                
-              }
-                  
-                
-              }
-              
-          
-      
-           }
-            
-         
-         
-         
-         elseif(strtoupper($user_type->user_type) == strtoupper('Organizations')){
-              $fare = DB::table('fare_settings')->where('type_id',  $vehicle_type->type_id)->where('category_id', 'outside damascus')
-                ->where(DB::raw('lower(user_type)'), 'like', '%' . strtolower('Organizations') . '%')
-                ->first();
-                
-                if($request->km <= $fare->limit_distance){
-              
-              $cost=$fare->cost;
-              
-            }
-           else
-           {
-               $cost = (  $request->km * $fare->base_km) + ( $total_minutes* $fare->base_time);
-             
-           }
-              $trip_started->cost=intval($cost);
-             $trip_started->km=$request->km;
-             $trip_started->status="ended";
-             $trip_started->end_time=$request->end_time;
-             $trip_started->save();
-               User::where("id",$trip_started->driver_id)->update([
-                 "in_service"=>"off"
-                 ]);
-           
-           
-            //driver
-            if($driver_type->user_type=="driver")
-           {
-           
-             $internal_fare=Value::where('name','internal_fare')->first();
-          
-             //admin fare
-             $admin_fare=($cost * $internal_fare->value) / 100 ;             
-           
-           
-            //new admin wallet
-             $new_admin_wallet= $admin_wallet->value + $admin_fare;
-             
-             //update admin wallet
-             Value::where('name','admin_wallet')->update(['value'=> $new_admin_wallet]);
-              
-              
-             //driver fare
-             $new_driver_wallet=  $driver_wallet->amount - $cost + $admin_fare ;
-              
-             //update driver wallet
-              
-             WalletModel::where('driver_id',$trip_started->driver_id)->update(['amount'=> $new_driver_wallet]);
-              
-              if($new_driver_wallet == $minimum_wallet->value)
-              {
-                
-               $body="شارف رصيدك على الانتهاء يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-              
-              }
-              elseif($new_driver_wallet < $minimum_wallet->value)
-              {
-                $body="يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-               User::where('id',$trip_started->driver_id)->update(['in_service'=>'out of service']);
-                
-              }
-               
-           }
-           
-           //external driver
-             elseif($driver_type->user_type=="external_driver")
-            {
-             
-             $external_fare=Value::where('name','external_fare')->first();
+            $cost = $fare->cost;
+        }
+        //After this limit distance the cost is calculated in this way
+        else {
+            $cost = ($request->km * $fare->base_km) + ($total_minutes * $fare->base_time);
+        }
 
-             //admin fare
-             $admin_fare=($cost * $external_fare->value) / 100;             
-           
-           
-            //new admin wallet
-             $new_admin_wallet= $admin_wallet->value + $admin_fare;
-             
-             //update admin wallet
-             Value::where('name','admin_wallet')->update(['value'=> $new_admin_wallet]);
-              
-              
-             //driver fare
-             $new_driver_wallet=  $driver_wallet->amount - $cost + $admin_fare ;
-              
-             //update driver wallet
-              
-             WalletModel::where('driver_id',$trip_started->driver_id)->update(['amount'=> $new_driver_wallet]);
-              
-              if($new_driver_wallet == $minimum_wallet->value)
-              {
-                
-               $body="شارف رصيدك على الانتهاء يرجى شحن المحفظة";
-               $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-              
-              }
-              elseif($new_driver_wallet < $minimum_wallet->value)
-              {
-                $body="يرجى شحن المحفظة";
-                $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-                User::where('id',$trip_started->driver_id)->update(['in_service'=>'out of service']);
-                
-              }
-                  
-                
-              }
-         
-  
-         }
-          
-         
-      }
-    if($driver_type->user_type=="driver")
-    {
-     //admin fare
-     $admin_fare=($trip_started->cost * $internal->value) / 100;
-    }
-      elseif($driver_type->user_type=="external_driver")
-    {
+        $cost = $cost + ($cost * $admin_fare_value) / 100;
+
+        $trip_started->cost = intval($cost);
+        $trip_started->km = $request->km;
+        $trip_started->status = BookingStatus::ended;
+        $trip_started->end_time = $request->end_time;
+        $trip_started->save();
+
+        User::where("id", $trip_started->driver_id)->update([
+            "in_service" => "off"
+        ]);
+
+        //driver type
+        //admin fare of the internal driver
+        if ($driver_type->user_type == "driver") {
+            $internal_external_fare = Value::where('name', 'internal_fare')->first();
+        }
+        //external driver
+        elseif ($driver_type->user_type == "external_driver") {
+            $internal_external_fare = Value::where('name', 'external_fare')->first();
+        } else {
+            $internal_external_fare = 10;
+        }
         //admin fare
-        $admin_fare=($trip_started->cost * $external->value) / 100;
-    }
-         
+        $admin_fare = ($cost * $internal_external_fare->value) / 100;
+
+
+        //new admin wallet
+        $new_admin_wallet = $admin_wallet->value + $admin_fare;
+
+        //update admin wallet
+        Value::where('name', 'admin_wallet')->update(['value' => $new_admin_wallet]);
+
+
+        //driver fare
+        $new_driver_wallet =  $driver_wallet->amount - $cost + $admin_fare;
+
+        //update driver wallet
+
+        WalletModel::where('driver_id', $trip_started->driver_id)->update(['amount' => $new_driver_wallet]);
+
+        //send notification if the driver's wallet is equal to the minimum wallet
+
+        if ($new_driver_wallet == $minimum_wallet->value) {
+
+            $body = "شارف رصيدك على الانتهاء يرجى شحن المحفظة";
+            $this->send_notification($driver_type->device_token, 'Dimond Line', $body);
+        }
+        //send notification if the driver's wallet is less than to the minimum wallet
+        //change driver status to out of service.
+        elseif ($new_driver_wallet < $minimum_wallet->value) {
+            $body = "يرجى شحن المحفظة";
+            $this->send_notification($driver_type->device_token, 'Dimond Line', $body);
+            User::where('id', $trip_started->driver_id)->update(['in_service' => 'out of service']);
+        }
+
+        if ($driver_type->user_type == "driver") {
+            //admin fare
+            $admin_fare = ($trip_started->cost * $internal->value) / 100;
+        } elseif ($driver_type->user_type == "external_driver") {
+            //admin fare
+            $admin_fare = ($trip_started->cost * $external->value) / 100;
+        }
+
         if ($trip_started) {
             $data['error'] = false;
             $data['message'] = " The trip has been ended";
-            $data['data'] = ["new_cost"=>$trip_started->cost,"admin_fare"=>$admin_fare];
-          
-            $all_data =  [
-          	'id'=>$trip_started->id,
-            'user_id'=>$trip_started->user_id,
-            'status'=>$trip_started->status,
-            'pickup_latitude'=>$trip_started->pickup_latitude,
-            'pickup_longitude'=>$trip_started->pickup_longitude,
-            'drop_latitude'=>$trip_started->drop_latitude,
-            'drop_longitude'=>$trip_started->drop_longitude,
-            'driver_first_name'=>$trip_started->driver->first_name,
-            'driver_last_name'=>$trip_started->driver->last_name,
-            'driver_phone'=>$trip_started->driver->phone,
-            'driver_profile_image'=>asset('uploads/' . $trip_started->driver->profile_image),
-            'vehicel_image'=>   asset('uploads/' . $trip_started->vehicle->vehicle_image),
-            'vehicel_device_number'=>$trip_started->vehicle->device_number,
-            'vehicel_car_model'=>$trip_started->vehicle->car_model,
-            'vehicel_color'=>$trip_started->vehicle->color,
-              'cost'=>(string)$trip_started->cost
-        ];
-           event(new TripStatusChangedEvent($all_data));
+            $data['data'] = ["new_cost" => $trip_started->cost, "admin_fare" => $admin_fare];
+
+            // $all_data =  [
+            //     'id' => $trip_started->id,
+            //     'user_id' => $trip_started->user_id,
+            //     'status' => $trip_started->status,
+            //     'pickup_latitude' => $trip_started->pickup_latitude,
+            //     'pickup_longitude' => $trip_started->pickup_longitude,
+            //     'drop_latitude' => $trip_started->drop_latitude,
+            //     'drop_longitude' => $trip_started->drop_longitude,
+            //     'driver_first_name' => $trip_started->driver->first_name,
+            //     'driver_last_name' => $trip_started->driver->last_name,
+            //     'driver_phone' => $trip_started->driver->phone,
+            //     'driver_profile_image' => asset('uploads/' . $trip_started->driver->profile_image),
+            //     'vehicel_image' =>   asset('uploads/' . $trip_started->vehicle->vehicle_image),
+            //     'vehicel_device_number' => $trip_started->vehicle->device_number,
+            //     'vehicel_car_model' => $trip_started->vehicle->car_model,
+            //     'vehicel_color' => $trip_started->vehicle->color,
+            //     'cost' => (string)$trip_started->cost
+            // ];
+            // event(new TripStatusChangedEvent($all_data));
+
+            $this->send_notification(
+                $trip_started->user_id->device_token,
+                'Welcome To Our Application',
+                __("booking.trip_ended"),
+                ["status" => BookingStatus::ended],
+            );
             return $data;
-        } else{
+        } else {
             $data['error'] = true;
             $data['message'] = "The trip hasnt been ended";
             return $data;
         }
     }
-    
-   //changable  expenses for trip from internal driver
 
-  
-   public function started_inside_trips() {
+    //changable  expenses for trip from internal driver
+
+
+    public function started_inside_trips()
+    {
         $driver_id = auth()->user()->id;
-        $bookings = Bookings::where('driver_id',$driver_id)->where('status','started')
-          ->get(['id','status','pickup_latitude','pickup_longitude','drop_latitude','drop_longitude']);
-       
-        if (! empty ($bookings)) {
+        $bookings = Bookings::where('driver_id', $driver_id)->where('status', BookingStatus::started)
+            ->get(['id', 'status', 'pickup_latitude', 'pickup_longitude', 'drop_latitude', 'drop_longitude']);
+
+        if (!empty($bookings)) {
             return response()->json([
-                'error'=>false,
-                'data'=>   $bookings 
-            ]) ;
-        }else{
-                return response()->json([
-                'error'=>true,
-                'data'=>[]
-             ]) ;
-            }
-        
+                'error' => false,
+                'data' =>   $bookings
+            ]);
+        } else {
+            return response()->json([
+                'error' => true,
+                'data' => []
+            ]);
+        }
     }
-  
+
     public function trip_expense(Request $request)
     {
-         $validation = Validator::make($request->all(), [
+        $validation = Validator::make($request->all(), [
             'type' => 'required',
             'price' => 'required',
             'trip_id' => 'required',
             'driver_id' => 'required',
-           
+
         ]);
         $errors = $validation->errors();
         $type = json_encode($request->type);
@@ -1286,11 +901,11 @@ When the driver starts a trip, the trip status changes
 
         $trip_expense->price = $price;
         $trip_expense->save();
- 
-          if (count($errors)>0 ) {
+
+        if (count($errors) > 0) {
             $data['error'] = true;
             $data['message'] = "Expenses havent sent";
-          
+
             return $data;
         } else {
             $data['error'] = false;
@@ -1298,269 +913,240 @@ When the driver starts a trip, the trip status changes
 
             return $data;
         }
-       
-       
-        
     }
-  //drivers charge wallet using transfer method.
+    //drivers charge wallet using transfer method.
     public function charge_wallet(Request $request)
     {
-        
-            $validation = Validator::make($request->all(), [
+
+        $validation = Validator::make($request->all(), [
             'method' => 'required',
-            
+
             'driver_id' => 'required',
             'transfare_image' => 'required',
             'new_amount' => 'required',
-        ]); 
-            
-         $errors = $validation->errors();
-    
+        ]);
+
+        $errors = $validation->errors();
+
         if (count($errors) > 0) {
             $data['message'] = "Unable to charge wallet. Please, check the Details OR Try again Later";
-            $data['error'] =   true ;
-          
-            return $data;
-        }
-        else  
-        {
-          
-        $wallet=  WalletModel::where('driver_id',$request->driver_id)->first();
-         $minimum_wallet=Value::where('name','minimum_wallet')->first();
-        
-        if ($request->hasfile('transfare_image') == true) {
-            $file = $request->file('transfare_image');
-            $destinationPath = './uploads';
-            $extension = $request->file('transfare_image')->getClientOriginalExtension();
-            $fileName1 = Str::uuid() . '.' . $extension;
-            $file->move($destinationPath, $fileName1);
-            $wallet->transfare_image = $fileName1;
-        }
-        $wallet->method=$request->method;
-     
-        $wallet->driver_id=$request->driver_id;
-        $wallet->new_amount=$request->new_amount;
-         $wallet->status='0';
-          
+            $data['error'] =   true;
 
-        $wallet->save();
-  
-        $data['error'] = false;
-        $data['message'] = "The balance has been charged successfully";
-        $data['data'] = $wallet;
-        return $data;
-            
+            return $data;
+        } else {
+
+            $wallet =  WalletModel::where('driver_id', $request->driver_id)->first();
+            $minimum_wallet = Value::where('name', 'minimum_wallet')->first();
+
+            if ($request->hasfile('transfare_image') == true) {
+                $file = $request->file('transfare_image');
+                $destinationPath = './uploads';
+                $extension = $request->file('transfare_image')->getClientOriginalExtension();
+                $fileName1 = Str::uuid() . '.' . $extension;
+                $file->move($destinationPath, $fileName1);
+                $wallet->transfare_image = $fileName1;
+            }
+            $wallet->method = $request->method;
+
+            $wallet->driver_id = $request->driver_id;
+            $wallet->new_amount = $request->new_amount;
+            $wallet->status = '0';
+
+
+            $wallet->save();
+
+            $data['error'] = false;
+            $data['message'] = "The balance has been charged successfully";
+            $data['data'] = $wallet;
+            return $data;
         }
-        
-        
     }
- 
-    public function check_status(Request $request){
-     
-    
-      $validation = Validator::make($request->all(), [
+
+    public function check_status(Request $request)
+    {
+
+
+        $validation = Validator::make($request->all(), [
             'order_id' => 'required',
-           
-        ]); 
-         $errors = $validation->errors();
-        if (count($errors)>0 ) {
+
+        ]);
+        $errors = $validation->errors();
+        if (count($errors) > 0) {
             $data['error'] = true;
-         
-          
+
+
             return $data;
-        } 
-       else
-       {
-          $order_status=EcashPayment::where('id',$request->order_id)->first();
-         
-         $data['error'] = false;
-         $data['message'] = "Success";
-         $data['data']=$order_status;
-           
-         return $data;
-         
-       }
-    
+        } else {
+            $order_status = EcashPayment::where('id', $request->order_id)->first();
+
+            $data['error'] = false;
+            $data['message'] = "Success";
+            $data['data'] = $order_status;
+
+            return $data;
+        }
     }
-   public function delete_order(Request $request)
-   {
-    
-      $validation = Validator::make($request->all(), [
+    public function delete_order(Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
             'order_id' => 'required',
-           
-        ]); 
-         $errors = $validation->errors();
-        if (count($errors)>0 ) {
+
+        ]);
+        $errors = $validation->errors();
+        if (count($errors) > 0) {
             $data['error'] = true;
-         
-          
+
+
             return $data;
-        } 
-       else
-       {
-          $order=EcashPayment::where('id',$request->order_id)->delete();
-         
-         $data['error'] = false;
-         $data['message'] = " Deleted Successfully";
-         
-           
+        } else {
+            $order = EcashPayment::where('id', $request->order_id)->delete();
+
+            $data['error'] = false;
+            $data['message'] = " Deleted Successfully";
+
+
             return $data;
-         
-       }
-   }
+        }
+    }
     public function send_complaint(Request $request)
     {
         $validation = Validator::make($request->all(), [
             'user_id' => 'required',
             'description' => 'required',
-        ]); 
-         $errors = $validation->errors();
-        if (count($errors)>0 ) {
+        ]);
+        $errors = $validation->errors();
+        if (count($errors) > 0) {
             $data['error'] = true;
             $data['message'] = "The complaint has not been sent";
-          
+
             return $data;
         } else {
-            
-            $complaint=new Complaints();
-            $complaint->user_id=$request->user_id;
-            $complaint->description=$request->description;
+
+            $complaint = new Complaints();
+            $complaint->user_id = $request->user_id;
+            $complaint->description = $request->description;
             $complaint->save();
             $data['error'] = false;
             $data['message'] = "Complaint has been sent successfully";
             return $data;
         }
-        
     }
-  
-  
-  public function create_orderid(Request $request){
-   
-    $validation = Validator::make($request->all(), [
+
+
+    public function create_orderid(Request $request)
+    {
+
+        $validation = Validator::make($request->all(), [
             'driver_id' => 'required',
             'amount' => 'required',
-        ]); 
-    
-         $errors = $validation->errors();
-    if (count($errors)>0 ) {
-    $data['error'] = true;
-    $data['message'] = "Please, check the Details OR Try again Later";
-          
-    return $data;
-        } 
-    else
-    {
-      
-      $payment=new EcashPayment();
-      $payment->driver_id=$request->driver_id;
-      $payment->amount=$request->amount;
-      $payment->save();
-      if($payment){
-      $data['error'] = false;
-      $data['message'] = "Information created Sucessfully";
-      $data["data"]=  $payment;
-          
-      return $data;
-      }
-      else
-      {
-       $data['error'] = true;
-       $data['message'] = "Please, check the Details OR Try again Later";
-          
-       return $data;
-      }
+        ]);
 
-    }	
-    
-    
-  }
-  
-  function ecash_payment(Request $request)
+        $errors = $validation->errors();
+        if (count($errors) > 0) {
+            $data['error'] = true;
+            $data['message'] = "Please, check the Details OR Try again Later";
+
+            return $data;
+        } else {
+
+            $payment = new EcashPayment();
+            $payment->driver_id = $request->driver_id;
+            $payment->amount = $request->amount;
+            $payment->save();
+            if ($payment) {
+                $data['error'] = false;
+                $data['message'] = "Information created Sucessfully";
+                $data["data"] =  $payment;
+
+                return $data;
+            } else {
+                $data['error'] = true;
+                $data['message'] = "Please, check the Details OR Try again Later";
+
+                return $data;
+            }
+        }
+    }
+
+    function ecash_payment(Request $request)
     {
 
-    $data = json_decode(request()->getContent(), true);
-    
-    $isSuccess = $data['IsSuccess'];
-    
-    $message=$data['Message'];
-    
-    $orderRef=$data['OrderRef'];
-       
-    $transactionNo=$data['TransactionNo'];
-    
-    $amount=$data['Amount'];
-   
-    $token=$data['Token'];
-    
-    $MerchantId='T26REL';
-    $MerchantSecret='6VFDA69N466ZZ8KAOVO081J2VG0CKG8BSRLUN3NIFAB13PU3S50P6VGBRPG3A3A8';
-    
-    
-    $myToken=md5($MerchantId.$MerchantSecret.$transactionNo.$amount.$orderRef);
-    $myToken1=strtoupper($myToken);
-   
- if($myToken1 !== $token){
-   
-   $data['error'] = true;
-    return $data; 
-      }
-   else
-     {
-        
-          $order_ref=EcashPayment::where('id',$orderRef)->first();
-          $order_ref->is_success= $isSuccess;
-          $order_ref->message=$message;
-          $order_ref->amount= $amount;
-          $order_ref->token= $token;
-          $order_ref->transaction_number=$transactionNo;
-          $order_ref->save();
-         
-   
-       
-       if($order_ref->is_success==1)
-       {
-       
-          $wallet=  WalletModel::where('driver_id',$order_ref->driver_id)->first();
-         
-       
-        $wallet->method='E-cash';
-         $wallet->transfare_image="null";
-       
-        $wallet->new_amount=$order_ref->amount;
-        $wallet->status='0';
-        $wallet->save();
-         
-       }
-     $data['error'] = false;
-          $data['data'] =$order_ref;
-          
-         return $data; 
-         
-      
- }
+        $data = json_decode(request()->getContent(), true);
+
+        $isSuccess = $data['IsSuccess'];
+
+        $message = $data['Message'];
+
+        $orderRef = $data['OrderRef'];
+
+        $transactionNo = $data['TransactionNo'];
+
+        $amount = $data['Amount'];
+
+        $token = $data['Token'];
+
+        $MerchantId = 'T26REL';
+        $MerchantSecret = '6VFDA69N466ZZ8KAOVO081J2VG0CKG8BSRLUN3NIFAB13PU3S50P6VGBRPG3A3A8';
+
+
+        $myToken = md5($MerchantId . $MerchantSecret . $transactionNo . $amount . $orderRef);
+        $myToken1 = strtoupper($myToken);
+
+        if ($myToken1 !== $token) {
+
+            $data['error'] = true;
+            return $data;
+        } else {
+
+            $order_ref = EcashPayment::where('id', $orderRef)->first();
+            $order_ref->is_success = $isSuccess;
+            $order_ref->message = $message;
+            $order_ref->amount = $amount;
+            $order_ref->token = $token;
+            $order_ref->transaction_number = $transactionNo;
+            $order_ref->save();
+
+
+
+            if ($order_ref->is_success == 1) {
+
+                $wallet =  WalletModel::where('driver_id', $order_ref->driver_id)->first();
+
+
+                $wallet->method = 'E-cash';
+                $wallet->transfare_image = "null";
+
+                $wallet->new_amount = $order_ref->amount;
+                $wallet->status = '0';
+                $wallet->save();
+            }
+            $data['error'] = false;
+            $data['data'] = $order_ref;
+
+            return $data;
+        }
     }
     //get driver wallet.
     public function driver_wallet(Request $request)
     {
-          $validation = Validator::make($request->all(), [
+        $validation = Validator::make($request->all(), [
             'driver_id' => 'required',
-            
+
         ]);
-        $driver_wallet=DB::table('wallet')->where('driver_id',$request->driver_id)->first();
-        
-         if (empty($driver_wallet)) {
+        $driver_wallet = DB::table('wallet')->where('driver_id', $request->driver_id)->first();
+
+        if (empty($driver_wallet)) {
             $data['error'] = true;
             $data['message'] = " Please Charging Your  Wallet";
-          
+
             return $data;
-        } else{
+        } else {
             $data['error'] = false;
             $data['message'] = "Listed Successfullly";
             $data['data'] = $driver_wallet;
             return $data;
         }
-        
-     
     }
 
     public function change_availability(Request $request)
@@ -1571,7 +1157,8 @@ When the driver starts a trip, the trip status changes
             $driver->save();
             if ($request->get('availability') == '0') {
                 $status = 'Offline';
-            }if ($request->get('availability') == '1') {
+            }
+            if ($request->get('availability') == '1') {
                 $status = 'Online';
             }
             $data['success'] = 1;
@@ -1604,28 +1191,30 @@ When the driver starts a trip, the trip status changes
 
                     if (strtotime($book->journey_date . " " . $book->journey_time) >= strtotime("-5 minutes")) {
 
-                        $details1[] = array('booking_id' => $book['id'],
+                        $details1[] = array(
+                            'booking_id' => $book['id'],
                             'book_date' => date('Y-m-d', strtotime($book['created_at'])),
                             'book_time' => date('H:i:s', strtotime($book['created_at'])),
                             'source_address' => $book['pickup_addr'],
                             'dest_address' => $book['dest_addr'],
                             'journey_date' => $book->getMeta('journey_date'),
-                            'journey_time' => $book->getMeta('journey_time'));
+                            'journey_time' => $book->getMeta('journey_time')
+                        );
                     }
-
-                }if ($book->booking_type == 1) {
-                    if (strtotime($book->journey_date . " " . $book->journey_time) >= strtotime("now")) {
-                        $details2[] = array('booking_id' => $book['id'],
-                            'book_date' => date('Y-m-d', strtotime($book['created_at'])),
-                            'book_time' => date('H:i:s', strtotime($book['created_at'])),
-                            'source_address' => $book['pickup_addr'],
-                            'dest_address' => $book['dest_addr'],
-                            'journey_date' => $book->getMeta('journey_date'),
-                            'journey_time' => $book->getMeta('journey_time'));
-                    }
-
                 }
-
+                if ($book->booking_type == 1) {
+                    if (strtotime($book->journey_date . " " . $book->journey_time) >= strtotime("now")) {
+                        $details2[] = array(
+                            'booking_id' => $book['id'],
+                            'book_date' => date('Y-m-d', strtotime($book['created_at'])),
+                            'book_time' => date('H:i:s', strtotime($book['created_at'])),
+                            'source_address' => $book['pickup_addr'],
+                            'dest_address' => $book['dest_addr'],
+                            'journey_date' => $book->getMeta('journey_date'),
+                            'journey_time' => $book->getMeta('journey_time')
+                        );
+                    }
+                }
             }
 
             $details = array_merge($details1, $details2);
@@ -1653,16 +1242,20 @@ When the driver starts a trip, the trip status changes
             }
             $data['success'] = 1;
             $data['message'] = "Data Received.";
-            $data['data'] = array('riderequest_info' => array('booking_id' => $booking->id,
-                'source_address' => $booking->pickup_addr,
-                'dest_address' => $booking->dest_addr,
-                'book_date' => date('Y-m-d', strtotime($booking->created_at)),
-                'book_time' => date('H:i:s', strtotime($booking->created_at)),
-                'journey_date' => $booking->getMeta('journey_date'),
-                'journey_time' => $booking->getMeta('journey_time'),
-                'accept_status' => $booking->getMeta('accept_status'),
-                'approx_timetoreach' => $booking->getMeta('approx_timetoreach')),
-                'user_details' => $user_details);
+            $data['data'] = array(
+                'riderequest_info' => array(
+                    'booking_id' => $booking->id,
+                    'source_address' => $booking->pickup_addr,
+                    'dest_address' => $booking->dest_addr,
+                    'book_date' => date('Y-m-d', strtotime($booking->created_at)),
+                    'book_time' => date('H:i:s', strtotime($booking->created_at)),
+                    'journey_date' => $booking->getMeta('journey_date'),
+                    'journey_time' => $booking->getMeta('journey_time'),
+                    'accept_status' => $booking->getMeta('accept_status'),
+                    'approx_timetoreach' => $booking->getMeta('approx_timetoreach')
+                ),
+                'user_details' => $user_details
+            );
         }
         return $data;
     }
@@ -1682,7 +1275,6 @@ When the driver starts a trip, the trip status changes
             if ($count == 0) {
                 $this->reject_ride_notification($booking->customer_id);
             }
-
         }
 
         //for book now
@@ -1700,12 +1292,10 @@ When the driver starts a trip, the trip status changes
 
                     $count++;
                 }
-
             }
             if ($count == 0) {
                 $this->reject_ride_notification($booking->customer_id);
             }
-
         }
         if ($booking == null) {
             $data['success'] = 0;
@@ -1740,7 +1330,6 @@ When the driver starts a trip, the trip status changes
                 ->setDevicesToken([$customer->getMeta('fcm_id')])
                 ->send();
         }
-
     }
 
     public function accept_ride_request(Request $request)
@@ -1765,21 +1354,24 @@ When the driver starts a trip, the trip status changes
                 $this->accept_ride_notification($booking->id, $request->lat, $request->long);
                 $data['success'] = 1;
                 $data['message'] = "You have Accepted the Ride  Request. Pick up the Customer on Time !";
-                $data['data'] = array('riderequest_info' => array('booking_id' => $booking->id,
-                    'source_address' => $booking->pickup_addr,
-                    'dest_address' => $booking->dest_addr,
-                    'book_date' => date('Y-m-d', strtotime($booking->created_at)),
-                    'book_time' => date('H:i:s', strtotime($booking->created_at)),
-                    'journey_date' => $booking->getMeta('journey_date'),
-                    'journey_time' => $booking->getMeta('journey_time'),
-                    'accept_status' => $booking->getMeta('accept_status'),
-                    'approx_timetoreach' => $booking->getMeta('approx_timetoreach')),
-                    'user_details' => $user_details);
+                $data['data'] = array(
+                    'riderequest_info' => array(
+                        'booking_id' => $booking->id,
+                        'source_address' => $booking->pickup_addr,
+                        'dest_address' => $booking->dest_addr,
+                        'book_date' => date('Y-m-d', strtotime($booking->created_at)),
+                        'book_time' => date('H:i:s', strtotime($booking->created_at)),
+                        'journey_date' => $booking->getMeta('journey_date'),
+                        'journey_time' => $booking->getMeta('journey_time'),
+                        'accept_status' => $booking->getMeta('accept_status'),
+                        'approx_timetoreach' => $booking->getMeta('approx_timetoreach')
+                    ),
+                    'user_details' => $user_details
+                );
             } else {
                 $data['success'] = 0;
                 $data['message'] = "You can not Accept Ride Requests. Please, Contact App Admin !";
                 $data['data'] = "";
-
             }
         }
         return $data;
@@ -1809,18 +1401,21 @@ When the driver starts a trip, the trip status changes
         $data['title'] = "Your Ride Request has been Accepted.";
         $data['description'] = $booking->pickup_addr . "-" . $booking->dest_addr . ": Driver Name " . $booking->driver->name;
         $data['timestamp'] = date('Y-m-d H:i:s');
-        $data['data'] = array('riderequest_info' => array('user_id' => $booking->customer_id,
-            'booking_id' => $id,
-            'source_address' => $booking->pickup_addr,
-            'dest_address' => $booking->dest_addr,
-            'book_date' => date('d-m-Y', strtotime($booking->created_at)),
-            'book_time' => date('H:i:s', strtotime($booking->created_at)),
-            'journey_date' => $booking->getMeta('journey_date'),
-            'journey_time' => $booking->getMeta('journey_time'),
-            'accept_status' => $booking->getMeta('accept_status'),
+        $data['data'] = array(
+            'riderequest_info' => array(
+                'user_id' => $booking->customer_id,
+                'booking_id' => $id,
+                'source_address' => $booking->pickup_addr,
+                'dest_address' => $booking->dest_addr,
+                'book_date' => date('d-m-Y', strtotime($booking->created_at)),
+                'book_time' => date('H:i:s', strtotime($booking->created_at)),
+                'journey_date' => $booking->getMeta('journey_date'),
+                'journey_time' => $booking->getMeta('journey_time'),
+                'accept_status' => $booking->getMeta('accept_status'),
 
-        ),
-            'driver_details' => array('driver_id' => $booking->driver_id,
+            ),
+            'driver_details' => array(
+                'driver_id' => $booking->driver_id,
                 'driver_name' => $booking->driver->name,
                 'profile_pic' => $booking->driver->getMeta('driver_image'),
                 'vehicle_number' => $vehicle_number,
@@ -1843,7 +1438,6 @@ When the driver starts a trip, the trip status changes
                 ->setDevicesToken([$booking->customer->getMeta('fcm_id')])
                 ->send();
         }
-
     }
 
     public function cancel_ride_request(Request $request)
@@ -1877,7 +1471,8 @@ When the driver starts a trip, the trip status changes
         $data['title'] = "Ride Cancelled - " . $id;
         $data['description'] = $booking->pickup_addr . " - " . $booking->dest_addr . ". Reason is " . $booking->reason;
         $data['timestamp'] = date('Y-m-d H:i:s');
-        $data['data'] = array('booking _id' => $id,
+        $data['data'] = array(
+            'booking _id' => $id,
             'source_address' => $booking->pickup_addr,
             'dest_address' => $booking->dest_addr,
             'book_date' => date('d-m-Y', strtotime($booking->created_at)),
@@ -1898,7 +1493,6 @@ When the driver starts a trip, the trip status changes
                 ->setDevicesToken([$booking->customer->getMeta('fcm_id')])
                 ->send();
         }
-
     }
 
     public function driver_rides(Request $request)
@@ -1915,12 +1509,14 @@ When the driver starts a trip, the trip status changes
             $cancel = array();
             if (Hyvikk::get('dis_format') == 'meter') {
                 $unit = 'm';
-            }if (Hyvikk::get('dis_format') == 'km') {
+            }
+            if (Hyvikk::get('dis_format') == 'km') {
                 $unit = 'km';
             }
             foreach ($bookings as $u) {
                 if ($u->getMeta('ride_status') == "Upcoming") {
-                    $u_rides[] = array('booking_id' => $u->id,
+                    $u_rides[] = array(
+                        'booking_id' => $u->id,
                         'book_date' => date('Y-m-d', strtotime($u->created_at)),
                         'book_time' => date('H:i:s', strtotime($u->created_at)),
                         'source_address' => $u->pickup_addr,
@@ -1931,7 +1527,8 @@ When the driver starts a trip, the trip status changes
                     );
                 }
                 if ($u->getMeta('ride_status') == "Completed") {
-                    $c_rides[] = array('booking_id' => $u->id,
+                    $c_rides[] = array(
+                        'booking_id' => $u->id,
                         'book_date' => date('Y-m-d', strtotime($u->created_at)),
                         'book_time' => date('H:i:s', strtotime($u->created_at)),
                         'source_address' => $u->pickup_addr,
@@ -1947,7 +1544,8 @@ When the driver starts a trip, the trip status changes
                     );
                 }
                 if ($u->getMeta('ride_status') == "Cancelled") {
-                    $cancel[] = array('booking_id' => $u->id,
+                    $cancel[] = array(
+                        'booking_id' => $u->id,
                         'book_date' => date('Y-m-d', strtotime($u->created_at)),
                         'book_time' => date('H:i:s', strtotime($u->created_at)),
                         'source_address' => $u->pickup_addr,
@@ -1961,7 +1559,8 @@ When the driver starts a trip, the trip status changes
 
             $data['success'] = 1;
             $data['message'] = "Data Received.";
-            $data['data'] = array('upcoming_rides' => $u_rides,
+            $data['data'] = array(
+                'upcoming_rides' => $u_rides,
                 'completed_rides' => $c_rides,
                 'cancelled_rides' => $cancel,
             );
@@ -1979,14 +1578,16 @@ When the driver starts a trip, the trip status changes
         } else {
             if (Hyvikk::get('dis_format') == 'meter') {
                 $unit = 'm';
-            }if (Hyvikk::get('dis_format') == 'km') {
+            }
+            if (Hyvikk::get('dis_format') == 'km') {
                 $unit = 'km';
             }
             $ride_reviews = array('user_id' => '', 'ratings' => '', 'review_text' => '', 'date' => '');
             $user_details = array('user_id' => $booking->customer_id, 'user_name' => $booking->customer->name, 'mobno' => $booking->customer->getMeta('mobno'), 'profile_pic' => $booking->customer->getMeta('profile_pic'));
             $ride_info = array();
             if ($booking->getMeta('ride_status') == "Upcoming") {
-                $ride_info = array('booking_id' => $booking->id,
+                $ride_info = array(
+                    'booking_id' => $booking->id,
                     'source_address' => $booking->pickup_addr,
                     'dest_address' => $booking->dest_addr,
                     'book_timestamp' => date('Y-m-d H:i:s', strtotime($booking->created_at)),
@@ -1995,11 +1596,11 @@ When the driver starts a trip, the trip status changes
                     'journey_date' => $booking->getMeta('journey_date'),
                     'journey_time' => $booking->getMeta('journey_time'),
                 );
-
             }
 
             if ($booking->getMeta('ride_status') == "Completed") {
-                $ride_info = array('booking_id' => $booking->id,
+                $ride_info = array(
+                    'booking_id' => $booking->id,
                     'source_address' => $booking->pickup_addr,
                     'dest_address' => $booking->dest_addr,
                     'source_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('ridestart_timestamp'))),
@@ -2018,11 +1619,11 @@ When the driver starts a trip, the trip status changes
                 if ($r1 != null) {
                     $ride_reviews = array('user_id' => $r1->user_id, 'ratings' => $r1->ratings, 'review_text' => $r1->review_text, 'date' => date('d-m-Y', strtotime($r1->created_at)));
                 }
-
             }
 
             if ($booking->getMeta('ride_status') == "Cancelled") {
-                $ride_info = array('booking_id' => $booking->id,
+                $ride_info = array(
+                    'booking_id' => $booking->id,
                     'source_address' => $booking->pickup_addr,
                     'dest_address' => $booking->dest_addr,
                     'book_timestamp' => date('Y-m-d H:i:s', strtotime($booking->created_at)),
@@ -2038,13 +1639,14 @@ When the driver starts a trip, the trip status changes
 
             $data['success'] = 1;
             $data['message'] = "Data Received.";
-            $data['data'] = array('rideinfo' => $ride_info, 'user_details' => $user_details, 'ride_review' => $ride_reviews,
-                'fare_breakdown' => array('base_fare' => Hyvikk::fare(strtolower(str_replace(' ', '', ($booking->vehicle_id != null ? $booking->vehicle->types->vehicletype : ($vehicle_type->vehicletype ?? "")))) . '_base_fare'), 'ride_amount' => $booking->getMeta('tax_total'), 'extra_charges' => 0, 'payment_mode' => 'CASH')); //done
+            $data['data'] = array(
+                'rideinfo' => $ride_info, 'user_details' => $user_details, 'ride_review' => $ride_reviews,
+                'fare_breakdown' => array('base_fare' => Hyvikk::fare(strtolower(str_replace(' ', '', ($booking->vehicle_id != null ? $booking->vehicle->types->vehicletype : ($vehicle_type->vehicletype ?? "")))) . '_base_fare'), 'ride_amount' => $booking->getMeta('tax_total'), 'extra_charges' => 0, 'payment_mode' => 'CASH')
+            ); //done
 
         }
 
         return $data;
-
     }
 
     public function start_ride(Request $request)
@@ -2073,7 +1675,6 @@ When the driver starts a trip, the trip status changes
             $data['data'] = array('booking_id' => $booking->id, 'ridestart_timestamp' => $booking->getMeta('ridestart_timestamp'));
         }
         return $data;
-
     }
 
     public function ride_started_notification($id)
@@ -2085,7 +1686,8 @@ When the driver starts a trip, the trip status changes
         $data['title'] = "Ride Started";
         $data['description'] = $booking->pickup_addr . "-" . $booking->dest_addr . ": Driver Name " . $booking->driver->name;
         $data['timestamp'] = date('Y-m-d H:i:s');
-        $data['data'] = array('ride_info' => array('user_id' => $booking->customer_id,
+        $data['data'] = array('ride_info' => array(
+            'user_id' => $booking->customer_id,
             'booking_id' => $id,
             'source_address' => $booking->pickup_addr,
             'dest_address' => $booking->dest_addr,
@@ -2105,7 +1707,6 @@ When the driver starts a trip, the trip status changes
                 ->setDevicesToken([$booking->customer->getMeta('fcm_id')])
                 ->send();
         }
-
     }
 
     public function ride_ongoing_notification($id)
@@ -2145,7 +1746,6 @@ When the driver starts a trip, the trip status changes
                 ->setDevicesToken([$booking->driver->getMeta('fcm_id')])
                 ->send();
         }
-
     }
 
     public function destination_reached(Request $request)
@@ -2164,7 +1764,8 @@ When the driver starts a trip, the trip status changes
 
             if (Hyvikk::get('dis_format') == 'meter') {
                 $unit = 'm';
-            }if (Hyvikk::get('dis_format') == 'km') {
+            }
+            if (Hyvikk::get('dis_format') == 'km') {
                 $unit = 'km';
             }
             $booking->end_address = $request->get('end_address');
@@ -2180,7 +1781,6 @@ When the driver starts a trip, the trip status changes
             $km_base = Hyvikk::fare(strtolower(str_replace(' ', '', ($booking->vehicle_id != null ? $booking->vehicle->types->vehicletype : ($vehicle_type->vehicletype ?? "")))) . '_base_km');
             if ($request->get('total_kms') <= $km_base) {
                 $total_fare = Hyvikk::fare(strtolower(str_replace(' ', '', ($booking->vehicle_id != null ? $booking->vehicle->types->vehicletype : ($vehicle_type->vehicletype ?? "")))) . '_base_fare');
-
             } else {
                 $total_fare = Hyvikk::fare(strtolower(str_replace(' ', '', ($booking->vehicle_id != null ? $booking->vehicle->types->vehicletype : ($vehicle_type->vehicletype ?? "")))) . '_base_fare') + (($request->get('total_kms') - $km_base) * Hyvikk::fare(strtolower(str_replace(' ', '', ($booking->vehicle_id != null ? $booking->vehicle->types->vehicletype : ($vehicle_type->vehicletype ?? "")))) . '_std_fare'));
             }
@@ -2207,10 +1807,10 @@ When the driver starts a trip, the trip status changes
             } else {
 
                 $reviews = array('user_id' => $ride_review->user_id, 'ratings' => $ride_review->ratings, 'review_text' => $ride_review->review_text, 'date' => date('Y-m-d', strtotime($ride_review->created_at)));
-
             }
 
-            $rideinfo = array('booking_id' => $booking->id,
+            $rideinfo = array(
+                'booking_id' => $booking->id,
                 'source_address' => $booking->getMeta('start_address'),
                 'dest_address' => $booking->dest_addr,
                 'source_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('ridestart_timestamp'))),
@@ -2246,7 +1846,8 @@ When the driver starts a trip, the trip status changes
         }
         if (Hyvikk::get('dis_format') == 'meter') {
             $unit = 'm';
-        }if (Hyvikk::get('dis_format') == 'km') {
+        }
+        if (Hyvikk::get('dis_format') == 'km') {
             $unit = 'km';
         }
 
@@ -2258,27 +1859,37 @@ When the driver starts a trip, the trip status changes
         $data['title'] = "Ride Completed ";
         $data['description'] = "You have Reached your Destination, Thank you !";
         $data['timestamp'] = date('Y-m-d H:i:s');
-        $data['data'] = array('rideinfo' => array('booking_id' => $booking->id,
-            'source_address' => $booking->pickup_addr,
-            'dest_address' => $booking->dest_addr,
-            'source_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('ridestart_timestamp'))),
-            'dest_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('rideend_timestamp'))),
-            'book_timestamp' => date('Y-m-d', strtotime($booking->created_at)),
-            'ridestart_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('ridestart_timestamp'))),
-            'driving_time' => $booking->getMeta('driving_time'),
-            'total_kms' => $booking->getMeta('total_kms') . " " . $unit,
-            'amount' => $booking->getMeta('tax_total'),
-            'ride_status' => $booking->getMeta('ride_status')),
-            'user_details' => array('user_id' => $booking->customer_id,
+        $data['data'] = array(
+            'rideinfo' => array(
+                'booking_id' => $booking->id,
+                'source_address' => $booking->pickup_addr,
+                'dest_address' => $booking->dest_addr,
+                'source_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('ridestart_timestamp'))),
+                'dest_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('rideend_timestamp'))),
+                'book_timestamp' => date('Y-m-d', strtotime($booking->created_at)),
+                'ridestart_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('ridestart_timestamp'))),
+                'driving_time' => $booking->getMeta('driving_time'),
+                'total_kms' => $booking->getMeta('total_kms') . " " . $unit,
+                'amount' => $booking->getMeta('tax_total'),
+                'ride_status' => $booking->getMeta('ride_status')
+            ),
+            'user_details' => array(
+                'user_id' => $booking->customer_id,
                 'user_name' => $booking->customer->name,
-                'profile_pic' => $booking->customer->getMeta('profile_pic')),
-            'fare_breakdown' => array('base_fare' => Hyvikk::fare(strtolower(str_replace(' ', '', ($booking->vehicle_id != null ? $booking->vehicle->types->vehicletype : ($vehicle_type->vehicletype ?? "")))) . '_base_fare'), //done
+                'profile_pic' => $booking->customer->getMeta('profile_pic')
+            ),
+            'fare_breakdown' => array(
+                'base_fare' => Hyvikk::fare(strtolower(str_replace(' ', '', ($booking->vehicle_id != null ? $booking->vehicle->types->vehicletype : ($vehicle_type->vehicletype ?? "")))) . '_base_fare'), //done
                 'ride_amount' => $booking->getMeta('tax_total'),
-                'extra_charges' => 0),
-            'driver_details' => array('driver_id' => $booking->driver_id,
+                'extra_charges' => 0
+            ),
+            'driver_details' => array(
+                'driver_id' => $booking->driver_id,
                 'driver_name' => $booking->driver->name,
                 'profile_pic' => $booking->driver->getMeta('driver_image'),
-                'ratings' => $r));
+                'ratings' => $r
+            )
+        );
 
         if ($booking->customer->getMeta('fcm_id') != null) {
             // PushNotification::app('appNameAndroid')
@@ -2291,7 +1902,6 @@ When the driver starts a trip, the trip status changes
                 ->setDevicesToken([$booking->customer->getMeta('fcm_id')])
                 ->send();
         }
-
     }
 
     public function confirm_payment(Request $request)
@@ -2358,30 +1968,35 @@ When the driver starts a trip, the trip status changes
         }
         if (Hyvikk::get('dis_format') == 'meter') {
             $unit = 'm';
-        }if (Hyvikk::get('dis_format') == 'km') {
+        }
+        if (Hyvikk::get('dis_format') == 'km') {
             $unit = 'km';
         }
         $vehicle_type = VehicleTypeModel::find($booking->getMeta('vehicle_typeid'));
 
-        $data['data'] = array('rideinfo' => array('user_id' => $booking->customer_id,
-            'booking_id' => $id, 'source_address' => $booking->pickup_addr,
-            'dest_address' => $booking->dest_addr,
-            'source_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('ridestart_timestamp'))),
-            'dest_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('rideend_timestamp'))),
-            'book_timestamp' => date('d-m-Y', strtotime($booking->created_at)),
-            'ridestart_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('ridestart_timestamp'))),
-            'driving_time' => $booking->getMeta('driving_time'),
-            'total_kms' => $booking->getMeta('total_kms') . " " . $unit,
-            'amount' => $booking->getMeta('tax_total'),
-            'ride_status' => $booking->getMeta('ride_status'),
-            'payment_status' => $booking->status,
-            'payment_mode' => 'CASH',
-        ),
-            'driver_details' => array('driver_id' => $booking->driver_id,
+        $data['data'] = array(
+            'rideinfo' => array(
+                'user_id' => $booking->customer_id,
+                'booking_id' => $id, 'source_address' => $booking->pickup_addr,
+                'dest_address' => $booking->dest_addr,
+                'source_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('ridestart_timestamp'))),
+                'dest_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('rideend_timestamp'))),
+                'book_timestamp' => date('d-m-Y', strtotime($booking->created_at)),
+                'ridestart_timestamp' => date('Y-m-d H:i:s', strtotime($booking->getMeta('ridestart_timestamp'))),
+                'driving_time' => $booking->getMeta('driving_time'),
+                'total_kms' => $booking->getMeta('total_kms') . " " . $unit,
+                'amount' => $booking->getMeta('tax_total'),
+                'ride_status' => $booking->getMeta('ride_status'),
+                'payment_status' => $booking->status,
+                'payment_mode' => 'CASH',
+            ),
+            'driver_details' => array(
+                'driver_id' => $booking->driver_id,
                 'driver_name' => $booking->driver->name,
                 'profile_pic' => $booking->driver->getMeta('driver_image'),
             ),
-            'fare_breakdown' => array('base_fare' => Hyvikk::fare(strtolower(str_replace(' ', '', ($booking->vehicle_id != null ? $booking->vehicle->types->vehicletype : ($vehicle_type->vehicletype ?? "")))) . '_base_fare'), //done
+            'fare_breakdown' => array(
+                'base_fare' => Hyvikk::fare(strtolower(str_replace(' ', '', ($booking->vehicle_id != null ? $booking->vehicle->types->vehicletype : ($vehicle_type->vehicletype ?? "")))) . '_base_fare'), //done
                 'ride_amount' => $booking->getMeta('tax_total'),
                 'extra_charges' => '0',
             ),
@@ -2398,7 +2013,6 @@ When the driver starts a trip, the trip status changes
                 ->setDevicesToken([$booking->customer->getMeta('fcm_id')])
                 ->send();
         }
-
     }
 
     public function active_drivers()
@@ -2436,7 +2050,8 @@ When the driver starts a trip, the trip status changes
                 $url = null;
             }
             $type = strtolower(str_replace(" ", "", $vehicle_type->vehicletype));
-            $vehicle_type_data[] = array('id' => $vehicle_type->id,
+            $vehicle_type_data[] = array(
+                'id' => $vehicle_type->id,
                 'vehicletype' => $vehicle_type->vehicletype,
                 'displayname' => $vehicle_type->displayname,
                 'icon' => $url,
@@ -2454,7 +2069,6 @@ When the driver starts a trip, the trip status changes
                 'night_wait_time' => Hyvikk::fare($type . '_night_wait_time'),
                 'night_std_fare' => Hyvikk::fare($type . '_night_std_fare'),
             );
-
         }
         $no_seats = VehicleTypeModel::pluck('seats')->toArray();
         $max_capacity = max($no_seats);
@@ -2463,7 +2077,8 @@ When the driver starts a trip, the trip status changes
             $reason[] = $r->reason;
         }
         array_unshift($reason, "What's The Reason ?");
-        $data['data'] = array('base_fare' => 500,
+        $data['data'] = array(
+            'base_fare' => 500,
             'base_km' => 10,
             'std_fare' => 20,
             'base_waiting_time' => 2,
@@ -2483,7 +2098,6 @@ When the driver starts a trip, the trip status changes
             'max_capacity_vehicle' => $max_capacity,
         );
         return $data;
-
     }
 
     public function get_code()
@@ -3706,5 +3320,4 @@ When the driver starts a trip, the trip status changes
             ),
         );
     }
-
 }

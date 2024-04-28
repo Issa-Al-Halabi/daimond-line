@@ -35,6 +35,10 @@ class Bookings extends Model
  //       return 'booking_id'; // The parent foreign key
  //   }
 
+    public function fatoraPayments()
+    {
+        return $this->hasMany(FatoraPayment::class);
+    }
     public function vehicle()
     {
         return $this->hasOne("App\Model\VehicleModel", "id", "vehicle_id");

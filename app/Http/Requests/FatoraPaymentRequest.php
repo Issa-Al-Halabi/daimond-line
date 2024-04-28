@@ -31,17 +31,13 @@ class FatoraPaymentRequest extends FormRequest
 
     public function getcreatePaymentRules(){
         return [
-                "lang" => "required",
-                "terminalId" => "required",
+               'booking_id' => 'required|exists:bookings,id',
                 "amount" => "required|integer",
-                "callbackURL" => "nullable|url",
-                "triggerURL" => "nullable|url",
         ];
     }
 
     public function getcancelPaymentRules(){
         return [
-                "lang" => "required",
                 "payment_id" => "required",
         ];
     }

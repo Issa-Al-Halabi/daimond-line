@@ -64,8 +64,8 @@ class BookingsController extends Controller
  
       $booking= Bookings::find($id);
 
-    $drivers=User::where(function($query) {
-    $query->where('user_type','driver')
+        $drivers=User::where(function($query) {
+        $query->where('user_type','driver')
         ->orWhere('user_type','external_driver');
         })->where('is_active','active')->where('in_service','off')->get();
    

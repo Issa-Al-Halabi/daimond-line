@@ -11,6 +11,8 @@ class FatoraPayment extends Model
     protected $table = "fatora_payments";
 
     protected $fillable = [
+        "bookings_id",
+        "merchant",
         "payment_id",
         "transaction_number",
         "amount",
@@ -20,4 +22,8 @@ class FatoraPayment extends Model
         "creation_timestamp",
      ];
 
+     public function bookings()
+     {
+         return $this->belongsTo(Bookings::class);
+     }
 }

@@ -1,4 +1,0 @@
-[2024-02-04 07:59:40] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"212.11.220.63"} 
-[2024-02-04 12:50:33] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/user-trips","METHOD":"GET","REQUEST_BODY":[],"test":"5.155.170.82"} 
-[2024-02-04 12:50:33] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/goverment","METHOD":"GET","REQUEST_BODY":[],"test":"5.155.170.82"} 
-[2024-02-04 12:50:38] local.INFO: Request: {"URI":"https://diamond-line.com.sy/api/map_cars","METHOD":"POST","REQUEST_BODY":{"pickup_latitude":"33.5017814","pickup_longitude":"36.2513082"},"test":"5.155.170.82"} 

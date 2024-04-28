@@ -56,7 +56,7 @@ class UsersApi extends Controller
     //Send otp code to mobile using mtn message
     public function MTN(Request $request)
     {
-        
+
         $otp    = $request->otp;
         $mobile = $request->mobile;
         $string = 'رمز التفعيل الخاص بك  ' . $otp;
@@ -238,7 +238,7 @@ class UsersApi extends Controller
         $user->device_token = $request->get('device_token');
         $user->api_token = str_random(60);
         $user->deleted_at = null;
-		$user->is_active = 'active';
+        $user->is_active = 'active';
 
         $user->save();
         $user->assignRole('user');
@@ -484,10 +484,10 @@ class UsersApi extends Controller
 
         $user_type = User::where('id', $request->user_id)->select('user_type')->first();
         if (strtoupper($user_type->user_type) == strtoupper('user')) {
-                
+
             $vehicles =  VehicleModel::select('vehicles.*', 'vehicle_types.vehicletype', 'fare_settings.base_km', 'fare_settings.base_time')
                 ->where('vehicles.category_id', $request->category_id)
-                ->whereIn('vehicles.subcategory_id', ["0",$request->subcategory_id])
+                ->whereIn('vehicles.subcategory_id', ["0", $request->subcategory_id])
                 ->where('in_service', '=', '1')
                 ->join('vehicle_types', 'vehicle_types.id', '=', 'vehicles.type_id')
                 ->join('fare_settings', 'fare_settings.type_id', 'vehicle_types.id')
@@ -495,13 +495,12 @@ class UsersApi extends Controller
                 ->where(DB::raw('lower(user_type)'), 'like', '%' . strtolower('user') . '%')
                 ->where('vehicles.seats', '>=', $request->seats)->where('vehicles.bags', '>=', $request->bags)->where('isenable', '=', '1')
                 ->get();
-
-            } elseif (strtoupper($user_type->user_type) == strtoupper('organizations')) {
+        } elseif (strtoupper($user_type->user_type) == strtoupper('organizations')) {
 
 
             $vehicles = DB::table('vehicles')->select('vehicles.*', 'vehicle_types.vehicletype', 'fare_settings.base_km', 'fare_settings.base_time')
                 ->where('vehicles.category_id', $request->category_id)
-                ->whereIn('vehicles.subcategory_id', ["0",$request->subcategory_id])
+                ->whereIn('vehicles.subcategory_id', ["0", $request->subcategory_id])
                 ->where('in_service', '=', '1')
                 ->join('vehicle_types', 'vehicle_types.id', '=', 'vehicles.type_id')
                 ->join('fare_settings', 'fare_settings.type_id', 'vehicle_types.id')
