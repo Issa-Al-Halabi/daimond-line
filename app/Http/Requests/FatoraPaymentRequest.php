@@ -23,22 +23,28 @@ class FatoraPaymentRequest extends FormRequest
      */
     public function rules()
     {
-        return match ($this->route()->getActionMethod()) {
-            'createPayment'  =>  $this->getcreatePaymentRules(),
-            'cancelPayment'  =>  $this->getcancelPaymentRules(),
-        };
+        return [
+            'booking_id' => 'required|exists:bookings,id',
+            "amount" => "required|integer",
+        ];
+        // return match ($this->route()->getActionMethod()) {
+        //     'createPayment'  =>  $this->getcreatePaymentRules(),
+        //     'cancelPayment'  =>  $this->getcancelPaymentRules(),
+        // };
     }
 
-    public function getcreatePaymentRules(){
+    public function getcreatePaymentRules()
+    {
         return [
-               'booking_id' => 'required|exists:bookings,id',
-                "amount" => "required|integer",
+            'booking_id' => 'required|exists:bookings,id',
+            "amount" => "required|integer",
         ];
     }
 
-    public function getcancelPaymentRules(){
+    public function getcancelPaymentRules()
+    {
         return [
-                "payment_id" => "required",
+            "payment_id" => "required",
         ];
     }
 }

@@ -503,30 +503,30 @@ class DriversApi extends Controller
             $data['message'] = " The trip has been accepted";
             $driver = User::where('id', $trip->driver_id)->first();
 
-            // $all_data =  [
-            //     'id' => $trip->id,
-            //     'user_id' => $trip->user_id,
-            //     'status' => $trip->status,
-            //     'pickup_latitude' => $trip->pickup_latitude,
-            //     'pickup_longitude' => $trip->pickup_longitude,
-            //     'drop_latitude' => $trip->drop_latitude,
-            //     'drop_longitude' => $trip->drop_longitude,
-            //     'driver_first_name' => $driver->first_name,
-            //     'driver_last_name' => $driver->last_name,
-            //     'driver_phone' => $driver->phone,
-            //     'driver_profile_image' => asset('uploads/' . $driver->profile_image),
-            //     'vehicel_image' =>   asset('uploads/' . $vehicel_id->vehicle_image),
-            //     'vehicel_device_number' => $vehicel_id->device_number,
-            //     'vehicel_car_model' => $vehicel_id->car_model,
-            //     'vehicel_color' => $vehicel_id->color,
-            // ];
+            $all_data =  [
+                'id' => $trip->id,
+                'user_id' => $trip->user_id,
+                'status' => $trip->status,
+                'pickup_latitude' => $trip->pickup_latitude,
+                'pickup_longitude' => $trip->pickup_longitude,
+                'drop_latitude' => $trip->drop_latitude,
+                'drop_longitude' => $trip->drop_longitude,
+                'driver_first_name' => $driver->first_name,
+                'driver_last_name' => $driver->last_name,
+                'driver_phone' => $driver->phone,
+                'driver_profile_image' => asset('uploads/' . $driver->profile_image),
+                'vehicel_image' =>   asset('uploads/' . $vehicel_id->vehicle_image),
+                'vehicel_device_number' => $vehicel_id->device_number,
+                'vehicel_car_model' => $vehicel_id->car_model,
+                'vehicel_color' => $vehicel_id->color,
+            ];
             // event(new TripStatusChangedEvent($all_data));
 
             $this->send_notification(
                 $user->device_token,
-                'Welcome To Our Application',
+                'Diamond-Line',
                 __("booking.trip_accepted"),
-                ["status" => BookingStatus::accepted],
+                $all_data,
             );
             return $data;
         }
@@ -550,29 +550,29 @@ class DriversApi extends Controller
         $user = DB::table('users')->where('id', $trip->user_id)->select('device_token')->first();
         $trip->update(['status' => BookingStatus::arrived]);
 
-        // $all_data =  [
-        //     'id' => $trip->id,
-        //     'user_id' => $trip->user_id,
-        //     'status' => $trip->status,
-        //     'pickup_latitude' => $trip->pickup_latitude,
-        //     'pickup_longitude' => $trip->pickup_longitude,
-        //     'drop_latitude' => $trip->drop_latitude,
-        //     'drop_longitude' => $trip->drop_longitude,
-        //     'driver_first_name' => $trip->driver->first_name,
-        //     'driver_last_name' => $trip->driver->last_name,
-        //     'driver_phone' => $trip->driver->phone,
-        //     'driver_profile_image' => asset('uploads/' . $trip->driver->profile_image),
-        //     'vehicel_image' =>   asset('uploads/' . $trip->vehicle->vehicle_image),
-        //     'vehicel_device_number' => $trip->vehicle->device_number,
-        //     'vehicel_car_model' => $trip->vehicle->car_model,
-        //     'vehicel_color' => $trip->vehicle->color,
-        // ];
+        $all_data =  [
+            'id' => $trip->id,
+            'user_id' => $trip->user_id,
+            'status' => $trip->status,
+            'pickup_latitude' => $trip->pickup_latitude,
+            'pickup_longitude' => $trip->pickup_longitude,
+            'drop_latitude' => $trip->drop_latitude,
+            'drop_longitude' => $trip->drop_longitude,
+            'driver_first_name' => $trip->driver->first_name,
+            'driver_last_name' => $trip->driver->last_name,
+            'driver_phone' => $trip->driver->phone,
+            'driver_profile_image' => asset('uploads/' . $trip->driver->profile_image),
+            'vehicel_image' =>   asset('uploads/' . $trip->vehicle->vehicle_image),
+            'vehicel_device_number' => $trip->vehicle->device_number,
+            'vehicel_car_model' => $trip->vehicle->car_model,
+            'vehicel_color' => $trip->vehicle->color,
+        ];
         // event(new TripStatusChangedEvent($all_data));
         $this->send_notification(
             $user->device_token,
-            'Welcome To Our Application',
+            'Diamond-Line',
             __("booking.trip_arrived"),
-            ["status" => BookingStatus::arrived],
+            $all_data,
         );
     }
     /**
@@ -595,9 +595,11 @@ When the driver starts a trip, the trip status changes
         ]);
 
         $trip = Bookings::with(['driver', 'vehicle'])->where('id', $request->trip_id)->first();
+
         if ($trip->status == BookingStatus::started) {
             return $data = ['error' => true, 'message' => " The trip alrady has started"];
         }
+
         $trip->start_time = $request->start_time;
         $trip->status = BookingStatus::started;
         $trip->save();
@@ -605,29 +607,29 @@ When the driver starts a trip, the trip status changes
         $data['message'] = " The trip has been started";
 
 
-        // $all_data =  [
-        //     'id' => $trip->id,
-        //     'user_id' => $trip->user_id,
-        //     'status' => $trip->status,
-        //     'pickup_latitude' => $trip->pickup_latitude,
-        //     'pickup_longitude' => $trip->pickup_longitude,
-        //     'drop_latitude' => $trip->drop_latitude,
-        //     'drop_longitude' => $trip->drop_longitude,
-        //     'driver_first_name' => $trip->driver->first_name,
-        //     'driver_last_name' => $trip->driver->last_name,
-        //     'driver_phone' => $trip->driver->phone,
-        //     'driver_profile_image' => asset('uploads/' . $trip->driver->profile_image),
-        //     'vehicel_image' =>   asset('uploads/' . $trip->vehicle->vehicle_image),
-        //     'vehicel_device_number' => $trip->vehicle->device_number,
-        //     'vehicel_car_model' => $trip->vehicle->car_model,
-        //     'vehicel_color' => $trip->vehicle->color,
-        // ];
+        $all_data =  [
+            'id' => $trip->id,
+            'user_id' => $trip->user_id,
+            'status' => $trip->status,
+            'pickup_latitude' => $trip->pickup_latitude,
+            'pickup_longitude' => $trip->pickup_longitude,
+            'drop_latitude' => $trip->drop_latitude,
+            'drop_longitude' => $trip->drop_longitude,
+            'driver_first_name' => $trip->driver->first_name,
+            'driver_last_name' => $trip->driver->last_name,
+            'driver_phone' => $trip->driver->phone,
+            'driver_profile_image' => asset('uploads/' . $trip->driver->profile_image),
+            'vehicel_image' =>   asset('uploads/' . $trip->vehicle->vehicle_image),
+            'vehicel_device_number' => $trip->vehicle->device_number,
+            'vehicel_car_model' => $trip->vehicle->car_model,
+            'vehicel_color' => $trip->vehicle->color,
+        ];
         // event(new TripStatusChangedEvent($all_data));
         $this->send_notification(
-            $trip->user_id->device_token,
-            'Welcome To Our Application',
+            $trip->user->device_token,
+            'Diamond-Line',
             __("booking.trip_started"),
-            ["status" => BookingStatus::started],
+            $all_data,
         );
 
         return $data;
@@ -655,33 +657,57 @@ When the driver starts a trip, the trip status changes
         $data['message'] = "The trip is waiting for payment";
 
 
-        // $all_data =  [
-        //     'id' => $trip->id,
-        //     'user_id' => $trip->user_id,
-        //     'status' => $trip->status,
-        //     'pickup_latitude' => $trip->pickup_latitude,
-        //     'pickup_longitude' => $trip->pickup_longitude,
-        //     'drop_latitude' => $trip->drop_latitude,
-        //     'drop_longitude' => $trip->drop_longitude,
-        //     'driver_first_name' => $trip->driver->first_name,
-        //     'driver_last_name' => $trip->driver->last_name,
-        //     'driver_phone' => $trip->driver->phone,
-        //     'driver_profile_image' => asset('uploads/' . $trip->driver->profile_image),
-        //     'vehicel_image' =>   asset('uploads/' . $trip->vehicle->vehicle_image),
-        //     'vehicel_device_number' => $trip->vehicle->device_number,
-        //     'vehicel_car_model' => $trip->vehicle->car_model,
-        //     'vehicel_color' => $trip->vehicle->color,
-        // ];
+        $all_data =  [
+            'id' => $trip->id,
+            'user_id' => $trip->user_id,
+            'status' => $trip->status,
+            'pickup_latitude' => $trip->pickup_latitude,
+            'pickup_longitude' => $trip->pickup_longitude,
+            'drop_latitude' => $trip->drop_latitude,
+            'drop_longitude' => $trip->drop_longitude,
+            'driver_first_name' => $trip->driver->first_name,
+            'driver_last_name' => $trip->driver->last_name,
+            'driver_phone' => $trip->driver->phone,
+            'driver_profile_image' => asset('uploads/' . $trip->driver->profile_image),
+            'vehicel_image' =>   asset('uploads/' . $trip->vehicle->vehicle_image),
+            'vehicel_device_number' => $trip->vehicle->device_number,
+            'vehicel_car_model' => $trip->vehicle->car_model,
+            'vehicel_color' => $trip->vehicle->color,
+        ];
         // event(new TripStatusChangedEvent($all_data));
 
         $this->send_notification(
-            $trip->user_id->device_token,
-            'Welcome To Our Application',
+            $trip->user->device_token,
+            'Diamond-Line',
             __("booking.trip_wait_for_payment"),
-            ["status" => BookingStatus::wait_for_payment],
+            $all_data,
         );
 
         return $data;
+    }
+    public function user_choosed_payment_method(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'trip_id' => 'required',
+            'payment_method' => 'required',
+        ]);
+        $trip = Bookings::with(['driver'])->where('id', $request->trip_id)->first();
+
+        if ($request->payment_method == "cash") {
+            $message = __("payment.payment_method_cash");
+        } else if ($request->payment_method == "e_payment") {
+            $message = __("payment.payment_method_e_payment");
+        } else {
+            $message = __("payment.payment_method") .  $request->payment_method;
+        }
+
+        $this->send_notification(
+            $trip->driver->device_token,
+            'Diamond-Line',
+            $message,
+            ["payment_method" => $request->payment_method],
+        );
+        return $request;
     }
     public function trip_ended(Request $request)
     {
@@ -689,7 +715,6 @@ When the driver starts a trip, the trip status changes
             'trip_id' => 'required',
             'end_time' => 'required',
             'km' => 'required',
-
         ]);
 
         //  Calculation of new minutes
@@ -825,31 +850,30 @@ When the driver starts a trip, the trip status changes
             $data['message'] = " The trip has been ended";
             $data['data'] = ["new_cost" => $trip_started->cost, "admin_fare" => $admin_fare];
 
-            // $all_data =  [
-            //     'id' => $trip_started->id,
-            //     'user_id' => $trip_started->user_id,
-            //     'status' => $trip_started->status,
-            //     'pickup_latitude' => $trip_started->pickup_latitude,
-            //     'pickup_longitude' => $trip_started->pickup_longitude,
-            //     'drop_latitude' => $trip_started->drop_latitude,
-            //     'drop_longitude' => $trip_started->drop_longitude,
-            //     'driver_first_name' => $trip_started->driver->first_name,
-            //     'driver_last_name' => $trip_started->driver->last_name,
-            //     'driver_phone' => $trip_started->driver->phone,
-            //     'driver_profile_image' => asset('uploads/' . $trip_started->driver->profile_image),
-            //     'vehicel_image' =>   asset('uploads/' . $trip_started->vehicle->vehicle_image),
-            //     'vehicel_device_number' => $trip_started->vehicle->device_number,
-            //     'vehicel_car_model' => $trip_started->vehicle->car_model,
-            //     'vehicel_color' => $trip_started->vehicle->color,
-            //     'cost' => (string)$trip_started->cost
-            // ];
+            $all_data =  [
+                'id' => $trip_started->id,
+                'user_id' => $trip_started->user_id,
+                'status' => $trip_started->status,
+                'pickup_latitude' => $trip_started->pickup_latitude,
+                'pickup_longitude' => $trip_started->pickup_longitude,
+                'drop_latitude' => $trip_started->drop_latitude,
+                'drop_longitude' => $trip_started->drop_longitude,
+                'driver_first_name' => $trip_started->driver->first_name,
+                'driver_last_name' => $trip_started->driver->last_name,
+                'driver_phone' => $trip_started->driver->phone,
+                'driver_profile_image' => asset('uploads/' . $trip_started->driver->profile_image),
+                'vehicel_image' =>   asset('uploads/' . $trip_started->vehicle->vehicle_image),
+                'vehicel_device_number' => $trip_started->vehicle->device_number,
+                'vehicel_car_model' => $trip_started->vehicle->car_model,
+                'vehicel_color' => $trip_started->vehicle->color,
+                'cost' => (string)$trip_started->cost
+            ];
             // event(new TripStatusChangedEvent($all_data));
-
             $this->send_notification(
-                $trip_started->user_id->device_token,
-                'Welcome To Our Application',
+                $trip_started->user->device_token,
+                'Diamond-Line',
                 __("booking.trip_ended"),
-                ["status" => BookingStatus::ended],
+                $all_data,
             );
             return $data;
         } else {

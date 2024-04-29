@@ -13,4 +13,8 @@ return [
     "canceled_payment_status_user" => "لقد الغيت الطلب",
     "canceled_payment_status_driver" => "تم الغاء الطلب",
 
+    "payment_method" => "المستخدم اختار وسيلة الدفع التالية ",
+    "payment_method_cash" => "المستخدم اختار الدفع نقداs",
+    "payment_method_e_payment" => "المستخدم دفع عن طريق بوابة الدفع الالكترونية",
+
 ];

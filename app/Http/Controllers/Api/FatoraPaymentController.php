@@ -8,8 +8,6 @@ use App\Model\FatoraPayment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FatoraPaymentRequest;
 use App\Http\Traits\SendNotification;
-use App\Model\User;
-use App\Model\Value;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -45,7 +43,7 @@ class FatoraPaymentController extends Controller
             "triggerURL" => $domainUrl . "/api/" . FatoraPaymentController::paymentTriggerURL . "/" . $merchant,
         ];
 
-        $response = $this->makePaymentRequest(url: '/create-payment', data: $data, method: "POST");
+        $response = $this->makePaymentRequest('/create-payment', $data, "POST");
 
         if ($response->ErrorCode == PaymentResponseStatus::success) {
             FatoraPayment::create([
@@ -76,7 +74,7 @@ class FatoraPaymentController extends Controller
 
         $fatoraPayment = FatoraPayment::where("payment_id", $paymentId)->first();
 
-        $response = $this->makePaymentRequest(url: '/get-payment-status' . "/$paymentId",);
+        $response = $this->makePaymentRequest('/get-payment-status' . "/$paymentId",);
 
         return $response;
     }
@@ -89,7 +87,7 @@ class FatoraPaymentController extends Controller
             "lang" => "en"
         ];
 
-        $response = $this->makePaymentRequest(url: '/cancel-payment', data: $data, method: "POST");
+        $response = $this->makePaymentRequest('/cancel-payment',  $data, "POST");
 
         if ($response->ErrorCode == PaymentResponseStatus::success) {
 
@@ -152,10 +150,10 @@ class FatoraPaymentController extends Controller
 
             if ($send_notification) {
                 // notify the user
-                $this->send_notification($fatoraPayment->bookings->user->device_token, 'DiamondLine user', $message_user, data: $notificationData);
+                $this->send_notification($fatoraPayment->bookings->user->device_token, 'DiamondLine user', $message_user,  $notificationData);
 
                 // notify the driver
-                $this->send_notification($fatoraPayment->bookings->driver->device_token, 'DiamondLine', $message_driver, data: $notificationData);
+                $this->send_notification($fatoraPayment->bookings->driver->device_token, 'DiamondLine', $message_driver,  $notificationData);
             }
 
             $res['status'] = PaymentResponseStatus::getName(PaymentResponseStatus::success);
@@ -223,10 +221,10 @@ class FatoraPaymentController extends Controller
 
             if ($send_notification) {
                 // notify the user
-                $this->send_notification($fatoraPayment->bookings->user->device_token, 'DiamondLine', $message_user, data: $notificationData);
+                $this->send_notification($fatoraPayment->bookings->user->device_token, 'DiamondLine', $message_user,  $notificationData);
 
                 // notify the driver
-                $this->send_notification($fatoraPayment->bookings->driver->device_token, 'DiamondLine', $message_driver, data: $notificationData);
+                $this->send_notification($fatoraPayment->bookings->driver->device_token, 'DiamondLine', $message_driver,  $notificationData);
             }
 
             if (isset($trip_ended)) {
@@ -248,57 +246,6 @@ class FatoraPaymentController extends Controller
         $res['message'] = __("payment.electronic_payment_error");
         return $res;
     }
-
-    // update driver wallet after fatora payment completed
-    // function driverUpdateWalletLogic($driver_id){
-    //     $external_fare = Value::where('name','external_fare')->first();
-    //     $driver_type=DB::table('users')->where('id',$driver_id)->select('user_type','device_token')->first();
-    //      if($driver_type->user_type=="driver")
-    //      {
-
-    //          //admin fare of the internal driver
-    //          $internal_fare=Value::where('name','internal_fare')->first();
-
-    //          //admin fare
-    //          $admin_fare=($cost * $internal_fare->value) / 100 ;
-
-
-    //          //new admin wallet
-    //          $new_admin_wallet= $admin_wallet->value + $admin_fare;
-
-    //          //update admin wallet
-    //          Value::where('name','admin_wallet')->update(['value'=> $new_admin_wallet]);
-
-
-    //          //driver fare
-    //          $new_driver_wallet=  $driver_wallet->amount - $cost + $admin_fare ;
-
-    //          //update driver wallet
-
-    //          WalletModel::where('driver_id',$trip_started->driver_id)->update(['amount'=> $new_driver_wallet]);
-
-    //          //send notification if the driver's wallet is equal to the minimum wallet
-
-    //          if($new_driver_wallet == $minimum_wallet->value)
-    //          {
-
-    //          $body="شارف رصيدك على الانتهاء يرجى شحن المحفظة";
-    //          $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-
-    //          }
-    //          //send notification if the driver's wallet is less than to the minimum wallet
-    //          //change driver status to out of service.
-    //          elseif($new_driver_wallet < $minimum_wallet->value)
-    //          {
-    //          $body="يرجى شحن المحفظة";
-    //          $this->send_notification($driver_type->device_token,'Dimond Line',$body);
-    //          User::where('id',$trip_started->driver_id)->update(['in_service'=>'out of service']);
-
-    //          }
-
-    //     }
-
-    // }
 
     function makePaymentRequest($url, $data = null, $method = "GET")
     {

@@ -121,6 +121,7 @@ Route::middleware('test')->group(function () {
 		Route::post('/accept-trip', 'DriversApi@accept_trip');
 		Route::post('/trip-start', 'DriversApi@trip_started');
 		Route::post('/trip-waiting-for-payment', 'DriversApi@trip_ended_waiting_for_payment');
+		Route::post('/trip-user-choosed-payment-method', 'DriversApi@user_choosed_payment_method');
 		Route::post('/trip-end', 'DriversApi@trip_ended');
 
 		//trip expense
