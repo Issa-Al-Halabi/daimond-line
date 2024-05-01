@@ -145,6 +145,7 @@ class FatoraPaymentController extends Controller
             if ($response->Data->status == PaymentStatus::canceled) {
                 $message_user = __("payment.canceled_payment_status_user");
                 $message_driver = __("payment.canceled_payment_status_driver");
+                $notificationData["message"] =  $message_driver;
                 $send_notification = true;
             }
 
@@ -200,6 +201,7 @@ class FatoraPaymentController extends Controller
             if ($response->Data->status == PaymentStatus::accepted) {
                 $message_user = __("payment.accepted_payment_status_user");
                 $message_driver = __("payment.accepted_payment_status_driver");
+                $notificationData["message"] =  $message_driver;
                 $send_notification = true;
 
                 $apiUserController = new DriversApi();
@@ -213,6 +215,7 @@ class FatoraPaymentController extends Controller
             } else if ($response->Data->status == PaymentStatus::failed) {
                 $message_user = __("payment.failed_payment_status_user");
                 $message_driver = __("payment.failed_payment_status_driver");
+                $notificationData["message"] =  $message_driver;
                 $send_notification = true;
             } else if ($response->Data->status == PaymentStatus::canceled) {
                 $message_user = __("payment.canceled_payment_status_user");

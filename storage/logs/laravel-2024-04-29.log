@@ -228,3 +228,8 @@
 #45 {main}
 "} 
 [2024-04-29 12:50:17] local.INFO: Request: {"URI":"http://127.0.0.1:8000/api/trip-user-choosed-payment-method","METHOD":"POST","REQUEST_BODY":{"trip_id":1150},"test":"127.0.0.1"} 
+[2024-04-29 13:51:14] local.INFO: Request: {"URI":"http://127.0.0.1:8000/api/trip-waiting-for-payment","METHOD":"POST","REQUEST_BODY":{"trip_id":1150,"end_time":"01:25:08","km":2},"test":"127.0.0.1"} 
+[2024-04-29 14:27:13] local.INFO: Request: {"URI":"http://127.0.0.1:8000/api/trip-waiting-for-payment","METHOD":"POST","REQUEST_BODY":{"trip_id":1150,"end_time":"01:25:08","km":2},"test":"127.0.0.1"} 
+[2024-04-29 14:27:46] local.INFO: Request: {"URI":"http://127.0.0.1:8000/api/trip-waiting-for-payment","METHOD":"POST","REQUEST_BODY":{"trip_id":1150,"end_time":"01:25:08","km":2},"test":"127.0.0.1"} 
+[2024-04-29 14:30:40] local.INFO: Request: {"URI":"http://127.0.0.1:8000/api/trip-waiting-for-payment","METHOD":"POST","REQUEST_BODY":{"trip_id":1150,"end_time":"01:25:08","km":2},"test":"127.0.0.1"} 
+[2024-04-29 14:31:18] local.INFO: Request: {"URI":"http://127.0.0.1:8000/api/trip-end","METHOD":"POST","REQUEST_BODY":{"trip_id":1150,"end_time":"01:25:08","km":2},"test":"127.0.0.1"} 

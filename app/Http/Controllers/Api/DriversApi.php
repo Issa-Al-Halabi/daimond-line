@@ -644,17 +644,86 @@ When the driver starts a trip, the trip status changes
             'km' => 'required',
         ]);
 
-
         $trip = Bookings::with(['driver', 'vehicle'])->where('id', $request->trip_id)->first();
         if ($trip->status == BookingStatus::wait_for_payment) {
             return $data = ['error' => true, 'message' => "The trip already waiting for payment"];
         }
+
+
+        $user_type = DB::table('users')->where('id', $trip->user_id)->select('user_type')->first();
+        $driver_type = DB::table('users')->where('id', $trip->driver_id)->select('user_type', 'device_token')->first();
+        $vehicle_type = DB::table('vehicles')->where('id', $trip->vehicle_id)->select('type_id')->first();
+
+        // to add admin_fare percentage
+        $admin_fare_value = Value::where('name', 'admin_fare')->first();
+        $admin_fare_value = isset($admin_fare_value) ? $admin_fare_value->value : 0;
+
+        [$hours, $minutes] = explode(':', $trip->start_time);
+        [$hours1, $minutes1] = explode(':', $request->end_time);
+        $start = (int) $hours * 60 + (int) $minutes;
+        $end = (int) $hours1 * 60 + (int) $minutes1;
+
+        $total_minutes = $end - $start;
+
+        if ($total_minutes < 0) {
+            $start = $start - 1440;
+            $total_minutes = $end - $start;
+        }
+
+        //inside city trip
+        if ($trip->request_type == "moment" || $trip->request_type == "delayed") {
+
+            // inside city
+            $fare = DB::table('fare_settings')->where('type_id',  $trip->type_id)->where('category_id', 'inside city')
+                ->where(DB::raw('lower(user_type)'), 'like', '%' . strtoupper($user_type->user_type) . '%')
+                ->first();
+        } else {
+            // outside damascus
+            $fare = DB::table('fare_settings')->where('type_id',  $vehicle_type->type_id)->where('category_id', 'outside damascus')
+                ->where(DB::raw('lower(user_type)'), 'like', '%' . strtoupper($user_type->user_type) . '%')
+                ->first();
+        }
+
+        if ($trip->request_type == "") {
+            $cost = ($request->km * $fare->base_km) + ($total_minutes * $fare->base_time);
+        }
+        // limit_distance at which the fare is fixed
+        else if ($request->km <= $fare->limit_distance) {
+
+            $cost = $fare->cost;
+        }
+        //After this limit distance the cost is calculated in this way
+        else {
+            $cost = ($request->km * $fare->base_km) + ($total_minutes * $fare->base_time);
+        }
+
+        $cost = $cost + ($cost * $admin_fare_value) / 100;
+
+        $trip->cost = intval($cost);
         $trip->end_time = $request->end_time;
         $trip->status = BookingStatus::wait_for_payment;
         $trip->km = $request->km;
         $trip->save();
+
+        //driver type
+        //admin fare of the internal driver
+        if ($driver_type->user_type == "driver") {
+            $internal_external_fare = Value::where('name', 'internal_fare')->first();
+        }
+        //external driver
+        elseif ($driver_type->user_type == "external_driver") {
+            $internal_external_fare = Value::where('name', 'external_fare')->first();
+        } else {
+            $internal_external_fare = 10;
+        }
+
+        //admin fare
+        $admin_fare = ($cost * $internal_external_fare->value) / 100;
+
+
         $data['error'] = false;
         $data['message'] = "The trip is waiting for payment";
+        $data['data'] = ["new_cost" => $trip->cost, "admin_fare" => $admin_fare];
 
 
         $all_data =  [
@@ -673,6 +742,7 @@ When the driver starts a trip, the trip status changes
             'vehicel_device_number' => $trip->vehicle->device_number,
             'vehicel_car_model' => $trip->vehicle->car_model,
             'vehicel_color' => $trip->vehicle->color,
+            'cost' => (string)$trip->cost
         ];
         // event(new TripStatusChangedEvent($all_data));
 
@@ -694,6 +764,8 @@ When the driver starts a trip, the trip status changes
         $trip = Bookings::with(['driver'])->where('id', $request->trip_id)->first();
 
         if ($request->payment_method == "cash") {
+            $trip->status = BookingStatus::ended;
+            $trip->save();
             $message = __("payment.payment_method_cash");
         } else if ($request->payment_method == "e_payment") {
             $message = __("payment.payment_method_e_payment");
@@ -705,7 +777,11 @@ When the driver starts a trip, the trip status changes
             $trip->driver->device_token,
             'Diamond-Line',
             $message,
-            ["payment_method" => $request->payment_method],
+            [
+                "trip_id" =>  $request->trip_id,
+                "payment_method" => $request->payment_method,
+                "message" => $message,
+            ],
         );
         return $request;
     }
