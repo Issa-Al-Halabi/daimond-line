@@ -1230,7 +1230,9 @@ class UsersApi extends Controller
 
             foreach ($nearest_driver as $driver) {
                 $driver_token = DB::table('users')->where('id', $driver->driver_id)->select('device_token')->first();
-                $this->send_notification($driver_token->device_token, 'Dimond Line', $body);
+                if ($driver_token) {
+                    $this->send_notification($driver_token->device_token, 'Dimond Line', $body);
+                }
             }
 
             //$bookings=Bookings::where('user_id',$request->user_id)->where('category_id','1')
@@ -1333,9 +1335,10 @@ class UsersApi extends Controller
                 . '' . $str3 . ' ' . $request->date . ' ' . $str4 . '' . $request->time;
 
             foreach ($nearest_driver as $driver) {
-                $driver_token = User::where('id', $driver->driver_id)->select('device_token')->first();
-
-                $this->send_notification($driver_token->device_token, 'Dimond Line', $body);
+                $driver_token = DB::table('users')->where('id', $driver->driver_id)->select('device_token')->first();
+                if ($driver_token) {
+                    $this->send_notification($driver_token->device_token, 'Dimond Line', $body);
+                }
             }
 
             $data['error'] = false;
